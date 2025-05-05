@@ -1,0 +1,251 @@
+/* case-study.css - Reusable layout and styles for case studies */
+
+.case-study-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--container-padding);
+}
+
+.section-title {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-secondary);
+margin-top: 2rem;
+}
+
+.section-description {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  max-width: 70ch;
+  margin-bottom: var(--space-xl);
+margin-top: -.5rem;
+}
+
+.hero-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+}
+
+.quote {
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  margin: var(--space-xl) 0 var(--space-sm);
+  color: var(--color-text-primary);
+}
+
+.quote-attribution {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Accordion */
+.accordion {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin: var(--space-xl) 0;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background: var(--color-bg-secondary);
+  padding: var(--space-lg) var(--space-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content {
+  background: var(--color-bg-tertiary);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+padding: 0 var(--space-md);
+}
+
+.accordion-content-inner {
+  padding: var(--space-md);
+}
+
+.accordion-active .accordion-content {
+  max-height: none; /* Allow natural content height */
+  overflow: visible; 
+}
+@media screen and (max-width: 768px) {
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    display: block;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-active .accordion-content {
+    max-height: 2000px; /* large enough for all content */
+    overflow: visible;
+  }
+
+  .accordion-content-inner {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+/* Summary Grid */
+.project-header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.summary-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Before / After Concept Cards */
+.concept-section {
+  padding: var(--space-xl) var(--container-padding);
+}
+
+.concept-heading {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.concept-card {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+}
+
+.before-card {
+  flex-direction: row-reverse;
+}
+
+.mockup-frame {
+  flex-shrink: 0;
+  width: 240px;
+  aspect-ratio: 1 / 2;
+  border-radius: var(--radius-md);
+  background: var(--color-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-muted);
+}
+
+.card-text {
+  flex: 1;
+  padding: var(--space-sm);
+  min-width: 300px;
+}
+
+.analysis-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+}
+
+.analysis-list {
+  padding-left: var(--space-md);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+margin-top: 1rem;
+}
+
+/* Insight Cards */
+.insight-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: -.5rem;
+}
+
+.insight-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.insight-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.insight-card p {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+}
+/* case-study.css - Minimal responsive margin system */
+
+/* Main wrapper for all case study content */
+.case-study-wrapper {
+  width: 100%;
+  padding: 0 1.5rem; /* Mobile padding */
+}
+
+/* Content container with max-width */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Section spacing - vertical rhythm */
+.content-section {
+  margin-bottom: 4rem;
+}
+
+/* Responsive padding adjustments */
+@media (min-width: 768px) {
+  .case-study-wrapper {
+    padding: 0 2.5rem; /* Tablet/desktop padding */
+  }
+}
+
+@media (min-width: 1024px) {
+  .case-study-wrapper {
+    padding: 0 4rem; /* Large desktop padding */
+  }
+}
+
+/* Full-bleed images that break out of container */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  max-width: none;
+}
+
+/* Contained images that respect margins */
+.contained-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
