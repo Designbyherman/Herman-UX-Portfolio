@@ -701,10 +701,16 @@ margin-bottom: -1rem !important;
   margin-top: var(--space-md);
 }
 
+.snackbar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .snackbar-tag {
-  display: inline-flex;                /* 🔥 flex instead of inline-block */
-  align-items: center;                 /* 🔥 vertical centering */
-  justify-content: center;             /* 🔥 horizontal centering */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.25rem 0.75rem;
   background: #ececec;
   color: #272727;
@@ -712,12 +718,12 @@ margin-bottom: -1rem !important;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius-sm);
-  line-height: 1;                      /* 🔥 remove line-height effect */
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   box-shadow: 0 1px 3px var(--color-shadow);
   cursor: default;
-  margin-top: -1.5rem;
+  /* margin-top: -1.5rem;  ✅ REMOVE THIS */
 }
 
 
