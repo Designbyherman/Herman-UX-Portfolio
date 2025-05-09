@@ -3,7 +3,7 @@
 /* Typography overrides */
 .case-study-container .section-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: -.5rem;
+  margin-bottom: 0rem;
   font-weight: 700;
 }
 
@@ -341,8 +341,9 @@ margin-top: -2rem;
 /* Summary grid overrides */
 .summary-grid {
   grid-template-columns: repeat(4, minmax(250px, 1fr));
-  column-gap: 4rem;
+  column-gap: 2.75rem;
   row-gap: var(--space-sm);
+padding-right: 5rem !important;
 }
 
 @media (max-width: 1200px) {
@@ -362,11 +363,16 @@ margin-top: -2rem;
 /* Custom divider in summary grid */
 .summary-grid hr {
   grid-column: 1 / -1;
-  margin: 0.5rem auto;
   border: 0;
   border-top: 0.5px solid var(--color-border);
-  width: 95%;
-  max-width: 1100px;
+  width: 95%;             /* allow it to stretch full container width */
+  margin: 2rem 0 ;           /* consistent top/bottom spacing, no horizontal override */
+
+  box-sizing: border-box; 
+}
+
+.college-list {
+  margin-top: -2.5rem !important;
 }
 
 /* Dark theme overrides */
@@ -391,7 +397,54 @@ margin-top: -2rem;
   color: #F8FAFC !important;
 }
 
+/* --- START: Decrease accordion inner left/right padding --- */
 
+.accordion-content-inner {
+  /* Adjust these values to your desired left/right spacing */
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+
+  /* Resetting top/bottom padding if they were previously changed */
+  /* You might need to find the original top/bottom values from your */
+  /* other CSS files (global.css, CSS Case Study.css) or browser */
+  /* inspector and set them explicitly if this override affects them. */
+  /* For example: */
+  /* padding-top: 1.5rem !important; */
+  /* padding-bottom: 1.5rem !important; */
+}
+.accordion.design-explorations-adjust {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+
+/* Adjust list indentation to match the new container padding */
+.accordion-content-inner .analysis-list {
+  padding-left: 0.75rem !important; /* Match this to the container's padding-left */
+}
+
+.accordion-content-inner h3.section-subtitle { 
+  margin-bottom: 0rem; 
+}
+
+.accordion-content-inner h3.section-subtitle + * { 
+  margin-top: 0rem; 
+}
+
+.accordion-content-inner h4.section-subtitle { 
+  margin-bottom: 0rem; 
+}
+
+.accordion-content-inner h4.section-subtitle + * { 
+  margin-top: 0rem; 
+}
+.accordion-content-inner h4.section-subtitle + table.constraints-table {
+  margin-top: 0.5rem; /* Increase this value as needed */
+}
+.accordion-content-inner h3.section-subtitle.research-constraints-heading + table.constraints-table {
+  margin-top: 0.5rem;
+}
+/* --- END: Decrease accordion inner left/right padding --- */
 
 /* Quote overrides */
 .quote {
@@ -425,88 +478,10 @@ margin-top: -2rem;
 /* Fix the syntax error and image cutoff issue */
 
 /* Updated CSS for the fold section - pushing content more to the right */
-.fold-section {
-  position: relative;
-  /* Adjust these values to control horizontal positioning */
-  --left-extension: 40px; /* Reduced from 80px - smaller value pushes content right */
-  --right-margin: 20px;   /* Added right margin to balance the layout */
-  
-  /* Set up the left extension */
-  margin-left: calc(var(--left-extension) * -1);
-  margin-right: var(--right-margin);
-  width: calc(100% + var(--left-extension) - var(--right-margin));
-  padding-left: var(--left-extension);
-  box-sizing: border-box;
-  overflow: visible !important; /* Changed from overflow-x: hidden to allow image to extend */
-}
 
-/* The rest of your fold-section styling */
-.fold-section .layout-container {
-  display: grid;
-  grid-template-columns: minmax(300px, 450px) 1fr;
-  gap: 3rem;
-  align-items: center;
-  overflow: visible;
-}
 
-.fold-section .text-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-left: 0; /* Removed negative margin */
-}
 
-.fold-section .image-group {
-  justify-self: end;
-  width: 100%;
-  overflow: visible;
-}
 
-.fold-section .image-group img {
-  width: 100%;
-  max-width: 950px;
-  height: auto;
-  margin-left: auto;
-}
-
-/* Responsive adjustments */
-@media (min-width: 1024px) {
-  .fold-section .layout-container {
-    /* Slightly reduce text column width to give more space to image */
-    grid-template-columns: minmax(300px, 400px) 1fr;
-  }
-  
-  .fold-section .image-group {
-    /* Allow image to extend beyond normal container */
-    margin-right: -20px; /* Reduced from -50px to prevent cutoff */
-    overflow: visible;
-  }
-  
-  .fold-section .image-group img {
-    max-width: 1050px; /* Increased maximum width */
-    transform: scale(1.05); /* Reduced from 1.08 to prevent cutoff */
-    transform-origin: center right; /* Scale from right side */
-  }
-}
-
-@media (max-width: 1023px) {
-  .fold-section .layout-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .fold-section .text-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-left: 0;
-    gap: 1rem;
-  }
-  
-  .fold-section .image-group img {
-    max-width: 100%;
-    margin: 0 auto;
-    transform: none;
-  }
-}
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -656,25 +631,142 @@ margin-top: -2rem;
     padding-left: 1.5rem;
   }
 }
-.fold-section .section-subtitle {
-  text-align: left; /* Keep default alignment */
-  margin-bottom: 2rem; /* Add space before content */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .fold-section {
+    margin-left: 0;
+margin-top: -6rem;
+    margin-right: 0;
+    width: 100%;
+    padding-left: 0;
+    overflow: visible;
+  }
+  .fold-section .layout-container {
+    grid-template-columns: 1fr;
+  }
+  .fold-section .text-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-left: 0;
+    gap: 1rem;
+  }
+  .fold-section .image-group img {
+    max-width: 100%;
+    margin: 0 auto;
+    transform: none;
+  }
 }
 
-/* For desktop view, align with image */
-@media (min-width: 1024px) {
-  .fold-section .section-subtitle {
-    /* These properties position the heading centered above the image */
-    margin-left: 52%;
-    max-width: 950px; /* Match image width */
-    width: 100%;
+
+h3.section-subtitle.fold-header {
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+section.fold-section:nth-of-type(2) {
+  margin-top: clamp(-2rem, 2vw, -2.5rem);
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  h3.section-subtitle.research-constraints-heading,
+  h4.section-subtitle[style*="Project Constraints"],
+  h4.section-subtitle[style*="Key Metrics"],
+  h4.section-subtitle[style*="Insight To-Feature Mapping"] {
+    margin-bottom: 1.25rem !important;
   }
-  
-  /* Adjust for the second fold section to match its image positioning */
-  .fold-section:nth-of-type(2) .section-subtitle {
-    margin-top: 4rem; /* Add more space for the second section */
+
+
+  .constraints-table,
+  .metrics-grid,
+  .insight-mapping-table {
+    margin-top: 1.25rem !important;
   }
 }
+
+
+@media screen and (max-width: 600px) {
+  h3.section-subtitle.research-constraints-heading {
+    margin-bottom: -2rem !important; /* Even tighter spacing on mobile */
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  h4.section-subtitle#project-constraints-heading {
+    margin-bottom: -2rem !important;
+  }
+  
+}
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .fold-section {
+margin-top: -6rem;
+    position: relative;
+    --left-extension: 20px;
+    --right-margin: 10px;
+    margin-left: calc(var(--left-extension) * -1);
+    margin-right: var(--right-margin);
+    width: calc(100% + var(--left-extension) - var(--right-margin));
+    padding-left: var(--left-extension);
+    overflow: visible !important;
+  }
+  .fold-section .layout-container {
+    grid-template-columns: 1fr;
+  }
+  .fold-section .text-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-left: 0;
+    gap: 1rem;
+  }
+  .fold-section .image-group img {
+    max-width: 100%;
+    margin: 0 auto;
+    transform: none;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .fold-section {
+    position: relative;
+margin-top: -5rem;
+    --left-extension: 40px;
+    --right-margin: 20px;
+    margin-left: calc(var(--left-extension) * -1);
+    margin-right: var(--right-margin);
+    width: calc(100% + var(--left-extension) - var(--right-margin));
+    padding-left: var(--left-extension);
+    overflow: visible !important;
+  }
+  .fold-section .layout-container {
+    display: grid;
+    grid-template-columns: minmax(300px, 400px) 1fr;
+    gap: 3rem;
+    align-items: center;
+    overflow: visible;
+  }
+  .fold-section .text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 0;
+  }
+  .fold-section .image-group {
+    justify-self: end;
+    width: 100%;
+    overflow: visible;
+    margin-right: -20px;
+  }
+  .fold-section .image-group img {
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    margin-left: auto;
+    transform: scale(1.05);
+    transform-origin: center right;
+  }
+}
+
 @media (max-width: 600px) {
   .insight-cards {
     display: grid;               /* ensure grid layout */
@@ -685,32 +777,7 @@ margin-top: -2rem;
   }
 }
 /* Apply extensions only on desktop */
-@media (min-width: 1024px) {
-  .fold-section {
-    position: relative;
-    --left-extension: 40px;
-    --right-margin: 20px;
-    margin-left: calc(var(--left-extension) * -1);
-    margin-right: var(--right-margin);
-    width: calc(100% + var(--left-extension) - var(--right-margin));
-    padding-left: var(--left-extension);
-    overflow: visible !important;
-  }
-  .fold-section .layout-container,
-  .fold-section .text-group,
-  .fold-section .image-group {
-    /* existing large-screen rules here */
-  }
-}
-@media (max-width: 1023px) {
-  .fold-section {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    padding-left: 0;
-    overflow: visible;
-  }
-}
+
 .summary-grid .summary-item,
 .layout-container .text-group,
 .image-group img {
@@ -745,7 +812,7 @@ img {
   font-size: clamp(1.5rem, 6vw, 3.5rem);
 }
 .case-study-container {
-  padding: 1rem; /* Mobile default */
+  padding: 1.5rem; /* Mobile default */
 }
 @media (min-width: 768px) {
   .case-study-container {
@@ -776,17 +843,8 @@ html, body {
   justify-content: center;
   gap: 3rem;
 }
-@media (max-width: 1023px) {
-  .fold-section {
-    margin: 0;
-    width: 100%;
-    padding: 0;
-    overflow: visible;
-  }
-  .fold-section .layout-container {
-    grid-template-columns: 1fr;
-  }
-}
+
+
 
 .analysis-list,
 .flow-bullets {
@@ -801,15 +859,22 @@ html, body {
   margin-bottom: 0.5rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .accordion.post-quote-adjust {
-    margin-top: -1rem;
+    margin-top: -2rem;
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .accordion.post-quote-adjust {
+    margin-top: -6rem;
+  }
+}
+
 @media (min-width: 1025px) {
   .accordion.post-quote-adjust {
     margin-top: -6rem; 
-}
+  }
 }
 
 .accordion.design-explorations-adjust {
@@ -864,6 +929,20 @@ html, body {
 
 
 
+@media (max-width: 783px) {
+  .concept-selected-image {
+    margin-top: -3rem !important;
+  }
+}
+@media (max-width: 560px) {
+  .concept-selected-image {
+    margin-top: -8rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .concept-selected-image {
+    margin-top: -9rem !important;
+  }
 }
 .recap-insight-cards {
   display: grid;

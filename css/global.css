@@ -151,7 +151,27 @@ body {
 .intro-photo img {
   width: 100%;
   border-radius: var(--radius-lg);
+
 }
+@media (max-width: 768px) {
+  .intro-photo {
+    display: block;
+    width: 100%;
+    max-width: 344px;
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: var(--space-lg);
+    transform: none !important;
+  }
+
+  .intro-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+  }
+}
+
 
 /* Contact section styles */
 .contact-section {
@@ -316,7 +336,7 @@ body {
     flex: 0 0 45%;
     padding-right: var(--container-padding); /* Maintain original right margin */
     margin-left: -5%; /* Pull text right with image */
-  }
+  
 }
 
 /* about-section.css - Complete isolated styles for about page */
@@ -369,9 +389,11 @@ body {
 }
 
 .about-portrait {
-  width: 100%;
-  border-radius: var(--radius-lg);
-  object-fit: cover;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 .about-text-content {
@@ -435,11 +457,10 @@ body {
   }
 
   .about-photo-block {
-    flex: none;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto var(--space-lg);
-  }
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  max-width: 400px !important;
+}
 
   .about-text-content {
     max-width: 100%;
@@ -448,5 +469,262 @@ body {
   .about-paragraph {
     text-align: left;
   }
+}
+
+@media (min-width: 1025px) {
+  /* Target the specific card content with high specificity */
+  section#work .project-card .card-content {
+    padding-left: 1rem !important; /* Increased for more visible change */
+    padding-right: 2rem !important;
+    margin-left: 2rem !important; /* Added margin for additional shift */
+margin-right: 2rem !important;
+
+  }
+  
+  html body section#work .project-card img.card-preview {
+    width: 94.5% !important;
+    max-width: 94.5% !important;
+    margin-left: 1 !important;
+    margin-right: 0 !important;
+  }
+  .project-card .card-preview {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    max-width: 94.5% !important;
+    width: 94.5% !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Target the specific inline-styled elements instead */
+  .intro-section .intro-text.intro-body {
+    margin-left: 2rem !important;
+    margin-right: -4rem !important;
+  }
+  
+  .intro-section .intro-photo {
+    margin-left: 3rem !important;
+    margin-right: 2rem !important;
+  }
+  
+  /* For contact section, target the specific elements with margins */
+  .contact-section .form-wrapper {
+    margin-left: 2rem !important;
+  }
+  
+  .contact-section .info-card {
+    margin-right: -.5rem !important;
+  }
+
+.project-card .card-preview {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    max-width: 100% !important;
+    width: 96.5% !important;
+  }
+
+  section#work .project-card img.card-preview[alt="ACC Evaluation Redesign"] {
+    margin-left: 2rem !important;
+    margin-right: 1.5rem !important;
+    width: 96.5% !important;
+    max-width: 96.5% !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+.intro-section.container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 0 var(--space-md) !important;
+  }
+
+  /* Override inline margins and center text */
+  .intro-section .intro-text.intro-body {
+    margin: 0 auto !important;
+    padding: 0 var(--space-md) !important;
+    width: 100% !important;
+    max-width: var(--container-narrow) !important;
+    text-align: center !important;
+  }
+
+  /* Reset photo margins */
+  .intro-section .intro-photo {
+    margin: 0 auto var(--space-lg) !important;
+    max-width: 300px !important;
+    flex: none !important;
+  }
+
+  /* Center all headings */
+  .intro-section .intro-text h1,
+  .intro-section .intro-text h3 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+margin-top: 2rem !important;
+margin-bottom: -1rem !important;
+  }
+  }
+  
+    .intro-photo {
+    display: block;
+    width: 100%;
+    max-width: 344px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: var(--space-lg);
+    transform: none !important;
+  }
+  
+  
+  .intro-section .intro-photo img {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+.cards-grid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .project-card .card-preview {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 93.5% !important; /* Reduced to make it smaller */
+    max-width: 93.5% !important;
+    display: block !important;
+  }
+  
+  .project-card .card-content {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    text-align: left !important; /* Changed to left-align text */
+  }
+  
+  .project-card .card-btn {
+    margin-left: 0 !important; /* Changed to 0 for left alignment */
+    margin-right: auto !important;
+  }
+
+.info-social-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .info-social-wrapper .info-card {
+    margin-left: auto !important; 
+    margin-right: auto !important;
+    max-width: 90% !important; /* Slightly reduced to ensure it fits */
+  }
+  
+  /* Center the social icons too */
+  .info-social-wrapper .social-icons {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .form-wrapper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 90% !important;
+  }
+}
+.card-title {
+  margin-bottom: -1rem;
+}
+
+  .card-preview {
+  cursor: pointer;
+}
+
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+
+  }
+
+  .intro-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-text.intro-body {
+    text-align: center;
+  }
+}
+.contact-form label {
+  display: block;
+  margin-bottom: -1.5rem;
+  font-weight: bold; /* optional for better visibility */
+  margin-left: .5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: -.5rem;
+  
+}
+.contact-heading {
+  margin-bottom: 2rem; /* or any value you want */
+}
+@media (min-width: 769px) {
+  .info-social-wrapper {
+    margin-top: 3.25rem; /* adjust this value as needed */
+  }
+}
+.snackbar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.snackbar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.snackbar-tag {
+  display: inline-flex;                /* 🔥 flex instead of inline-block */
+  align-items: center;                 /* 🔥 vertical centering */
+  justify-content: center;             /* 🔥 horizontal centering */
+  padding: 0.25rem 0.75rem;
+  background: #ececec;
+  color: #272727;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-sm);
+  line-height: 1;                      /* 🔥 remove line-height effect */
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 0 1px 3px var(--color-shadow);
+  cursor: default;
+  margin-top: -1.5rem;
+}
+
+
+/* Special style for EdTech tag */
+.snackbar-tag.edtech-tag {
+  background: #1a1a1a;  /* white background */
+  color: #ececec;       /* black text */
+  border: 1.2px solid var(--color-border); /* optional subtle border */
 }
 
