@@ -723,6 +723,7 @@ margin-bottom: -1rem !important;
   letter-spacing: 0.03em;
   box-shadow: 0 1px 3px var(--color-shadow);
   cursor: default;
+  
   /* margin-top: -1.5rem;  ✅ REMOVE THIS */
 }
 
@@ -732,5 +733,9 @@ margin-bottom: -1rem !important;
   background: #1a1a1a;  /* white background */
   color: #ececec;       /* black text */
   border: 1.2px solid var(--color-border); /* optional subtle border */
+}
+
+.section-intro {
+  margin-bottom: -1.5rem;  /* reduce space below paragraph */
 }
 
