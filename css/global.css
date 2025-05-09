@@ -738,4 +738,8 @@ margin-bottom: -1rem !important;
 .section-intro {
   margin-bottom: -1.5rem;  /* reduce space below paragraph */
 }
-
+.cards-grid,
+.project-card,
+.card-content {
+  background: transparent !important;
+}
