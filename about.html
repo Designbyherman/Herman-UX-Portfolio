@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/Navigation.css">
     <link rel="stylesheet" href="css/components.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 <body>
     <header>
         <div class="header-inner">
+<div data-aos="fade-down"data-aos-duration="1500">
             <a href="index.html" aria-label="Go to Herman Green III Homepage">
+
   <img src="images\Herman-logo.png" alt="Herman Green III Logo" class="logo-placeholder" width="72" height="auto">
 </a>
+</div>
 
             <nav class="nav-links">
 <a href="index.html" aria-label="Go to Home Page">Home</a>
@@ -57,20 +61,26 @@
 
     <!-- Title block -->
     <div class="about-title-block">
+<div data-aos="fade-right"data-aos-duration="1500">
       <h1 class="about-main-heading" style="font-size: 3.75rem; margin-bottom: 0.75rem;line-height: 1.01;">
+
         Hi, I'm Herman Green III
       </h1>
       <h3 class="about-sub-heading" style="font-size: 1.75rem;">
         UX Designer & Strategist | Academic + Tech Platforms
       </h3>
     </div>
+ </div>
 
     <!-- MOBILE IMAGE (hidden on desktop) -->
+<div data-aos="fade-left">
     <div class="intro-photo mobile-only"
      style="margin-top: 2rem !important; margin-bottom: 1rem; max-width: 320px;">
+
   <img src="images/Herman-green-photo.jpg"
        alt="Herman's Photo"
        style="width: 100%; border-radius: 0.5rem;" />
+</div>
 </div>
 
     <!-- Animated header -->
@@ -96,6 +106,7 @@
     </div>
 
     <!-- About content -->
+<div data-aos="fade-up"data-aos-duration="1500">
     <div class="about-text-content" style="max-width: 600px;">
       <p class="about-paragraph">
         I specialize in turning complex user challenges into intuitive, data-driven solutions.
@@ -132,7 +143,7 @@ margin-bottom: 6rem;
         Let's Connect
       </a>
     </div>
-
+</div>
   </div>
 
   <!-- RIGHT COLUMN: DESKTOP IMAGE (hidden on mobile) -->
@@ -151,5 +162,12 @@ margin-bottom: 6rem;
     </main>
 
     <script src="js/main.js"></script>
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true
+  });
+</script>
   </body>
 </html>

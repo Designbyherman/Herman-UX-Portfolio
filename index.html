@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/Navigation.css">
     <link rel="stylesheet" href="css/components.css">
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
+
         <div class="header-inner">
+<div data-aos="fade-down"data-aos-duration="1500">
             <a href="index.html" aria-label="Go to Herman Green III Homepage">
+
   <img src="images\Herman-logo.png" alt="Herman Green III Logo" class="logo-placeholder" width="72" height="auto">
 </a>
-
+</div>
             <nav class="nav-links">
 		<a href="index.html" aria-label="Go to Home Page">Home</a>
                 <a href="work.html" aria-label="View Work Portfolio Page">Work</a>
@@ -47,20 +50,28 @@
     <main>
       <section class="intro-section container" style="align-items: flex-start;">
         <div class="intro-text intro-body" style="flex: 1;margin-left: 4rem; margin-right: 2rem;margin-bottom: 0.75rem;">
+<div data-aos="fade-right"data-aos-duration="1500">
           <h1 class="tight-line" style="line-height: 1.01;">Herman Green III</h1>
 
-          <h3 class="tight-line" style="line-height: 1.15;">Bridging design & strategy with research to create data-driven UX for academic & tech platforms</h3>
+          <h3 class="tight-line" style="line-height: 1.15;">Bridging design & strategy with research to create data-driven user experiences for academic & tech platforms</h3>
         </div>
+</div>
+
         <div class="intro-photo" style="flex: 0 0 320px; margin-left: -2rem;margin-right: 4rem;">
+<div data-aos="fade-left"data-aos-duration="1500">
           <img src="images/hermansmainphoto.jpg" alt="Photo of Herman Green III">
         </div>
+</div>
       </section>
 
       <section id="work" class="cards-grid" style="padding-left: 2rem; padding-right: 2rem;">
         <div class="project-card">
+
+<div data-aos="fade-up"data-aos-duration="1500">
           <a href="case-study-acc.html">
   <img src="images/accmainphoto.png" alt="Hero image for ACC course evaluation redesign" class="card-preview" style="margin-left: 2rem; margin-right: 1rem; max-width: 94.5; height: auto; width: 94.5%;" />
 </a>
+</div>
       
           <div class="card-content" style="padding-left: 2rem; padding-right: 1rem;">
             <h3 class="section-title" style="
@@ -73,11 +84,14 @@
             <p class="section-intro">
    Boosting student feedback participation by streamlining and clarifying the evaluation process.
 </p>
+<div data-aos="fade-right"data-aos-duration="1500">
 <div class="snackbar-tags">
+
   <span class="snackbar-tag">Responsive Design</span>
   <span class="snackbar-tag">B2B</span>
   <span class="snackbar-tag">UX Design + Strategy</span>
   <span class="snackbar-tag edtech-tag">EdTech</span>
+</div>
 </div>
           </div>
         </div>
@@ -131,5 +145,13 @@
     </main>
 
     <script src="js/main.js"></script>
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true
+  });
+</script>
+
   </body>
 </html>
