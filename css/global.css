@@ -743,3 +743,14 @@ margin-bottom: -1rem !important;
 .card-content {
   background: transparent !important;
 }
+
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.6s;
+  will-change: opacity, transform;
+}
+
+html[data-aos-initialized="true"] [data-aos] {
+  opacity: 1;
+}
