@@ -123,7 +123,7 @@ transition: transform var(--transition-normal);
   will-change: transform, opacity;
   top: -0.001em;
   transition: color var(--transition-normal) ease;
-  margin-top: 3.5px;
+  margin-top: 0px;
 }
 
 .animated-word.negative {

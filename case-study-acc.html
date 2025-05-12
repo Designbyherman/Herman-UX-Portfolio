@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ACC Course Evaluation Guide Case Study | UX Portfolio</title>
-    <link rel="stylesheet" href="css/global.min.css">
-    <link rel="stylesheet" href="css/Navigation.css">
-    <link rel="stylesheet" href="css/CSS Case Study.css">
-    <link rel="stylesheet" href="css/case-study-custom.css">
+   <!-- CSS always first -->
+<!-- CSS always first -->
+<link rel="stylesheet" href="css/global.min.css">
+<link rel="stylesheet" href="css/Navigation.css">
+<link rel="stylesheet" href="css/CSS Case Study.css">
+<link rel="stylesheet" href="css/case-study-custom.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrpOpbSSqhX9H1BA.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="https://fonts.gstatic.com/s/plusjakartasans/v8/CHywV-kspZ5ZCyt2_h_ThX8g.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="images/webp/finalscreens.webp">
+<link rel="preload" as="image" href="images/webp/Desktop1.webp">
+<link rel="preload" as="image" href="images/webp/Desktop2.webp">
+<link rel="preload" as="image" href="images/webp/Usability-test-ui.webp">
+<link rel="preload" as="image" href="images/webp/Above-the-fold-preview.webp">
+<link rel="preload" as="image" href="images/webp/Navigating-the-feedback-window-preview.webp">
+
 </head>
 <body>
     <header>
@@ -53,9 +62,12 @@
     <main>
         <!-- Hero Section -->
         <section class="case-study-container">
-            <img src="images/ACC-Students-heroimage.jpg" 
-     alt="ACC Course Evaluation Guide Hero Image" 
-     class="hero-image">
+            <img src="images/webp/ACC-Students-heroimage.webp"
+     alt="ACC Course Evaluation Guide Hero Image"
+     class="hero-image"
+     width="1200"
+     style="width: 100%; height: auto; border-radius: 0.5rem;"
+     fetchpriority="high" />
 
             <div class="project-header">
                 <div class="summary-grid">
@@ -97,72 +109,31 @@
         </section>
 
         <!-- Final Screens Preview -->
-        <a href="images/finalscreens.png"
-   role="img"
-   target="_blank"
-   aria-label="Final Screens"
-   style="display: block; width: 100%; max-width: 1600px; position: relative; border-radius: 0.5rem; margin: 0 auto; cursor: pointer; background-image: url('images/finalscreens.png'); background-size: contain; background-repeat: no-repeat; background-position: center; aspect-ratio: 11/9;">
+<a href="images/webp/finalscreens.webp" target="_blank" aria-label="View full Final Prototype Screens"
+   style="display: block; width: calc(100% - 4rem); max-width: 1100px; margin: 0 auto 2rem auto; border-radius: 0.5rem; overflow: hidden;">
+  <img src="images/webp/finalscreens.webp"
+       alt="Final Prototype Screens"
+       style="width: 100%; height: auto; display: block; object-fit: contain;"
+       fetchpriority="high" />
 </a>
-<!-- First image -->
-<div style="
-  width: calc(100% - 4rem);
-  max-width: 1100px;
-  margin: 0 auto clamp(-4rem, -8vw, -8rem) auto;
-  position: relative;
-  border-radius: 0.5rem;
-  background-image: url('images/Desktop1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  aspect-ratio: 11/9;
-">
-  <a href="images/Desktop1.png"
-     role="img"
-     target="_blank"
-     aria-label="Desktop Screen 1"
-     style="
-       position: absolute;
-       top: 15%;
-       left: 15%;
-       width: 70%;
-       height: 70%;
-       cursor: pointer;
-       border-radius: 0.5rem;
-     ">
-    <!-- smaller clickable area -->
-  </a>
-</div>
 
-<!-- Second image -->
-<div style="
-  width: calc(100% - 4rem);
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-  border-radius: 0.5rem;
-  background-image: url('images/Desktop2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  aspect-ratio: 11/9;
-">
-  <a href="images/Desktop2.png"
-     role="img"
-     target="_blank"
-     aria-label="Desktop Screen 2"
-     style="
-       position: absolute;
-       top: 15%;
-       left: 15%;
-       width: 70%;
-       height: 70%;
-       cursor: pointer;
-       border-radius: 0.5rem;
-     ">
-    <!-- smaller clickable area -->
-  </a>
-</div>
+<a href="images/webp/Desktop1.webp" target="_blank" aria-label="View full Desktop Screen 1"
+   style="display: block; width: calc(100% - 4rem); max-width: 1100px; margin: 0 auto 2rem auto; border-radius: 0.5rem; overflow: hidden;">
+  <img src="images/webp/Desktop1.webp"
+       alt="Desktop Screen 1"
+       style="width: 100%; height: auto; display: block; object-fit: contain;"
+       fetchpriority="high" />
+</a>
 
+<a href="images/webp/Desktop2.webp" target="_blank" aria-label="View full Desktop Screen 2"
+   style="display: block; width: calc(100% - 4rem); max-width: 1100px; margin: 0 auto 2rem auto; border-radius: 0.5rem; overflow: hidden;">
+  <img src="images/webp/Desktop2.webp"
+       alt="Desktop Screen 2"
+       style="width: 100%; height: auto; display: block; object-fit: contain;"
+       fetchpriority="high" />
+</a>
+
+</div>
 
         <!-- Problem Space Section -->
         <section class="case-study-container">
@@ -716,12 +687,12 @@ Here I explored whether directly showing completion rates could tap into social 
 
   <p class="section-description">Deferring back to our matrix and incorporating stakeholder feedback, I proposed a hybrid, combining Campus Voice's simplicity with real-world impact examples from the Portal—solving both the "forgetting" and "why it matters" barriers with a mobile first approach meet Bryan, Michele and Taylors needs.</p>
 </section>
-            <a href="images/Usability-test-ui.png"
-   role="img"
-   target="_blank"
-   aria-label="Usability Testing UI Preview"
-   class="concept-selected-image"
-   style="display: block; width: 100%; max-width: 1100px; height: 700px; background-image: url('images/Usability-test-ui.png'); background-size: contain; background-repeat: no-repeat; background-position: center; border-radius: 0.5rem; margin: 0 auto; cursor: pointer;">
+            <a href="images/webp/Usability-test-ui.webp" target="_blank" aria-label="View full Usability Test UI"
+   style="display: block; width: calc(100% - 4rem); max-width: 1100px; margin: 0 auto 2rem auto; border-radius: 0.5rem; overflow: hidden; aspect-ratio: 11/9;">
+  <img src="images/webp/Usability-test-ui.webp"
+       alt="Usability Test UI"
+       style="width: 100%; height: 100%; display: block; object-fit: contain;"
+       fetchpriority="high" />
 </a>
         </section>
 
@@ -1012,9 +983,13 @@ letter-spacing: 0.1em;
 
  <h3 class="section-subtitle" style="margin-bottom: -2.25rem;">Flow 1 - "Start My evaluation"</h3>
             <div class="wider-image-container">
-                <img src="images/Start-my-evaluation-flow.png" alt="Start My Evaluation" class="wider-image">
-
-            </div>
+  <a href="images/webp/Start-my-evaluation-flow.webp" target="_blank" aria-label="View full Start My Evaluation Flow">
+    <img src="images/webp/Start-my-evaluation-flow.webp"
+         alt="Start My Evaluation Flow"
+         class="wider-image"
+         fetchpriority="high" />
+  </a>
+</div>
 
             <!-- Flow Diagram -->
             <div class="flow-diagram">
@@ -1042,9 +1017,14 @@ letter-spacing: 0.1em;
            <h3 class="section-subtitle" style="margin-bottom: -2.25rem;">Flow 2 - "Add to Google Calendar"</h3>
 
             <div class="wider-image-container">
-                <img src="images/Add-to-calendar-flow.png" alt="Calendar integration screens" style="width: 100%;" class="wider-image">
-
-            </div>
+  <a href="images/webp/Add-to-calendar-flow.webp" target="_blank" aria-label="View full Add to Calendar Flow">
+    <img src="images/webp/Add-to-calendar-flow.webp"
+         alt="Add to Calendar Flow"
+         class="wider-image"
+         style="width: 60vw;"
+         fetchpriority="high" />
+  </a>
+</div>
 
          
 
@@ -1097,12 +1077,14 @@ letter-spacing: 0.1em;
                 </ul>
             </div>
         </div>
-        <div class="image-group">
-            <img src="images/Above-the-fold-preview.png" 
-     alt="Before and after comparison of the course evaluation interface" 
-     style="width: 100%; height: auto; border-radius: 0; box-shadow: none;">
-
-        </div>
+        <div class="image-group ui-comparison" style="margin-bottom: 2rem;">
+  <a href="images/webp/Above-the-fold-preview.webp" target="_blank" aria-label="View full Above the Fold Preview"
+     style="display: block; width: 100%; border-radius: 0.5rem; overflow: hidden;">
+    <img src="images/webp/Above-the-fold-preview.webp"
+         alt="Above the Fold Preview"
+         fetchpriority="high" />
+  </a>
+</div>
     </div>
 </section>
 
@@ -1127,11 +1109,14 @@ letter-spacing: 0.1em;
                 </ul>
             </div>
         </div>
-        <div class="image-group">
-            <img src="images/Navigating-the-feedback-window-preview.png" 
-     alt="Before and after comparison of the course evaluation interface"
-     style="width: 100%; height: auto; border-radius: 0; box-shadow: none;">
-        </div>
+        <div class="image-group ui-comparison" style="margin-bottom: 2rem;">
+  <a href="images/webp/Navigating-the-feedback-window-preview.webp" target="_blank" aria-label="View full Navigating the Feedback Window Preview"
+     style="display: block; width: 100%; border-radius: 0.5rem; overflow: hidden;">
+    <img src="images/webp/Navigating-the-feedback-window-preview.webp"
+         alt="Navigating the Feedback Window Preview"
+         fetchpriority="high" />
+  </a>
+</div>
     </div>
 </section>
 
@@ -1250,5 +1235,6 @@ letter-spacing: 0.1em;
   });
 });
     </script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

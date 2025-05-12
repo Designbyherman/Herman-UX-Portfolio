@@ -1035,3 +1035,23 @@ html, body {
   .concept-selected-adjust {
     margin-top: -9.5rem;
   }
+.image-group.ui-comparison {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.image-group.ui-comparison img {
+  max-width: 650px;
+  width: 100%;
+  transform: none;
+  transform-origin: center;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .image-group.ui-comparison img {
+    max-width: 750px; /* already adjusted size for desktop */
+    margin-top: .75rem; /* ✅ This will move the image down approx. 16px */
+  }
+}
