@@ -58,6 +58,7 @@ if (form) { // check if form exists on this page
 window.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     once: true,
+    debounceDelay: 50
     easing: 'ease-out-back',
     duration: 1500
   });

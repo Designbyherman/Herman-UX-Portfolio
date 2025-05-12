@@ -780,3 +780,6 @@ html[data-aos-initialized="true"] [data-aos] {
     margin-right: 0;
   }
 }
+[data-aos] {
+  will-change: opacity, transform;
+}
