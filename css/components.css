@@ -241,3 +241,147 @@ transition: transform var(--transition-normal);
 		transform: rotate(359deg);
 	}
 }
+.responsive-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+/* Layout Adjustments */
+.intro-section {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.intro-photo {
+  flex: 0 1 320px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .intro-photo {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-title-block h1,
+  .about-title-block h3 {
+    text-align: center;
+  }
+}
+
+/* Connect Button Styles */
+.connect-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid #0F172A;
+  border-radius: 0.5rem;
+  color: #0F172A;
+  margin: 2rem 0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.connect-button:hover {
+  background: #0F172A;
+  color: #F8FAFC;
+}
+.intro-section.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space-xl) var(--container-padding);
+  box-sizing: border-box;
+}
+
+.about-title-block,
+.intro-photo,
+.content-block {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Always large headings */
+.about-main-heading {
+  font-size: var(--font-size-xxxl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+}
+
+.about-sub-heading {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-snug);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+/* Ensure the animated block and text stay inside same container width */
+.animated-header,
+.about-text-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image */
+.intro-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  .intro-section.container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .intro-photo {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    position: sticky;
+    top: var(--space-xl);
+  }
+
+  .about-title-block,
+  .content-block {
+    grid-column: 1;
+  }
+}
+.about-title-block {
+  margin-top: 1.90rem; /* Example consistent padding, adjust if you want even tighter */
+}
+
+/* Desktop (≥769px) override to match image */
+@media (min-width: 769px) {
+  .about-title-block {
+    margin-top: -.20rem;
+  }
+
+  .intro-photo {
+    margin-top:-.20rem;
+  }
+}
+@media (max-width: 768px) {
+  .page-about .intro-photo {
+    margin-top: -3rem !important;
+    margin-bottom: 0rem !important;
+  }
+}

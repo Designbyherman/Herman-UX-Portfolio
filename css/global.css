@@ -754,3 +754,29 @@ margin-bottom: -1rem !important;
 html[data-aos-initialized="true"] [data-aos] {
   opacity: 1;
 }
+.page-about .intro-section.container {
+  min-height: 80vh; /* Prevent content jump */
+}
+
+.page-about .intro-photo.desktop-only {
+  width: 320px;      /* Replace flex-basis */
+  flex-shrink: 0;    /* Prevent shrinking */
+  margin-left: 0;    /* Remove negative margin */
+}
+
+.page-about .intro-text.intro-body {
+  width: calc(100% - 360px); /* 320px photo + 40px gap */
+  margin-right: 2rem;        /* Match original spacing */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .page-about .intro-section.container {
+    min-height: auto;
+  }
+  .page-about .intro-text.intro-body,
+  .page-about .intro-photo.desktop-only {
+    width: 100%;
+    margin-right: 0;
+  }
+}

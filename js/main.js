@@ -55,3 +55,18 @@ if (form) { // check if form exists on this page
     });
   });
 }
+window.addEventListener('DOMContentLoaded', () => {
+  AOS.init({
+    once: true,
+    easing: 'ease-out-back',
+    duration: 1500
+  });
+
+  // Your hamburger toggle, etc. here:
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+});
