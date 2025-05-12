@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herman Green III's UX Portfolio</title>
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/Navigation.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/global.min.css">
+<link rel="stylesheet" href="css/Navigation.css">
+<link rel="stylesheet" href="css/components.css">
 
+<!-- Preconnect to fonts (must be early) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Load fonts stylesheet -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ✅ Preload key font files (copy the exact URLs from your browser's font requests in Network tab) -->
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrpOpbSSqhX9H1BA.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/plusjakartasans/v8/CHywV-kspZ5ZCyt2_h_ThX8g.woff2" type="font/woff2" crossorigin>
+
+<!-- Preload critical images AFTER fonts -->
+<link rel="preload" as="image" href="images/webp/hermansmainphoto-optimized.webp">
+<link rel="preload" as="image" href="images/webp/accmainphoto.webp">
 </head>
 <body>
     <header>
@@ -52,14 +66,20 @@
           <h3 class="tight-line" style="line-height: 1.15;">Bridging design & strategy with research to create data-driven UX for academic & tech platforms</h3>
         </div>
         <div class="intro-photo" style="flex: 0 0 320px; margin-left: -2rem;margin-right: 4rem;">
-          <img src="images/hermansmainphoto.jpg" alt="Photo of Herman Green III">
+          <img src="images/webp/hermansmainphoto-optimized.webp"
+     alt="Photo of Herman Green III"
+     width="600"
+     style="max-width: 600px; height: auto; border-radius: 0.5rem;" />
         </div>
       </section>
 
       <section id="work" class="cards-grid" style="padding-left: 2rem; padding-right: 2rem;">
         <div class="project-card">
           <a href="case-study-acc.html">
-  <img src="images/accmainphoto.png" alt="Hero image for ACC course evaluation redesign" class="card-preview" style="margin-left: 2rem; margin-right: 1rem; max-width: 94.5; height: auto; width: 94.5%;" />
+  <img src="images/webp/accmainphoto.webp"
+     alt="Hero image for ACC course evaluation redesign"
+     class="card-preview"
+     style="margin-left: 2rem; margin-right: 1rem; width: 94.5%; height: auto;" />
 </a>
       
           <div class="card-content" style="padding-left: 2rem; padding-right: 1rem;">
@@ -118,7 +138,7 @@
 <a href="https://github.com/Designbyherman" target="_blank" aria-label="GitHub Profile">
   <img src="images/githubicon.png" alt="GitHub profile" class="social-icon github-icon" style="margin-top: 5px; width: 52px; height: auto;" />
 </a>
-</a>
+
                     </a>
                   </div>
                 </div>
@@ -130,6 +150,6 @@
       
     </main>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
