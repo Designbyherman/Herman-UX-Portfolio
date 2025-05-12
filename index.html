@@ -16,7 +16,12 @@
 
             <a href="index.html" aria-label="Go to Herman Green III Homepage">
 
-  <img src="images\Herman-logo.png" alt="Herman Green III Logo" class="logo-placeholder" width="72" height="auto">
+  <img src="images/webp/Herman-logo.webp"
+     alt="Herman Green III Logo"
+     loading="lazy"
+     width="72"
+     height="72"
+     class="logo-placeholder">
 </a>
 
             <nav class="nav-links">
@@ -59,7 +64,15 @@
 
         <div class="intro-photo" style="flex: 0 0 320px; margin-left: -2rem;margin-right: 4rem;">
 <div data-aos="fade-left"data-aos-duration="1500">
-          <img src="images/hermansmainphoto.jpg" alt="Photo of Herman Green III">
+          <picture>
+  <source srcset="images/webp/hermansmainphoto.webp" type="image/webp">
+  <img src="images/hermansmainphoto.jpg"
+       alt="Photo of Herman Green III"
+       loading="lazy"
+       width="400"
+       height="400"
+       style="width:100%; height:auto; border-radius: var(--radius-lg);">
+</picture>
         </div>
 </div>
       </section>
@@ -69,7 +82,16 @@
 
 <div data-aos="fade-up"data-aos-duration="1500">
           <a href="case-study-acc.html">
-  <img src="images/accmainphoto.png" alt="Hero image for ACC course evaluation redesign" class="card-preview" style="margin-left: 2rem; margin-right: 1rem; max-width: 94.5; height: auto; width: 94.5%;" />
+  <picture>
+  <source srcset="images/webp/accmainphoto.webp" type="image/webp">
+  <img src="images/accmainphoto.png"
+       alt="Hero image for ACC course evaluation redesign"
+       loading="lazy"
+       width="800"
+       height="500"
+       class="card-preview"
+       style="margin-left: 2rem; margin-right: 1rem; max-width: 94.5%; height: auto; width: 94.5%;">
+</picture>
 </a>
 </div>
       
@@ -127,10 +149,27 @@
                   <p><strong>Email:</strong> <a href="mailto:Designbyherman@gmail.com">Designbyherman@gmail.com</a></p>
                   <div class="social-icons">
                     <a href="https://www.linkedin.com/in/designbyherman/" target="_blank" aria-label="LinkedIn">
-  <img src="images/linkedinicon.png" alt="LinkedIn profile" class="social-icon" style="width: 36px; height: auto;" />
+  <picture>
+  <source srcset="images/webp/linkedinicon.webp" type="image/webp">
+  <img src="images/linkedinicon.png"
+       alt="LinkedIn profile"
+       loading="lazy"
+       width="36"
+       height="36"
+       class="social-icon">
+</picture>
 </a>
 <a href="https://github.com/Designbyherman" target="_blank" aria-label="GitHub Profile">
-  <img src="images/githubicon.png" alt="GitHub profile" class="social-icon github-icon" style="margin-top: 5px; width: 52px; height: auto;" />
+  <picture>
+  <source srcset="images/webp/githubicon.webp" type="image/webp">
+  <img src="images/githubicon.png"
+       alt="GitHub profile"
+       loading="lazy"
+       width="64"
+       height="64"
+       class="social-icon github-icon">
+</picture>
+
 </a>
 </a>
                     </a>

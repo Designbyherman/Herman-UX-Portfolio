@@ -236,10 +236,13 @@ body {
 }
 
 .social-icon {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
 }
-
+.github-icon {
+  width: 52px !important;
+  height: 32px !important;
+}
 /* Media queries */
 @media (max-width: 768px) {
   .intro-section {
