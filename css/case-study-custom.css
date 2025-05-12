@@ -1055,3 +1055,8 @@ html, body {
     margin-top: .75rem; /* ✅ This will move the image down approx. 16px */
   }
 }
+@media (min-width: 1024px) {
+  .navigating-feedback-cards {
+    margin-top: 1.5rem; /* Adjust to your preference */
+  }
+}
