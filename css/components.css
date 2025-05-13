@@ -241,3 +241,39 @@ transition: transform var(--transition-normal);
 		transform: rotate(359deg);
 	}
 }
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Default: Desktop left-aligned */
+  flex-direction: row;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-buttons {
+    flex-direction: column; /* Tablet: Stacked, still left-aligned */
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: row; /* Mobile: Side by side */
+    justify-content: center; /* Center on page */
+    align-items: center;
+  }
+}
+.form-wrapper .card-btn {
+  display: inline-flex; /* ✅ Use inline-flex for reliable text centering */
+  align-items: center;
+  justify-content: center;
+  width: 220px; /* Or your preferred fixed width */
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center; /* Backup for older browsers */
+}
+
+
