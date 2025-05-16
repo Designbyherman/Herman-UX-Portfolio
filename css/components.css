@@ -16,8 +16,20 @@
   flex-direction: column;
   height: 100%;
   transition: transform var(--transition-normal);
+position: relative;
+}
+.project-card > a:first-of-type {
+  text-decoration: none;
+  color: inherit;
 }
 
+/* Make title, description and tags non-clickable so clicks go to the card link */
+.card-content h3,
+.card-content p,
+.card-content .snackbar-tags,
+.card-content .snackbar-tag {
+  pointer-events: none;
+}
 .project-card:hover .card-preview {
   transform: scale(1.01);
 }
