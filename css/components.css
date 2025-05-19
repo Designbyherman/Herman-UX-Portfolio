@@ -276,8 +276,23 @@ transition: transform var(--transition-normal);
     align-items: center;
   }
 }
-.form-wrapper .card-btn {
-  display: inline-flex; /* ✅ Use inline-flex for reliable text centering */
+
+  .intro-photo {
+   flex: 0 0 320px;
+  margin-left: 4rem;
+  margin-right: 1rem;
+  }
+
+  display: inline-flex; /* ✅ Use inline-flex for reliable text centering */@media (max-width: 768px) {
+  .header-spacer {
+    margin-bottom: 1.5rem; /* Increases space after header */
+  }
+  
+
+  
+  .intro-text {
+    margin-top: 0.5rem; /* Reduced space above text */
+  }
   align-items: center;
   justify-content: center;
   width: 220px; /* Or your preferred fixed width */
@@ -289,3 +304,27 @@ transition: transform var(--transition-normal);
 }
 
 
+@media (max-width: 768px) {
+  .intro-section .intro-photo {
+    margin-bottom: 0.25rem !important;
+margin-top: 2rem !important;  
+  }
+
+  .intro-section .intro-photo img {
+    margin-bottom: 0 !important;
+  }
+
+  .intro-section .intro-text.intro-body {
+    margin-top: -2rem !important;
+  }
+
+  .intro-section .intro-text h1 {
+    margin-top: 0 !important;
+    margin-bottom: .75rem !important; /* ✅ Add this to create space below h1 */
+  }
+
+  .intro-section .intro-text h3 {
+    margin-top: 0 !important; /* keep this to prevent stacked spacing */
+ margin-bottom: .5rem !important;
+  }
+}
