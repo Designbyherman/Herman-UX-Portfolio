@@ -315,7 +315,7 @@ margin-top: 2rem !important;
   }
 
   .intro-section .intro-text.intro-body {
-    margin-top: -2rem !important;
+    margin-top: 2rem !important;
   }
 
   .intro-section .intro-text h1 {
@@ -326,5 +326,44 @@ margin-top: 2rem !important;
   .intro-section .intro-text h3 {
     margin-top: 0 !important; /* keep this to prevent stacked spacing */
  margin-bottom: .5rem !important;
+  }
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+.contact-message {
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 983px) {
+  .contact-message,
+  .contact-info {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-info .social-icons {
+    justify-content: center;
+  }
+
+  .contact-flex {
+    flex-direction: column;
+    align-items: center !important;
+  }
+}
+@media (min-width: 769px) {
+  .intro-section.container {
+    margin-top: 4rem; /* Adjust to your needs */
+  }
+}
+@media (max-width: 768px) {
+  .about-page .intro-photo {
+    margin-top: 2rem;
   }
 }
