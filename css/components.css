@@ -367,3 +367,24 @@ margin-top: 2rem !important;
     margin-top: 2rem;
   }
 }
+.acc-hero-image {
+  display: block;
+  margin: 0 0 var(--space-sm) 0; /* ⬅ Left-align */
+  width: 80%;
+margin-bottom: -1rem;
+  height: auto;
+  max-width: none; /* Remove width constraint */
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 769px) {
+  .acc-hero-image {
+    margin-bottom: -1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .acc-hero-image {
+    margin-bottom: -2rem;
+  }
+}
