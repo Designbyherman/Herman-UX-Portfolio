@@ -616,9 +616,9 @@ transition: transform var(--transition-normal);
 
 .hv2-hero-grid {
   display: grid;
-  grid-template-columns: 1fr 336px;
+  grid-template-columns: 1fr 370px;
   gap: 64px;
-  align-items: center;
+  align-items: start;
 }
 
 .hv2-name {
@@ -637,7 +637,7 @@ transition: transform var(--transition-normal);
   margin: 0 0 20px;
   letter-spacing: -0.015em;
   color: var(--hv2-ink);
-  max-width: 16ch;
+  max-width: 26ch;
 }
 
 .hv2-lede {
@@ -692,8 +692,8 @@ transition: transform var(--transition-normal);
 
 /* Portrait */
 .hv2-portrait {
-  width: 336px;
-  height: 336px;
+  width: 370px;
+  height: 370px;
   border-radius: 26px;
   border: var(--hv2-stroke) solid var(--hv2-ink);
   overflow: hidden;
@@ -710,7 +710,7 @@ transition: transform var(--transition-normal);
 
 /* --- Featured Work --- */
 .hv2-featured {
-  padding: 24px 0 96px;
+  padding: 8px 0 96px;
   scroll-margin-top: 70px;
 }
 
@@ -891,12 +891,12 @@ transition: transform var(--transition-normal);
 /* --- Responsive --- */
 @media (max-width: 1060px) and (min-width: 821px) {
   .hv2-hero-grid {
-    grid-template-columns: 1fr 276px;
+    grid-template-columns: 1fr 308px;
     gap: 48px;
   }
   .hv2-portrait {
-    width: 276px;
-    height: 276px;
+    width: 308px;
+    height: 308px;
   }
 }
 
@@ -910,8 +910,8 @@ transition: transform var(--transition-normal);
   }
   .hv2-portrait {
     justify-self: start;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 18px;
     order: -1;
   }
