@@ -56,40 +56,85 @@
     <div class="header-spacer"></div>
 
     <main>
-      <div class="home-content">
+      <div class="home-v2">
 
-        <section class="home-hero">
-          <div class="home-hero-copy">
-            <h1>Herman Green III</h1>
-            <p class="home-hero-sub">Bridging design &amp; strategy with research to create data-driven user experiences for academic &amp; tech platforms</p>
-          </div>
-          <div class="home-hero-portrait">
-            <picture>
-              <source srcset="images/webp/hermansmainphoto.webp" type="image/webp">
-              <img src="images/hermansmainphoto.jpg"
-                   alt="Photo of Herman Green III"
-                   loading="lazy"
-                   width="400"
-                   height="400">
-            </picture>
+        <!-- HERO -->
+        <section class="hv2-hero">
+          <div class="hv2-container">
+            <div class="hv2-hero-grid">
+              <div class="hv2-hero-copy">
+                <p class="hv2-name">Herman Green III</p>
+                <h1 class="hv2-title">UX Designer for Academic &amp; Learning Experiences</h1>
+                <p class="hv2-lede">Combining UX research, instructional clarity, and AI-enhanced design workflows to help students and teams understand complex digital experiences.</p>
+                <div class="hv2-cta-row">
+                  <a href="#work" class="hv2-btn hv2-btn--primary">View Case Studies</a>
+                  <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" class="hv2-btn" target="_blank" rel="noopener">View Resume</a>
+                </div>
+              </div>
+              <div class="hv2-portrait">
+                <picture>
+                  <source srcset="images/webp/hermansmainphoto.webp" type="image/webp">
+                  <img src="images/hermansmainphoto.jpg"
+                       alt="Photo of Herman Green III"
+                       loading="lazy"
+                       width="400"
+                       height="400">
+                </picture>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="work" class="featured-work">
-          <a class="acc-card" href="case-study-acc.html?v=2026" aria-label="Austin Community College — View case study">
-            <div class="acc-card-visual">
-              <img src="assets/images/Main.png"
-                   alt="Mobile screen from the redesigned ACC course evaluation guide"
-                   width="200"
-                   height="410"
-                   loading="lazy">
+        <!-- FEATURED WORK -->
+        <section class="hv2-featured" id="work">
+          <div class="hv2-container">
+
+            <div class="hv2-section-label">
+              <h2>Featured Work</h2>
+              <span class="hv2-rule"></span>
             </div>
-            <div class="acc-card-copy">
-              <h3 class="acc-card-title">Austin Community College</h3>
-              <p class="acc-card-desc">Improving student participation through clearer communication, guided interactions, and mobile-first evaluation flows.</p>
-              <span class="acc-card-cta">View case study →</span>
+
+            <!-- Primary: ACC case study -->
+            <article class="hv2-case-card" aria-label="Case study: Austin Community College">
+              <div class="hv2-case-visual">
+                <img src="assets/images/Main.png"
+                     alt="Mobile screen from the redesigned ACC course evaluation guide"
+                     class="hv2-phone-img"
+                     loading="lazy"
+                     width="180"
+                     height="390">
+              </div>
+              <div class="hv2-case-copy">
+                <p class="hv2-case-project">Austin Community College</p>
+                <h3 class="hv2-case-head">Helping students understand when, why, and how to complete course evaluations</h3>
+                <p class="hv2-case-sub">A learning-centered UX redesign responding to a 94% &rarr; 34% participation drop after evaluations moved digital-only.</p>
+                <a href="case-study-acc.html?v=2026" class="hv2-case-cta">View Case Study &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Secondary stubs -->
+            <div class="hv2-stubs">
+              <article class="hv2-stub" aria-label="Project: Project Beacon">
+                <div class="hv2-stub-visual"></div>
+                <div class="hv2-stub-copy">
+                  <p class="hv2-case-project">Project 02 &middot; Project Beacon</p>
+                  <h3>Helping users discover and evaluate useful AI resources faster</h3>
+                  <p>A curated discovery platform exploring how people find, understand, and apply AI workflows, tools, and operational systems.</p>
+                  <a href="#" class="hv2-case-cta">View Project Snapshot &rarr;</a>
+                </div>
+              </article>
+              <article class="hv2-stub" aria-label="Project: Synergy Alliance">
+                <div class="hv2-stub-visual"></div>
+                <div class="hv2-stub-copy">
+                  <p class="hv2-case-project">Project 03 &middot; Synergy Alliance</p>
+                  <h3>Designing a community-centered platform for wellness, education, and empowerment programs</h3>
+                  <p>A digital experience concept organizing programs, resources, and support pathways around community growth and access.</p>
+                  <a href="#" class="hv2-case-cta">View Project Snapshot &rarr;</a>
+                </div>
+              </article>
             </div>
-          </a>
+
+          </div>
         </section>
 
       </div>

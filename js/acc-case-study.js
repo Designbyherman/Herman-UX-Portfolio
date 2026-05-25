@@ -330,3 +330,31 @@ window.addEventListener('DOMContentLoaded', function() {
     observer.observe(visual);
   });
 });
+
+window.addEventListener('DOMContentLoaded', function() {
+  var hamburger = document.querySelector('.hamburger');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  if (!hamburger || !mobileMenu) return;
+
+  var mobileLinks = mobileMenu.querySelectorAll('a');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', function(event) {
+    var isClickInside = hamburger.contains(event.target) || mobileMenu.contains(event.target);
+    if (!isClickInside && mobileMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    }
+  });
+});
