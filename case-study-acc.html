@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACC Course Evaluation Guide | Herman Green III</title>
+<link rel="stylesheet" href="css/global.css" />
+<link rel="stylesheet" href="css/Navigation.css">
+<link rel="stylesheet" href="css/acc-case-study.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  /* Tune the desktop prototype device to better match the content column height */
+  .proto-device{--device-scale:0.94;width:370px;height:802px;}
+  .prototype-device-wrap{min-height:820px;}
+  /* Restore responsive breakpoint values suppressed by the cascade override above */
+  @media(max-width:1024px){
+    .proto-device{--device-scale:0.86;width:338px;height:733px;}
+    .prototype-device-wrap{min-height:auto;}
+  }
+  @media(max-width:768px){.proto-device{--device-scale:0.74;width:291px;height:630px;}}
+  @media(max-width:640px){.proto-device{--device-scale:0.70;width:275px;height:596px;}}
+  @media(max-width:480px){.proto-device{--device-scale:0.62;width:244px;height:528px;}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" aria-label="Go to Herman Green III Homepage">
+
+  <img src="images/Herman-logo.png" alt="Herman Green III Logo" class="logo-placeholder" width="72" height="auto">
+</a>
+
+            <nav class="nav-links">
+<a href="index.html" aria-label="Go to Home Page">Home</a>
+                <a href="work.html" aria-label="View Work Portfolio Page">Work</a>
+                <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+
+
+
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu">
+<a href="index.html" aria-label="Go to Home Page">Home</a>
+            <a href="work.html" aria-label="View Work Portfolio Page">Work</a>
+            <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+
+
+
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </header>
+    <div class="header-spacer"></div>
+
+<main id="main-content" tabindex="-1">
+
+<section class="hero">
+  <div class="hero-inner">
+  <div class="hero-main">
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        Austin Community College<br>
+        Course Evaluation Guide
+      </h1>
+      <p class="hero-sub">Redesigning Austin Community College&rsquo;s course evaluation guide to clarify deadlines and improve student participation.</p>
+      <div class="meta-grid">
+        <div><div class="meta-label">Industry</div><div class="meta-value">Education</div></div>
+        <div><div class="meta-label">My Role</div><div class="meta-value">Lead UX Design / Strategy</div></div>
+        <div><div class="meta-label">Team</div><div class="meta-value"><span class="sr-only">JR, AL, MK</span><div class="avatars" aria-hidden="true"><div class="av" style="background:#e8d5b0;color:#6b4c1e;">JR</div><div class="av" style="background:#d5e8d0;color:#2d5a3d;">AL</div><div class="av" style="background:#d5d8e8;color:#3d4a6b;">MK</div></div></div></div>
+        <div><div class="meta-label">Timeline</div><div class="meta-value">Jan &ndash; Apr 2022</div></div>
+      </div>
+      <div class="hero-cta-row" aria-label="Case study shortcuts">
+        <a class="hero-cta hero-cta-primary" href="#prototype-section">View prototype</a>
+        <a class="hero-cta hero-cta-secondary" href="#v2-redesign-section">View redesign screens</a>
+        <a class="hero-cta hero-cta-secondary" href="#research-section">View research</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="hero-compare">
+        <div class="compare-screen compare-screen-back">
+          <div class="compare-label">Original</div>
+          <img src="assets/images/Main-ACC.png" width="1167" height="2385" alt="2022 original course evaluation guide concept screen">
+        </div>
+
+        <div class="compare-screen compare-screen-front">
+          <div class="compare-label">Redesign</div>
+          <img src="assets/images/Main.png" width="1149" height="2355" alt="2026 modern course evaluation guide redesign screen">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="tldr">
+  <div class="tldr-inner">
+    <div class="section-label">TL;DR</div>
+    <h2>The short version</h2>
+    <div class="tldr-rows">
+      <div class="tldr-row"><div class="tldr-key">Problem</div><div class="tldr-val">Course evaluation participation dropped from 94% to 34% after going digital. Students forgot, or didn't see the value.</div></div>
+      <div class="tldr-row"><div class="tldr-key">My Role</div><div class="tldr-val">Led research, concept development, and design validation across two rounds of usability testing.</div></div>
+      <div class="tldr-row"><div class="tldr-key">What I Did</div><div class="tldr-val">Conducted user interviews, created personas, mapped journeys, built a calendar integration, validated with 10 users across 2 test rounds.</div></div>
+      <div class="tldr-row"><div class="tldr-key">Impact</div><div class="tldr-val">22% faster task time &middot; 15% fewer errors &middot; 29% fewer clicks &middot; directly supporting ACC's enrollment equity goals.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATIC EDITORIAL SECTIONS: PROBLEM + RESEARCH -->
+<section class="split-static-section">
+  <div class="split-static-inner">
+    <div class="split-static-media">
+      <div class="problem-metric-stack participation-visual" role="img" aria-label="Course evaluation participation dropped from 94 percent on paper to 34 percent after moving online, a 64 percent drop.">
+        <div class="participation-comparison">
+          <div class="participation-row participation-row-muted">
+            <span class="participation-number">94%</span>
+            <span class="participation-label">Paper</span>
+          </div>
+          <div class="participation-arrow" aria-hidden="true">&darr;</div>
+          <div class="participation-row participation-row-active">
+            <span class="participation-number">34%</span>
+            <span class="participation-label">Digital</span>
+          </div>
+        </div>
+        <div class="student-token-grid" data-token-count="100" data-start-count="94" data-visible-count="34" aria-hidden="true"></div>
+        <span class="participation-drop">64% drop</span>
+      </div>
+    </div>
+    <div class="split-static-copy">
+      <div class="step-tag">Problem</div>
+      <h2 class="step-h">64% fewer students completed evaluations after ACC moved online.</h2>
+      <p>In 2020, ACC moved from in-class paper evaluations to a digital-only process. Completion dropped from 94% to 34%, even though 80% of students who completed evaluations rated their courses positively.</p>
+      <p>I partnered with ACC's Teaching, Learning &amp; Excellence Division to identify the barriers and redesign the evaluation guide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="split-static-section split-static-section-research" id="research-section">
+  <div class="split-static-inner">
+    <div class="split-static-media">
+      <div class="research-metrics-grid">
+
+        <div class="research-metric-card">
+          <div class="research-metric-label">STUDENT SURVEYS</div>
+          <div class="research-metric-value">10</div>
+        </div>
+
+        <div class="research-metric-card">
+          <div class="research-metric-label">STUDENT INTERVIEWS</div>
+          <div class="research-metric-value">7</div>
+        </div>
+
+        <div class="research-metric-card">
+          <div class="research-metric-label">COMPETITORS REVIEWED</div>
+          <div class="research-metric-value">3</div>
+        </div>
+
+        <div class="research-metric-card">
+          <div class="research-metric-label">RESEARCH NOTES</div>
+          <div class="research-metric-value">90+</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="split-static-copy">
+      <div class="step-tag">Research</div>
+      <h2 class="step-h">Low participation was visible. The deeper barriers were not.</h2>
+      <p>I used surveys to spot patterns, interviews to understand behavior, and competitive analysis to identify missed opportunities in peer experiences.</p>
+      <div class="accordion">
+        <button id="research-accordion-trigger" class="accordion-trigger" aria-expanded="false" aria-controls="research-accordion-body" onclick="toggleAccordion(this)">Research Methods, Questions &amp; Constraints<span class="accordion-icon" aria-hidden="true">&#9660;</span></button>
+        <div id="research-accordion-body" class="accordion-body" role="region" aria-labelledby="research-accordion-trigger">
+          <h3>Overview</h3>
+          <ul class="bl"><li>10 surveys, 7 interviews &middot; Jan&ndash;Apr 2022</li><li>Screener: enrolled for at least one full semester</li><li>Scope: ACC Highland Campus (surveys) + remote sessions (interviews)</li></ul>
+          <h3>Research Methods</h3>
+          <ul class="bl"><li><strong>Surveys (n=10):</strong> In-person, ACC Highland Campus &middot; participation frequency and perceived value</li><li><strong>Interviews (n=7):</strong> Remote, one-on-one, 30 min &middot; ages 18&ndash;53, diverse programs and course formats</li><li><strong>Journey mapping:</strong> End-to-end, from first hearing about an evaluation to submission</li></ul>
+          <h3>Key Questions</h3>
+          <ol class="bl"><li>What barriers are preventing students from completing evaluations?</li><li>Do students believe their feedback has any impact?</li><li>How do students prefer to receive academic reminders?</li><li>What would motivate students to participate more consistently?</li></ol>
+          <h3>Competitive Analysis</h3>
+          <p>Reviewed three Texas community colleges: Lone Star, Houston Community College, San Jacinto. All three explained how to complete evaluations. None showed students what their feedback had changed. This gap directly shaped the "impact showcase" feature in the redesign.</p>
+          <h3>Constraints</h3>
+          <ul class="bl"><li>No baseline analytics &rarr; relied on interviews and surveys for behavioral patterns</li><li>First-semester students excluded &rarr; planned follow-up post-launch</li><li>Small sample (n=10, n=7) &rarr; purposive screening; larger survey planned post-launch</li><li>No instructor access &rarr; planned stakeholder interviews post-launch</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="key-insight-section">
+  <div class="key-insight-shell">
+    <div class="key-insight-card">
+      <div class="section-label">Key Insight</div>
+      <p class="key-insight-copy">Many students were open to participating, but the experience failed to support their busy schedules, show clear value, or make follow-through easy.</p>
+    </div>
+  </div>
+</section>
+
+<div class="insight-hero">
+  <div class="insight-hero-inner">
+    <div class="step-tag">Concept Proposal</div>
+    <h2 class="insight-hero-h">A mobile-first evaluation guide that reinvents the course feedback experience by helping students track deadlines, plan around their schedules, and complete evaluations with less friction.</h2>
+  </div>
+</div>
+
+<!-- STATIC BEFORE/AFTER -->
+<section class="ba-static-section">
+  <div class="ba-static-container">
+    <div class="ba-col ba-col-left">
+      <div class="step-tag">Before</div>
+      <h2 class="step-h">The page made deadlines harder to find</h2>
+      <ul class="ba-desc">
+        <li>Dense date format slowed scanning</li>
+        <li>No course-length or deadline cues</li>
+        <li>Students had to interpret dates alone</li>
+      </ul>
+      <div class="ba-image-wrap">
+        <img class="ba-image" src="assets/images/BeforeDates.png" width="1534" height="3146" alt="Before interface showing the original course evaluation dates page">
+      </div>
+    </div>
+    <div class="ba-col ba-col-right">
+      <div class="step-tag">After</div>
+      <h2 class="step-h">Clearer deadlines, easier follow-through</h2>
+      <ul class="ba-desc">
+        <li>Course-length selector organized deadlines</li>
+        <li>Calendar reminders supported planning</li>
+        <li>Impact data showed why feedback mattered</li>
+      </ul>
+      <div class="ba-image-wrap">
+        <img class="ba-image" src="assets/images/Dates--ACC.png" width="1536" height="3146" alt="After interface showing the redesigned course evaluation dates page">
+      </div>
+    </div>
+    <div class="ba-col ba-col-modern">
+      <div class="step-tag">Two Years Later</div>
+      <h2 class="step-h">A sharper version of the same concept</h2>
+      <ul class="ba-desc">
+        <li>Stronger craft improved hierarchy</li>
+        <li>Cleaner spacing improved scan speed</li>
+        <li>Sharper cues reduced hesitation</li>
+      </ul>
+      <div class="ba-image-wrap">
+            <img class="ba-image" src="assets/images/Bottomsheet main.png" width="1149" height="2355" alt="Modern redesign showing the course length bottom sheet screen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATIC EDITORIAL SECTION: VALIDATION + IMPACT -->
+<section class="split-static-section validation-static-section">
+  <div class="split-static-inner">
+    <div class="split-static-media">
+      <div class="metrics-grid" style="max-width:340px; margin:0 auto;">
+        <div class="metric-card"><div class="metric-label">ERROR RATE</div><div class="metric-before">40%</div><div class="metric-after">25%</div><div class="metric-improvement">&darr; 15.2%</div></div>
+        <div class="metric-card"><div class="metric-label">TIME ON TASK</div><div class="metric-before">1:17</div><div class="metric-after">1:00</div><div class="metric-improvement">&darr; 22%</div></div>
+        <div class="metric-card"><div class="metric-label">COMPLETION</div><div class="metric-before">73%</div><div class="metric-after">96%</div><div class="metric-improvement">&uarr; 23%</div></div>
+        <div class="metric-card"><div class="metric-label">CLICKS</div><div class="metric-before">102</div><div class="metric-after">72</div><div class="metric-improvement">&darr; 29%</div></div>
+      </div>
+    </div>
+    <div class="split-static-copy">
+      <div class="step-tag">Validation</div>
+      <h2 class="step-h">The redesign reduced errors, clarified deadlines, and helped students better understand why evaluations matter.</h2>
+      <p>Two rounds of moderated testing identified friction in round one and confirmed key improvements in round two. Iterations created a clearer path to completion, stronger deadline awareness, and a more intuitive mobile experience.</p>
+      <div class="accordion">
+        <button id="validation-accordion-trigger" class="accordion-trigger" aria-expanded="false" aria-controls="validation-accordion-body" onclick="toggleAccordion(this)">Full Usability Methodology &amp; Insight-to-Feature Mapping<span class="accordion-icon" aria-hidden="true">&#9660;</span></button>
+        <div id="validation-accordion-body" class="accordion-body" role="region" aria-labelledby="validation-accordion-trigger">
+          <h3>Test Setup</h3>
+          <ul class="bl"><li>10 students (5 per round), diverse programs, ages 25&ndash;53</li><li>Mix of remote and in-person moderated sessions, 15&ndash;30 minutes each</li><li>All sessions recorded &middot; Notes in Notion &middot; Figma prototypes</li></ul>
+          <h3>Insight-to-Feature Mapping</h3>
+          <div class="insight-rows">
+            <div class="insight-row hrow"><div class="insight-cell hcell">Research Insight</div><div class="insight-cell hcell">Design Response</div><div class="insight-cell hcell">Success Metric</div></div>
+            <div class="insight-row"><div class="insight-cell">70% forget to complete evaluations</div><div class="insight-cell">Calendar integration with customized reminders</div><div class="insight-cell insight-success">23% completion rate increase</div></div>
+            <div class="insight-row"><div class="insight-cell">Students don't see impact of feedback</div><div class="insight-cell">Faculty testimonials and "changes made" showcase</div><div class="insight-cell insight-success">Positive sentiment in usability testing</div></div>
+            <div class="insight-row"><div class="insight-cell">80% prefer mobile completion</div><div class="insight-cell">Mobile-first design with thumb-friendly UI</div><div class="insight-cell insight-success">22% reduction in task time</div></div>
+            <div class="insight-row"><div class="insight-cell">Confusion about evaluation timeline</div><div class="insight-cell">Course-specific dropdown for evaluation windows</div><div class="insight-cell insight-success">15.2% fewer errors in timeline tasks</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen-gallery-section screen-gallery-section-final" id="v1-concept-section">
+  <div class="screen-gallery-inner">
+    <div class="step-tag">Original Direction</div>
+    <h2 class="section-display-title">V1 Concept</h2>
+    <p class="screen-gallery-intro">Four key screens from the original redesign concept.</p>
+    <div class="screen-gallery-grid screen-row-4">
+      <div class="screen-image-card"><img src="assets/images/Main-ACC.png" width="1167" height="2385" alt="Final concept screen 01"></div>
+      <div class="screen-image-card"><img src="assets/images/Opinion-ACC.png" width="1164" height="2385" alt="Final concept screen 02"></div>
+      <div class="screen-image-card"><img src="assets/images/Dates--ACC.png" width="1164" height="2385" alt="Final concept screen 03"></div>
+      <div class="screen-image-card"><img src="assets/images/FAQ-ACC.png" width="1167" height="2385" alt="Final concept screen 04"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen-gallery-section screen-gallery-section-modern" id="v2-redesign-section">
+  <div class="screen-gallery-inner">
+    <div class="step-tag">Revisited Two Years Later</div>
+    <h2 class="section-display-title">V2 Redesign</h2>
+    <p class="screen-gallery-intro">A refreshed exploration of the project using stronger craft and AI-assisted execution.</p>
+    <div class="screen-gallery-grid screen-row-4">
+      <div class="screen-image-card">
+        <img src="assets/images/Main.png" width="1149" height="2355" alt="Modern redesign screen 01">
+      </div>
+      <div class="screen-image-card">
+        <img src="assets/images/Bottomsheet main.png" width="1149" height="2355" alt="Modern redesign interaction screen showing the course length bottom sheet">
+      </div>
+      <div class="screen-image-card">
+        <img src="assets/images/Add to Calendar.png" width="1149" height="2355" alt="Modern redesign interaction screen showing the add to calendar state">
+      </div>
+      <div class="screen-image-card">
+        <img src="assets/images/Eval Windows.png" width="1149" height="2355" alt="Modern redesign screen showing evaluation windows">
+      </div>
+    </div>
+    <div class="proto-block prototype-section" id="prototype-section">
+      <div class="proto-inner prototype-layout">
+        <div class="prototype-copy">
+          <div class="prototype-eyebrow">INTERACTIVE PROTOTYPE</div>
+          <h3 class="prototype-heading">Explore the redesigned course evaluation experience through an interactive mobile prototype.</h3>
+          <p class="prototype-description">This prototype demonstrates a more intuitive, accessible, and student-centered evaluation flow&mdash;from checking important dates to sharing feedback that drives meaningful change.</p>
+          <div class="prototype-divider"></div>
+          <div class="prototype-flow-label">Key improvements</div>
+          <div class="prototype-feature-list">
+            <div class="prototype-feature">
+              <div class="prototype-feature-icon prototype-feature-icon-purple" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M4 9h16"/><rect x="4" y="5" width="16" height="16" rx="3"/><path d="m8 15 2.4 2.4L16 12"/></svg>
+              </div>
+              <div class="prototype-feature-body">
+                <h4>Clearer evaluation windows</h4>
+                <p>Students can quickly see which evaluations are open, upcoming, or closed by course length.</p>
+              </div>
+            </div>
+            <div class="prototype-feature">
+              <div class="prototype-feature-icon prototype-feature-icon-teal" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/><path d="M9 3.8A3 3 0 0 1 12 2a3 3 0 0 1 3 1.8"/></svg>
+              </div>
+              <div class="prototype-feature-body">
+                <h4>Calendar reminder support</h4>
+                <p>Students can add reminders before evaluation windows close to avoid missing deadlines.</p>
+              </div>
+            </div>
+            <div class="prototype-feature">
+              <div class="prototype-feature-icon prototype-feature-icon-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="m8.5 11.5 2.2 2.2 4.8-5"/></svg>
+              </div>
+              <div class="prototype-feature-body">
+                <h4>More context around feedback</h4>
+                <p>Students can better understand why evaluations matter and how feedback supports course improvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="prototype-device-wrap">
+          <div class="prototype-device-glow" aria-hidden="true"></div>
+          <div class="prototype-device-shadow" aria-hidden="true"></div>
+          <div class="proto-device" aria-label="Embedded mobile prototype">
+            <div class="phone-stage">
+              <div class="side-button action-button" aria-hidden="true"></div>
+              <div class="side-button volume-up" aria-hidden="true"></div>
+              <div class="side-button volume-down" aria-hidden="true"></div>
+              <div class="side-button power-button" aria-hidden="true"></div>
+              <div class="iphone-shell">
+                <div class="status-area" aria-hidden="true">
+                  <div class="status-time">9:41</div>
+                  <div class="dynamic-island"></div>
+                  <div class="status-icons" aria-hidden="true">
+                    <div class="cellular">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="wifi">
+                      <span class="wifi-dot"></span>
+                    </div>
+                    <div class="battery"></div>
+                  </div>
+                </div>
+                <div class="screen-wrapper">
+                  <iframe class="iphone-screen" src="prototype/acc-eval-modern.html" title="ACC course evaluation mobile prototype"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes-section" id="outcomes-section">
+  <div class="outcomes-inner">
+    <div class="step-tag">Outcomes</div>
+    <p class="outcomes-statement">This work gave me a stronger understanding of how UX decisions influence user behavior while aligning with organizational goals.</p>
+    <div class="outcomes-card-grid">
+      <div class="reflection-card"><h4>Continuous collaboration improves outcomes</h4><p>Collaborating with stakeholders reinforced the importance of balancing organizational goals with user needs throughout the design process.</p></div>
+      <div class="reflection-card"><h4>Behavior is shaped by clarity and context</h4><p>The project strengthened my understanding of how user follow-through is influenced by cognitive effort and communication clarity&mdash;not just interface aesthetics.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="float-nav" role="navigation" aria-label="Case study sections">
+  <div class="nav-items">
+    <a class="nav-item" href="#research-section">Research</a>
+    <a class="nav-item" href="#v1-concept-section">V1 Concept</a>
+    <a class="nav-item" href="#v2-redesign-section">V2 Redesign</a>
+    <a class="nav-item" href="#prototype-section">Prototype</a>
+    <a class="nav-item" href="#outcomes-section">Outcomes</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-head">Let's build something<br>awesome together.</div>
+  <a class="f-btn" href="mailto:joe@example.com">Get in touch &rarr;</a>
+  <div class="f-social"><a href="#">LinkedIn</a><a href="#">Twitter / X</a><a href="#">Instagram</a></div>
+  <div class="copy">&copy; 2026 Joe Reyes</div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script src="js/acc-case-study.js"></script>
+</body>
+</html>

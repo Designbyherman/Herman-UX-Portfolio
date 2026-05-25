@@ -1,0 +1,1777 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Evaluation – ACC</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:         #0e0e14;
+  --ink-soft:    #1e1e28;
+  --surface:     #f5f5f4;
+  --card:        #fafaf9;
+  --border:      rgba(0,0,0,0.07);
+  --border-mid:  rgba(0,0,0,0.12);
+  --plum:        #2d0f5e;
+  --plum-mid:    #4a1d96;
+  --plum-soft:   #7c3aed;
+  --plum-pale:   #f0ebff;
+  --plum-glow:   rgba(124,58,237,0.12);
+  --amber:       #d97706;
+  --amber-light: #f59e0b;
+  --amber-pale:  #fffbeb;
+  --muted:       #4b5563;
+  --faint:       #6b7280;
+  --white:       #ffffff;
+  --green:       #065f46;
+  --green-bg:    #ecfdf5;
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Sora', sans-serif;
+  --radius:       12px;
+  --radius-sm:    8px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 430px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+
+
+/* HERO QUOTE */
+.hero-quote {
+  background-image: url('../assets/images/designbyherman_A_college_student_standing_on_a_modern_communi_7d22ec19-2440-427b-b16f-5a33ec5d236b_0.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 320px;
+  padding: 28px 24px 28px;
+  position: relative;
+  overflow: hidden;
+  margin: 12px 16px 0;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.hero-quote::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.35) 40%,
+    rgba(0,0,0,0.65) 100%
+  );
+  z-index: 0;
+}
+.hero-orb { display: none; }
+.quote-glyph {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 0.5;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 6px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.hero-quote blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
+}
+.hero-quote cite {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: rgba(255,255,255,0.8);
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+}
+
+/* SHARED CARD */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+
+/* WHY IT MATTERS */
+.why-card {
+  margin: 12px 16px 0;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+}
+.why-card h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+.why-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: gap .15s;
+}
+.text-link:hover { gap: 7px; }
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+.sel-btn:focus-visible,
+.sheet-close:focus-visible {
+  outline: 2px solid var(--plum-soft);
+  outline-offset: 3px;
+}
+
+/* CTA CARD */
+.cta-card {
+  margin: 12px 16px 0;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+}
+.cta-card h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  letter-spacing: -0.4px;
+}
+.cta-meta {
+  font-size: 13px;
+  color: var(--faint);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--faint); }
+.btn-primary {
+  display: block;
+  width: 100%;
+  background: #2d0f5e;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background .2s, box-shadow .2s, transform .1s;
+  outline: none;
+  letter-spacing: 0.1px;
+}
+.btn-primary:hover { background: var(--plum-mid); }
+.btn-primary:active { transform: scale(0.99); }
+.btn-primary.success { background: var(--green); }
+.ghost-link {
+  background: none; border: none; padding: 0;
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .15s;
+}
+.ghost-link:hover { color: var(--ink); }
+
+/* SCHEDULING CARD */
+.sched-card {
+  margin: 12px 16px 0;
+  padding: 0;
+  overflow: visible;
+}
+.sched-inner {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+}
+.sched-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 5px;
+}
+.sched-inner h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+  letter-spacing: -0.2px;
+}
+.sched-sub { font-size: 14px; color: #344054; line-height: 1.5; margin-bottom: 0px; }
+
+.step-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.step-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  flex-shrink: 0;
+  transition: all .25s;
+}
+.step-num.on { background: var(--plum); color: white; }
+.step-num.off { background: transparent; color: var(--faint); border: 1.5px solid var(--faint); }
+.step-lbl { font-size: 14px; font-weight: 600; transition: color .25s; min-height: 1.4em; }
+.step-lbl:empty { visibility: hidden; }
+.step-lbl.on { color: var(--ink); }
+.step-lbl.off { color: var(--faint); }
+
+.sel-chevron { font-size: 12px; color: var(--faint); transition: transform .2s; }
+.sel-chevron.open { transform: rotate(180deg); }
+.sel-pill {
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-left: 6px;
+}
+
+.step-vline { width: 1px; height: 16px; background: var(--border); margin: 4px 0 4px 12px; }
+
+.step-detail { margin: 0 0 12px 34px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.step-detail:empty { margin: 0; }
+.step-detail strong { color: var(--ink); font-weight: 600; }
+
+.btn-cal {
+  display: block; width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 600;
+  text-align: center;
+  padding: 13px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: all .2s;
+}
+.btn-cal.off { background: var(--surface); color: var(--faint); cursor: not-allowed; }
+.btn-cal.on  { background: var(--plum); color: white; }
+.btn-cal.on:hover { background: var(--plum-mid); }
+.btn-cal.done { background: var(--green-bg); color: var(--green); cursor: default; }
+.cal-helper { font-size: 11px; color: var(--faint); text-align: left; padding: 9px 0 0; line-height: 1.5; }
+.cal-helper.on { color: var(--muted); }
+
+/* OVERLAY + SHEETS */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 500; pointer-events: none;
+  transition: background .3s;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+.overlay.open {
+  background: rgba(14,14,20,0.55);
+  pointer-events: all;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.sheet {
+  position: fixed; bottom: 0; left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 100%; max-width: 430px;
+  background: var(--card);
+  z-index: 600;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform .38s cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 88vh;
+  display: flex; flex-direction: column;
+}
+.sheet.open { transform: translateX(-50%) translateY(0); }
+.sheet-handle-row { display: flex; justify-content: center; padding: 12px 0 6px; flex-shrink: 0; }
+.sheet-handle { width: 32px; height: 4px; background: var(--border-mid); border-radius: 2px; }
+.sheet-hd { padding: 4px 22px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.sheet-hd-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; letter-spacing: -0.2px; }
+.sheet-hd-sub { font-size: 12px; color: var(--muted); }
+.sheet-hd-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.sheet-close { background: none; border: none; width: 28px; height: 28px; border-radius: 50%; background: var(--surface); color: var(--muted); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-top: 4px; flex-shrink: 0; transition: background .15s; outline: none; }
+.sheet-close:hover { background: var(--border); }
+.sheet-body {
+  position: relative;
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(88vh - 180px);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75,85,99,0.35) transparent;
+  padding-right: 8px;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+.sheet-body::-webkit-scrollbar {
+  width: 4px;
+}
+.sheet-body::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.sheet-body::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 4px;
+  margin-bottom: 28px;
+}
+.sheet-body::-webkit-scrollbar-thumb {
+  background: rgba(75,85,99,0.32);
+  border-radius: 999px;
+}
+.sheet-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(75,85,99,0.45);
+}
+.sheet-foot { padding: 12px 20px 24px; border-top: 1px solid var(--border); flex-shrink: 0; }
+.btn-confirm {
+  display: block; width: 100%;
+  background: var(--plum); color: white;
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 600;
+  text-align: center; padding: 14px;
+  border: none; border-radius: var(--radius-sm);
+  cursor: pointer; outline: none;
+  transition: background .2s;
+}
+.btn-confirm:hover { background: var(--plum-mid); }
+.btn-confirm:disabled { background: var(--surface); color: var(--faint); cursor: not-allowed; }
+
+.sheet-opt {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .12s;
+}
+.sheet-opt:last-child { border-bottom: none; }
+.sheet-opt:hover { background: var(--surface); }
+.sheet-opt.picked { background: var(--surface); }
+.radio-ring {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--faint);
+  position: relative;
+  flex: 0 0 20px;
+  display: block;
+  transition: border-color .2s;
+}
+.sheet-opt.picked .radio-ring { border-color: var(--plum-soft); }
+.radio-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--plum-soft);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+  transform-origin: center center;
+  transition: opacity .18s, transform .18s;
+}
+.sheet-opt.picked .radio-fill { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.opt-body { flex: 1; min-width: 0; }
+.opt-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.opt-label { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.25; }
+.sheet-opt .opt-body > .opt-label { margin-bottom: 10px; }
+.opt-status { flex: 0 0 auto; padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; line-height: 1.2; color: var(--muted); background: var(--surface); border: 1px solid var(--border); }
+.opt-status--open { color: var(--green); background: var(--green-bg); border-color: rgba(6,95,70,0.12); }
+.opt-status--upcoming { color: var(--plum-mid); background: var(--plum-pale); border-color: rgba(74,29,150,0.12); }
+.opt-status--past { color: var(--faint); background: #f3f4f6; border-color: rgba(107,114,128,0.14); }
+.opt-status--info { padding: 2px 6px; font-size: 9.5px; }
+.opt-meta { display: flex; flex-direction: column; gap: 3px; }
+.opt-meta-item { display: grid; grid-template-columns: 86px minmax(0,1fr); align-items: baseline; gap: 8px; }
+.opt-meta-key { font-size: 9px; font-weight: 700; line-height: 1.2; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+.opt-meta-val { min-width: 94px; font-size: 12px; font-weight: 600; line-height: 1.2; color: var(--muted); font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; white-space: nowrap; }
+.sheet-opt.picked .opt-meta-val { color: var(--ink); }
+
+/* DROPDOWN TRIGGER */
+.sel-btn {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--border-mid);
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  min-height: 46px;
+  margin-bottom: 0;
+}
+.sel-btn.filled {
+  color: var(--ink);
+  border-color: var(--border-mid);
+  border-color: var(--border-mid);
+}
+.sel-btn:focus { border-color: var(--border-mid); }
+.sel-btn.filled + .sel-strip { }
+
+/* SPLIT DISPLAY STRIP */
+.sel-strip {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  background: #f5f5f4;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.strip-cell { padding: 10px 14px 12px; }
+.strip-divider { background: var(--border); margin: 10px 0; }
+.strip-key {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 4px;
+}
+.strip-val {
+  min-width: 104px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+  transition: color .2s;
+}
+.strip-val.filled { color: var(--ink); }
+.info-row { padding: 14px 22px; border-bottom: 1px solid var(--border); }
+.info-row:last-child { border-bottom: none; }
+.info-row-label { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.info-val { color: var(--ink) !important; }
+
+/* BB MOCK */
+.bb-wrap { margin: 12px 16px 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+.bb-wrap h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.2px; }
+.bb-wrap .section-sub { font-size: 14px; color: #344054; margin-bottom: 14px; }
+.bb-mock-frame {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.bb-image { display: block; width: 100%; height: auto; }
+.bb-image {
+  cursor: zoom-in;
+  transition: transform .15s ease;
+}
+
+.bb-image:hover {
+  transform: scale(1.02);
+}
+.bb-chrome { background: #1a1a2e; padding: 10px 14px; display: flex; align-items: center; gap: 6px; }
+.bb-dot { width: 8px; height: 8px; border-radius: 50%; }
+.bb-dot-r { background: #ff5f57; }
+.bb-dot-y { background: #febc2e; }
+.bb-dot-g { background: #28c840; }
+.bb-chrome-title { font-size: 11px; color: rgba(255,255,255,0.5); flex: 1; text-align: center; }
+.bb-chrome-badge { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+.bb-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.bb-row:last-child { border-bottom: none; }
+.bb-icon-wrap {
+  width: 30px; height: 30px;
+  background: var(--plum-pale);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.bb-icon-wrap svg { width: 14px; height: 14px; }
+.bb-row-info { flex: 1; min-width: 0; }
+.bb-course { font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bb-meta { font-size: 11px; color: var(--muted); }
+.bb-status {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 99px; flex-shrink: 0;
+}
+.bb-pending { background: var(--plum-pale); color: var(--plum-soft); }
+.bb-submitted { background: var(--green-bg); color: var(--green); }
+.bb-soon { background: var(--amber-pale); color: var(--amber); }
+.bb-callout-strip {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--plum-pale);
+  border-top: 1px solid rgba(124,58,237,0.1);
+}
+.bb-callout {
+  display: flex; align-items: flex-start; gap: 7px;
+  padding: 10px 14px;
+  border-right: 1px solid rgba(124,58,237,0.1);
+}
+.bb-callout:last-child { border-right: none; }
+.bb-callout svg { width: 13px; height: 13px; flex-shrink: 0; color: var(--muted); margin-top: 1px; }
+.bb-callout-txt { font-size: 11px; color: var(--muted); line-height: 1.4; font-weight: 500; }
+.bb-caption { padding: 8px 16px 8px; font-size: 11px; color: var(--faint); text-align: left; font-style: normal; }
+
+/* VIDEO */
+.video-wrap { margin: 12px 16px 0; }
+.video-wrap h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.2px; }
+.video-wrap .section-sub { font-size: 14px; color: #344054; margin-bottom: 14px; }
+.video-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.video-thumb {
+  position: relative; aspect-ratio: 16/9;
+  background: linear-gradient(135deg, rgba(14,14,20,0.55) 0%, rgba(45,15,94,0.45) 50%, rgba(74,29,150,0.35) 100%), url('https://img.youtube.com/vi/AaIOGtZqBgA/hqdefault.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  outline: none;
+}
+.video-thumb:focus { box-shadow: inset 0 0 0 2px rgba(255,255,255,0.7); }
+.video-thumb[data-video-loaded="true"] { cursor: default; }
+.video-thumb iframe { width: 100%; height: 100%; border: 0; display: block; }
+.play-btn {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .18s, background .18s;
+}
+.play-btn:hover { transform: scale(1.08); background: white; }
+.play-btn svg { width: 18px; height: 18px; fill: var(--plum); margin-left: 3px; }
+.video-overlay-txt {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 14px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+  font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.8);
+}
+.video-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; gap: 8px;
+}
+.video-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.video-src { font-size: 11px; color: var(--muted); }
+.video-dur {
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  background: var(--surface); padding: 3px 8px;
+  border-radius: 4px; flex-shrink: 0; font-variant-numeric: tabular-nums;
+}
+.video-secondary {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: pointer; text-decoration: none;
+  margin-bottom: 18px;
+  transition: background .15s;
+}
+.video-secondary:hover { background: var(--surface); }
+.video-sec-icon { font-size: 18px; flex-shrink: 0; }
+.video-sec-label { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 1px; }
+.video-sec-sub { font-size: 11px; color: var(--muted); }
+.video-secondary svg { margin-left: auto; color: var(--faint); flex-shrink: 0; }
+
+/* FAQ (inline in section) */
+.faq-list-inline { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+.faq-item-inline { background: var(--card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+
+.faq-trigger-inline {
+  width: 100%; background: none; border: none;
+  padding: 13px 16px; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; cursor: pointer; text-align: left; outline: none; transition: background .12s;
+}
+.faq-trigger-inline:hover { background: var(--surface); }
+.faq-q-inline { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.faq-chev-inline { width: 15px; height: 15px; flex-shrink: 0; color: var(--muted); transition: transform .22s; }
+.faq-item-inline.open .faq-chev-inline { transform: rotate(180deg); }
+.faq-item-inline.open .faq-trigger-inline { background: var(--surface); }
+.faq-ans-inline { display: none; padding: 0 16px 13px; font-size: 14px; color: #344054; line-height: 1.5; }
+.faq-item-inline.open .faq-ans-inline { display: block; }
+
+/* EVAL WINDOWS */
+.windows-wrap { margin: 12px 16px 0; background: var(--card); border-radius: var(--radius); overflow: hidden; padding: 20px 20px 20px; border: 1px solid var(--border); }
+.windows-wrap h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.2px; }
+.windows-wrap .section-sub { font-size: 14px; color: #344054; margin-bottom: 14px; }
+.win-toggle {
+  display: flex;
+  gap: 6px;
+  background: #ededeb;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 16px;
+}
+.win-toggle-opt {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--plum-soft);
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  letter-spacing: -0.1px;
+}
+.win-toggle-opt--active {
+  background: var(--plum-soft);
+  color: #fff;
+}
+.win-toggle-opt:focus-visible {
+  outline: 2px solid var(--plum-soft);
+  outline-offset: 2px;
+}
+.info-term-toggle {
+  display: flex;
+  gap: 6px;
+  background: #ededeb;
+  border-radius: 10px;
+  padding: 4px;
+  margin-top: 12px;
+}
+.info-term-toggle-btn {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--plum-soft);
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  letter-spacing: -0.1px;
+}
+.info-term-toggle-btn--active {
+  background: var(--plum-soft);
+  color: #fff;
+}
+.info-term-toggle-btn:focus-visible {
+  outline: 2px solid var(--plum-soft);
+  outline-offset: 2px;
+}
+.course-term-toggle {
+  display: flex;
+  gap: 6px;
+  background: #ededeb;
+  border-radius: 10px;
+  padding: 4px;
+  margin-top: 12px;
+}
+.course-term-toggle-btn {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--plum-soft);
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  letter-spacing: -0.1px;
+}
+.course-term-toggle-btn--active {
+  background: var(--plum-soft);
+  color: #fff;
+}
+.course-term-toggle-btn:focus-visible {
+  outline: 2px solid var(--plum-soft);
+  outline-offset: 2px;
+}
+.win-banner {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--plum-pale); border-radius: var(--radius-sm);
+  padding: 10px 12px; margin-bottom: 16px;
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+}
+.win-banner svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; color: var(--muted); }
+.wg { margin-bottom: 0; }
+.wg:last-child .ws:last-child { border-bottom: none; }
+.ws {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+}
+.ws-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ws-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.ws-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ws-meta-item {
+  display: grid;
+  grid-template-columns: 86px minmax(0,1fr);
+  align-items: baseline;
+  gap: 8px;
+}
+.ws-meta-key {
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--faint);
+  white-space: nowrap;
+}
+.ws-course,
+.ws-eval {
+  min-width: 94px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+}
+.ws-open-now .ws-course,
+.ws-open-now .ws-eval { color: var(--ink); }
+
+
+/* FORMS */
+.forms-wrap { margin: 12px 16px 0; }
+.forms-wrap h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.2px; }
+.forms-wrap .section-sub { font-size: 14px; color: #344054; margin-bottom: 14px; }
+.forms-group {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  margin-top: 0;
+}
+.forms-card { background: transparent; }
+.forms-card-header { padding: 0 0 8px; }
+.forms-group-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--faint); }
+.forms-list {}
+.forms-row {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 0; text-decoration: none;
+  background: transparent; transition: background .12s; cursor: pointer;
+}
+.forms-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--border);
+}
+.forms-list .forms-row:last-child::after {
+  display: none;
+}
+.forms-row:hover { background: var(--surface); }
+.forms-row-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+.forms-row-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.forms-row-type {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+}
+.forms-row-sep {
+  display: none;
+}
+.form-arrow { width: 9px; height: 9px; color: var(--faint); flex-shrink: 0; }
+.forms-row:hover .form-arrow { color: var(--ink); }
+
+/* FULL FAQ */
+.faq-full-wrap { margin: 12px 16px 0; }
+.faq-full-wrap h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.2px; }
+.faq-full-wrap .section-sub { font-size: 14px; color: #344054; margin-bottom: 14px; }
+.faq-full-group { }
+.faq-full-item { border-bottom: 1px solid var(--border); }
+.faq-full-item:last-child { border-bottom: none; }
+
+.faq-full-trigger {
+  width: 100%; background: none; border: none;
+  padding: 14px 0; display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; cursor: pointer; text-align: left; outline: none; transition: background .12s;
+}
+.faq-full-trigger:hover { background: var(--surface); }
+.faq-full-q { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.faq-full-chev { width: 15px; height: 15px; flex-shrink: 0; color: var(--muted); transition: transform .22s; }
+.faq-full-item.open .faq-full-chev { transform: rotate(180deg); }
+
+.faq-full-body { display: none; padding: 0 0 14px; font-size: 14px; color: #344054; line-height: 1.5; }
+.faq-full-item.open .faq-full-body { display: block; }
+.faq-full-body a { color: var(--ink); font-weight: 500; text-decoration: none; }
+.faq-full-body ol { padding-left: 18px; margin-top: 6px; }
+.faq-full-body ol li { margin-bottom: 7px; }
+
+/* CONTACT */
+.contact-wrap {
+  margin: 12px 16px 24px;
+  background: #2d0f5e;
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  overflow: hidden; position: relative;
+}
+.contact-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 200px; height: 200px;
+  top: -60px; right: -60px;
+  background: none;
+}
+.contact-wrap h2 {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 600; color: white;
+  line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.2px;
+  position: relative; z-index: 1;
+}
+.contact-wrap p { font-size: 14px; color: rgba(255, 255, 255, 0.88); line-height: 1.5; margin-bottom: 20px; position: relative; z-index: 1; }
+.contact-actions { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; }
+.btn-contact-primary {
+  display: block; background: #f59e0b;
+  color: #1a1a1a; font-family: var(--font-body);
+  font-size: 13px; font-weight: 700; text-align: center;
+  padding: 13px 20px; border: none; border-radius: var(--radius-sm);
+  cursor: pointer; text-decoration: none; transition: opacity .15s;
+}
+.btn-contact-primary:hover { opacity: .92; }
+.btn-contact-secondary {
+  display: block; background: #ffffff;
+  color: #2d0f5e; font-family: var(--font-body);
+  font-size: 12px; font-weight: 700; text-align: center;
+  padding: 11px 20px; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+  transition: opacity .15s;
+}
+.btn-contact-secondary:hover { opacity: .92; }
+.contact-link-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  position: relative; z-index: 1;
+}
+.contact-link-btn {
+  display: flex; align-items: center; justify-content: center;
+  background: #ffffff; color: #2d0f5e;
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  text-align: center; padding: 9px 6px; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+  transition: opacity .15s; min-height: 38px;
+}
+.contact-link-btn:hover { opacity: .92; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-quote  { animation: fadeUp .4s ease both; }
+.why-card    { animation: fadeUp .4s .06s ease both; }
+.cta-card    { animation: fadeUp .4s .1s  ease both; }
+.sched-card  { animation: fadeUp .4s .14s ease both; }
+#triggerText { flex: 1; text-align: left; }
+.sel-trigger-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  align-self: center;
+  min-width: 0;
+}
+.sel-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-right: auto;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+.sel-chip[hidden],
+#triggerText[hidden] {
+  display: none;
+}
+.sel-chip-text {
+  color: var(--ink);
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sel-chip-clear {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--faint);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color .15s;
+}
+.sel-chip-clear:hover,
+.sel-chip-clear:focus {
+  color: var(--muted);
+  outline: none;
+}
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<!-- HERO QUOTE -->
+<section class="hero-quote">
+  <div style="position:relative;z-index:1;">
+    <blockquote>I didn't think one survey could matter. Turns out it does.</blockquote>
+    <cite>— Chase J., Pre-Med Student</cite>
+  </div>
+</section>
+
+<div id="infoFlowAnchor"></div>
+
+<!-- COMBINED WHY + CTA CARD -->
+<div class="card why-card">
+
+  <!-- Zone 1: Motivation -->
+  <h2>Your opinion matters</h2>
+  <p style="font-size:14px;color:#344054;line-height:1.5;margin-bottom:8px;">Student feedback helps instructors develop, modify, and improve their courses for future students like you.</p>
+  <a href="#" class="text-link" style="display:inline-block;margin-bottom:0;">Learn more</a>
+
+  <!-- Divider -->
+  <div style="height:1px;background:rgba(0,0,0,0.12);margin:20px 0;"></div>
+
+  <!-- Zone 2: Readiness checkpoint -->
+  <p style="font-size:14px;line-height:1.5;color:#344054;margin-bottom:16px;">First, check your course dates and evaluation window. If open, start your evaluation below.</p>
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:20px;">
+    <a href="#" onclick="openInfoSheet();return false;"
+      style="display:inline-flex;align-items:center;gap:6px;background:#f0ebff;color:#4a1d96;font-size:13px;font-weight:600;padding:8px 16px;border-radius:40px;text-decoration:none;transition:background .15s,transform .15s;"
+      onmouseover="this.style.background='#e0d6fa';this.style.transform='scale(0.97)'"
+      onmouseout="this.style.background='#f0ebff';this.style.transform='scale(1)'">
+      Check dates
+    </a>
+  </div>
+
+  <!-- Zone 3: Primary action -->
+  <button class="btn-primary" id="btnStart" onclick="handleStart()">Start my evaluation</button>
+  <p style="font-size:11px;color:var(--faint);line-height:1.5;margin-top:8px;margin-bottom:0;padding-top:8px;border-top:none;">Opens Blackboard, where you'll log in and choose your course evaluation.</p>
+
+</div>
+
+<!-- SCHEDULING CARD -->
+<div class="sched-card">
+  <div class="sched-inner">
+    <h3>Never miss your evaluation dates</h3>
+    <p class="sched-sub">Choose the option that matches your course schedule, then add a reminder to your calendar.</p>
+
+    <div class="step-row" style="margin-bottom:0;">
+      <div class="step-num on" id="badge1" style="display:none;">1</div>
+      <div class="step-lbl on" id="label1"></div>
+    </div>
+
+    <!-- Trigger button -->
+    <div class="sel-btn" id="selTrigger" role="button" tabindex="0" onclick="openSelSheet()" onkeydown="handleSelTriggerKey(event)">
+      <span class="sel-trigger-content">
+        <span id="triggerText">Choose your course length</span>
+        <span class="sel-chip" id="selectedChip" hidden>
+          <span class="sel-chip-text" id="selectedChipText"></span>
+          <button type="button" class="sel-chip-clear" onclick="clearSelectedCourseLength(event)" aria-label="Clear selected course length">&times;</button>
+        </span>
+        <span class="sel-chevron" id="chevron">&#9660;</span>
+      </span>
+    </div>
+
+    <!-- Split display strip -->
+    <div class="sel-strip" id="selStrip">
+      <div class="strip-cell">
+        <div class="strip-key">COURSE DATES</div>
+        <div class="strip-val" id="stripCourse">–</div>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-cell">
+        <div class="strip-key">EVAL WINDOW</div>
+        <div class="strip-val" id="stripEval">–</div>
+      </div>
+    </div>
+
+
+    <div class="step-row" style="margin-bottom:0;">
+      <div class="step-num off" id="badge2" style="display:none;">2</div>
+      <div class="step-lbl off" id="label2"></div>
+    </div>
+    <p class="step-detail" id="windowDetail"></p>
+    <button class="btn-cal off" id="btnCal" onclick="handleCal()" disabled>Add reminder to calendar</button>
+    <p class="cal-helper" id="helper">We'll add a reminder 3 days before your window closes. You can move it earlier or later in your calendar if needed.</p>
+  </div>
+</div>
+
+<!-- BLACKBOARD MOCK -->
+<div class="bb-wrap card" style="margin: 12px 16px 0; padding: 20px 20px 0;">
+  <h3>Where to find your course evaluations in Blackboard</h3>
+  <p class="section-sub" style="font-size:14px;color:#344054;line-height:1.5;margin-bottom:14px;">Open Blackboard and select “Course Evaluations” from the left-hand menu.</p>
+  <div class="bb-mock-frame">
+    <a href="../assets/images/StudentBbPanel-768x358.webp" target="_blank" rel="noopener">
+      <img class="bb-image" src="../assets/images/StudentBbPanel-768x358.webp" width="768" height="358" alt="Student Evaluation Panel in Blackboard">
+    </a>
+    <div class="bb-caption">Example: Student Evaluation Panel in Blackboard (click to expand)</div>
+  </div>
+</div>
+
+<!-- VIDEO + FAQ -->
+<div class="video-wrap">
+  <div class="video-card">
+    <div class="video-thumb" role="button" tabindex="0" aria-label="Play Course Evaluations with R.B. video" onclick="playMainVideo()" onkeydown="handleVideoKey(event)">
+      <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+      <div class="video-overlay-txt">Course Evaluations with R.B. – Spring 2026</div>
+    </div>
+    <div class="video-meta">
+      <div>
+        <div class="video-title">Course Evaluations with R.B.</div>
+        <div class="video-src">ACC Teaching &amp; Learning Excellence</div>
+      </div>
+      <div class="video-dur">4:32</div>
+    </div>
+  </div>
+  <a href="https://youtu.be/swAc1jas5cc" target="_blank" rel="noopener" class="text-link" style="display:inline-block;margin-bottom:18px;">Watch in Spanish</a>
+  <div class="faq-list-inline">
+    <div class="faq-item-inline open">
+      <button class="faq-trigger-inline" onclick="newToggleFaq(this)">
+        <span class="faq-q-inline">When do I submit my evaluations?</span>
+        <svg class="faq-chev-inline" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-ans-inline">Evaluation windows vary by course length. Find your course type in the Evaluation Windows section below, then check your open window dates.</div>
+    </div>
+    <div class="faq-item-inline">
+      <button class="faq-trigger-inline" onclick="newToggleFaq(this)">
+        <span class="faq-q-inline">How do I submit my evaluations?</span>
+        <svg class="faq-chev-inline" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-ans-inline">Log into Blackboard, navigate to "Course Evaluations" in the left sidebar, and select the evaluation for the course you want to review. Takes about 5 minutes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- EVALUATION WINDOWS -->
+<div class="windows-wrap">
+  <h3>Evaluation windows</h3>
+  <p class="section-sub">See your course dates and when evaluations are open.</p>
+  <div class="win-toggle" role="group" aria-label="Select semester">
+    <button class="win-toggle-opt win-toggle-opt--active" data-season="spring" onclick="switchWinSeason('spring')">Spring 2026</button>
+    <button class="win-toggle-opt" data-season="summer" onclick="switchWinSeason('summer')">Summer 2026</button>
+  </div>
+  <div id="win-rows"></div>
+</div>
+
+<!-- FORMS DIRECTORY -->
+<div class="card" style="margin: 12px 16px 0; padding: 20px 20px 12px;">
+  <h3 style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:3px;letter-spacing:-0.2px;">Course evaluation forms</h3>
+  <p class="section-sub" style="font-size:14px;color:#344054;line-height:1.5;margin-bottom:16px;">Use these forms if your evaluation isn't available in Blackboard.</p>
+
+  <div class="forms-group">
+    <div class="forms-card">
+      <div class="forms-card-header"><div class="forms-group-label">Academic Programs</div></div>
+      <div class="forms-list">
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">C_CLINICAL</div><div class="forms-row-type">Clinical</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Cooperative</div><div class="forms-row-type">Cooperative</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Practicum</div><div class="forms-row-type">Practicum</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Internship</div><div class="forms-row-type">Internship</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Lab_Asynchronous</div><div class="forms-row-type">ONL/HYD with lab</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Lab_Synchronous</div><div class="forms-row-type">F2F/HYC/HYFLX/DLS with lab</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">LecLab_Asynchronous</div><div class="forms-row-type">ONL/HYD with lab and lecture</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">LecLab_Synchronous</div><div class="forms-row-type">F2F/HYC/HYFLX/DLS with lab and lecture</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Lec_Asynchronous</div><div class="forms-row-type">ONL/HYD</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">Lec_Synchronous</div><div class="forms-row-type">F2F/HYC/HYFLX/DLS</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin: 12px 16px 0; padding: 20px 20px 12px;">
+  <div class="forms-group">
+    <div class="forms-card">
+      <div class="forms-card-header"><div class="forms-group-label">Adult Education</div></div>
+      <div class="forms-list">
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">AE Career Pathway</div><div class="forms-row-type">Career Pathways</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">AE College Prep</div><div class="forms-row-type">College Prep</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">AE ESL RW</div><div class="forms-row-type">ESL Reading and Writing</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">AE ESL Basic</div><div class="forms-row-type">Adult Education ESL Basic</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">AE HSE</div><div class="forms-row-type">High School Equivalency</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin: 12px 16px 0; padding: 20px 20px 12px;">
+  <div class="forms-group">
+    <div class="forms-card">
+      <div class="forms-card-header"><div class="forms-group-label">Continuing Education</div></div>
+      <div class="forms-list">
+        <a class="forms-row" href="#"><div class="forms-row-main"><div class="forms-row-name">CE Evaluation Form</div><div class="forms-row-type">Continuing Education courses</div></div><svg class="form-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 2l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL FAQ -->
+<div class="card" style="margin: 12px 16px 0; padding: 20px 20px 12px;">
+  <h3 style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:3px;letter-spacing:-0.2px;">Frequently asked questions</h3>
+  <p class="section-sub" style="font-size:14px;color:#344054;line-height:1.5;margin-bottom:16px;">Common questions about course evaluations.</p>
+  <div class="faq-full-group" style="border-top: 1px solid var(--border);">
+    <div class="faq-full-item open">
+      <button class="faq-full-trigger" onclick="toggleFaq(this)"><span class="faq-full-q">I selected 'Course Evaluation' in Blackboard but don't see the survey.</span><svg class="faq-full-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg></button>
+      <div class="faq-full-body">This is likely because the survey is not open yet. Check the evaluation windows above to see if your survey is currently open. If it is during your survey period and you still don't see it, contact <a href="#">facultyevaluation@austincc.edu</a> – our staff will look into it.</div>
+    </div>
+    <div class="faq-full-item">
+      <button class="faq-full-trigger" onclick="toggleFaq(this)"><span class="faq-full-q">Why can't I see the labels (e.g. Strongly Disagree, Agree…) on some questions?</span><svg class="faq-full-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg></button>
+      <div class="faq-full-body">This can be caused by settings on your mobile device. We strongly suggest switching to another device or browser. Most questions follow: Strongly disagree &rarr; Disagree &rarr; Neither &rarr; Agree &rarr; Strongly agree &rarr; Not Applicable.</div>
+    </div>
+    <div class="faq-full-item">
+      <button class="faq-full-trigger" onclick="toggleFaq(this)"><span class="faq-full-q">What do I do if I miss the survey window?</span><svg class="faq-full-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg></button>
+      <div class="faq-full-body">We're unable to extend surveys – doing so affects all students in the course. You can still share feedback directly with your instructor or department chair via the <a href="#">ACC directory</a>.</div>
+    </div>
+    <div class="faq-full-item">
+      <button class="faq-full-trigger" onclick="toggleFaq(this)"><span class="faq-full-q">What do we achieve by participating in course evaluation surveys?</span><svg class="faq-full-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg></button>
+      <div class="faq-full-body">Student feedback helps instructors develop, modify, and improve their courses. Departments use evaluation results when assessing teaching effectiveness – your input directly shapes education quality at ACC.</div>
+    </div>
+    <div class="faq-full-item">
+      <button class="faq-full-trigger" onclick="toggleFaq(this)"><span class="faq-full-q">What do I do if I don't see the course evaluation link in Blackboard?</span><svg class="faq-full-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6l4 4 4-4"/></svg></button>
+      <div class="faq-full-body">The instructor hasn't added the link yet. Ask them to follow the <a href="#">video tutorial</a>. Alternatively, use the direct forms in the Course Evaluation Forms section above.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap">
+  <div class="contact-orb"></div>
+  <h2>Need help with your evaluation?</h2>
+  <p>Need help accessing your evaluation or finding your survey? We can help.</p>
+  <div class="contact-actions">
+    <a href="mailto:facultyevaluation@austincc.edu" class="btn-contact-primary">Email our team</a>
+    <a href="#" class="btn-contact-secondary">Visit the help center</a>
+  </div>
+  <div class="contact-link-row">
+    <a href="#" class="contact-link-btn">Student News</a>
+    <a href="#" class="contact-link-btn">Events</a>
+    <a href="#" class="contact-link-btn">Student Beat</a>
+  </div>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- SHEET: Course Length Selector -->
+<div class="sheet" id="selSheet">
+  <div class="sheet-handle-row"><div class="sheet-handle"></div></div>
+  <div class="sheet-hd">
+    <div class="sheet-hd-row">
+      <div>
+        <div class="sheet-hd-title">Select course length</div>
+        <div class="sheet-hd-sub">Select the option that matches your course start and end dates</div>
+      </div>
+      <button class="sheet-close" onclick="closeAll()" aria-label="Close course length selector">×</button>
+    </div>
+    <div class="course-term-toggle" role="group" aria-label="Select term">
+      <button class="course-term-toggle-btn course-term-toggle-btn--active" data-term="spring" onclick="switchCourseSelectorTerm('spring')">Spring 2026</button>
+      <button class="course-term-toggle-btn" data-term="summer" onclick="switchCourseSelectorTerm('summer')">Summer 2026</button>
+    </div>
+  </div>
+  <div class="sheet-body" id="selSheetBody"></div>
+  <div class="sheet-foot">
+    <button class="btn-confirm" id="btnConfirm" onclick="confirmSel()" disabled>Confirm</button>
+  </div>
+</div>
+
+<!-- SHEET: Info (evaluation dates overview) -->
+<div class="sheet" id="infoSheet">
+  <div class="sheet-handle-row"><div class="sheet-handle"></div></div>
+  <div class="sheet-hd">
+    <div class="sheet-hd-row">
+      <div>
+        <div class="sheet-hd-title">Evaluation windows</div>
+        <div class="sheet-hd-sub">Select a term to view course evaluation dates.</div>
+      </div>
+      <button class="sheet-close" onclick="closeAll()" aria-label="Close evaluation windows">×</button>
+    </div>
+    <div class="info-term-toggle" role="group" aria-label="Select term">
+      <button class="info-term-toggle-btn info-term-toggle-btn--active" data-term="spring" onclick="switchInfoSheetTerm('spring')">Spring 2026</button>
+      <button class="info-term-toggle-btn" data-term="summer" onclick="switchInfoSheetTerm('summer')">Summer 2026</button>
+    </div>
+  </div>
+  <div class="sheet-body" id="infoSheetBody"></div>
+</div>
+
+<script>
+const COURSE_OPTIONS = {
+  spring: [
+    { id:'w1',  label:'1-week',  course:'Jan 06 – Feb 13',  eval:'Feb 09 – Feb 16',  status:'past',     note:'Window opens Feb 09.' },
+    { id:'w4a', label:'4-week',  course:'Jan 26 – Feb 22', eval:'Feb 16 – Feb 23', status:'past',     note:'Window opens Feb 16.' },
+    { id:'w4b', label:'4-week',  course:'Feb 23 – Mar 22', eval:'Mar 16 – Mar 23', status:'past',     note:'Window opens Mar 16.' },
+    { id:'w4c', label:'4-week',  course:'Mar 23 – Apr 19', eval:'Apr 13 – Apr 20', status:'past',     note:'Window opens Apr 13.' },
+    { id:'w4d', label:'4-week',  course:'Apr 20 – May 17', eval:'May 11 – May 18', status:'upcoming', note:'Window opens May 11.' },
+    { id:'w5',  label:'5-week',  course:'Feb 02 – Mar 08',   eval:'Mar 02 – Mar 09',   status:'past',     note:'Window opens Mar 02.' },
+    { id:'w8a', label:'8-week', course:'Jan 20 – Mar 15', eval:'Feb 23 – Mar 09',  status:'past', note:'Window opens Feb 23.' },
+    { id:'w8b', label:'8-week', course:'Mar 23 – May 17', eval:'Apr 27 – May 11', status:'open', note:'Window opens Apr 27.' },
+    { id:'w10a',label:'10-week', course:'Jan 20 – Apr 05',  eval:'Mar 16 – Mar 30', status:'past',     note:'Window opens Mar 16.' },
+    { id:'w10b',label:'10-week', course:'Feb 16 – May 03',  eval:'Apr 13 – Apr 27', status:'past',     note:'Window opens Apr 13.' },
+    { id:'w12a',label:'12-week', course:'Jan 20 – Apr 19', eval:'Mar 30 – Apr 13', status:'past',     note:'Window opens Mar 30.' },
+    { id:'w12b',label:'12-week', course:'Feb 16 – May 17', eval:'Apr 27 – May 11', status:'open',     note:'Window opens Apr 27.' },
+    { id:'w14', label:'14-week', course:'Feb 02 – May 17',  eval:'Apr 27 – May 11', status:'open',     note:'Window opens Apr 27.' },
+    { id:'w16', label:'16-week', course:'Jan 20 – May 17', eval:'Apr 27 – May 11', status:'open',     note:'Window opens Apr 27.' },
+    { id:'w17', label:'15-week', course:'Jan 12 – May 17', eval:'Apr 27 – May 11', status:'open',     note:'Window opens Apr 27.' },
+  ],
+  summer: [
+    { id:'sum4',  label:'4-week',  course:'Jul 27 – Aug 20', eval:'Aug 17 – Aug 24', status:'upcoming', note:'Window opens Aug 17.' },
+    { id:'sum5a', label:'5-week',  course:'May 26 – Jun 28', eval:'Jun 22 – Jun 29', status:'upcoming', note:'Window opens Jun 22.' },
+    { id:'sum5b', label:'5-week',  course:'Jun 01 – Jul 05',   eval:'Jun 29 – Jul 06',  status:'upcoming', note:'Window opens Jun 29.' },
+    { id:'sum5c', label:'5-week',  course:'Jul 06 – Aug 09',   eval:'Aug 03 – Aug 10',  status:'upcoming', note:'Window opens Aug 03.' },
+    { id:'sum6a', label:'6-week',  course:'May 26 – Jul 05',  eval:'Jun 29 – Jul 06',  status:'upcoming', note:'Window opens Jun 29.' },
+    { id:'sum6b', label:'6-week',  course:'Jun 01 – Jul 12',  eval:'Jul 06 – Jul 13',  status:'upcoming', note:'Window opens Jul 06.' },
+    { id:'sum7',  label:'7-week',  course:'Jun 01 – Jul 19',  eval:'Jun 29 – Jul 13', status:'upcoming', note:'Window opens Jun 29.' },
+    { id:'sum8a', label:'8-week', course:'Jun 01 – Jul 26', eval:'Jul 06 – Jul 20',  status:'upcoming', note:'Window opens Jul 06.' },
+    { id:'sum8b', label:'8-week', course:'Jun 08 – Aug 02',  eval:'Jul 13 – Jul 27', status:'upcoming', note:'Window opens Jul 13.' },
+    { id:'sum9',  label:'9-week',  course:'Jun 01 – Aug 02',   eval:'Jul 13 – Jul 27', status:'upcoming', note:'Window opens Jul 13.' },
+    { id:'sum10', label:'10-week', course:'Jun 01 – Aug 09',   eval:'Jul 20 – Aug 03',  status:'upcoming', note:'Window opens Jul 20.' },
+    { id:'sum11', label:'11-week', course:'May 26 – Aug 09',  eval:'Jul 20 – Aug 03',  status:'upcoming', note:'Window opens Jul 20.' },
+    { id:'sum12', label:'12-week', course:'May 26 – Aug 16', eval:'Jul 27 – Aug 10', status:'upcoming', note:'Window opens Jul 27.' },
+  ],
+};
+
+function getAllCourseOptions() {
+  return COURSE_OPTIONS.spring.concat(COURSE_OPTIONS.summer);
+}
+function getCurrentTermOptions() {
+  return COURSE_OPTIONS[selectedTerm];
+}
+function findCourseOptionById(id) {
+  return getAllCourseOptions().find(function(o) { return o.id === id; });
+}
+function getStatusLabel(status) {
+  return ({ open: 'Open', upcoming: 'Not open yet', past: 'Passed' })[status] || 'Not open yet';
+}
+function getAccessibleCourseLabel(label) {
+  return label + ' course';
+}
+function formatSheetDateRange(range) {
+  return range;
+}
+function getCourseOptionAriaLabel(o) {
+  return getAccessibleCourseLabel(o.label) + '. Course dates ' + o.course + '. Evaluation window ' + o.eval + '. Status: ' + getStatusLabel(o.status) + '.';
+}
+
+let selectedTerm = 'spring';
+let picked = null;
+
+function buildSelSheet() {
+  const body = document.getElementById('selSheetBody');
+  const opts = getCurrentTermOptions();
+  body.innerHTML = opts.map(o => `
+    <div class="sheet-opt${picked===o.id?' picked':''}" data-id="${o.id}" onclick="pickOpt('${o.id}')" aria-label="${getCourseOptionAriaLabel(o)}">
+      <div class="radio-ring"><div class="radio-fill"></div></div>
+      <div class="opt-body">
+        <div class="opt-head">
+          <div class="opt-label">${o.label}</div>
+          <div class="opt-status opt-status--${o.status}">${getStatusLabel(o.status)}</div>
+        </div>
+        <div class="opt-meta">
+          <div class="opt-meta-item"><div class="opt-meta-key">COURSE DATES</div><div class="opt-meta-val">${formatSheetDateRange(o.course)}</div></div>
+          <div class="opt-meta-item"><div class="opt-meta-key">EVAL WINDOW</div><div class="opt-meta-val">${formatSheetDateRange(o.eval)}</div></div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+const INFO_SHEET_TERMS = {
+  spring: [
+    { label: '1-week',  course: 'Jan 06 – Feb 13',  eval: 'Feb 09 – Feb 16', status: 'past' },
+    { label: '4-week',  course: 'Jan 26 – Feb 22', eval: 'Feb 16 – Feb 23', status: 'past' },
+    { label: '4-week',  course: 'Feb 23 – Mar 22', eval: 'Mar 16 – Mar 23', status: 'past' },
+    { label: '4-week',  course: 'Mar 23 – Apr 19', eval: 'Apr 13 – Apr 20', status: 'past' },
+    { label: '4-week',  course: 'Apr 20 – May 17', eval: 'May 11 – May 18', status: 'upcoming' },
+    { label: '5-week',  course: 'Feb 02 – Mar 08',   eval: 'Mar 02 – Mar 09', status: 'past' },
+    { label: '8-week',  course: 'Jan 20 – Mar 15', eval: 'Feb 23 – Mar 09', status: 'past' },
+    { label: '8-week',  course: 'Mar 23 – May 17', eval: 'Apr 27 – May 11', status: 'open' },
+    { label: '10-week', course: 'Jan 20 – Apr 05',  eval: 'Mar 16 – Mar 30', status: 'past' },
+    { label: '10-week', course: 'Feb 16 – May 03',  eval: 'Apr 13 – Apr 27', status: 'past' },
+    { label: '12-week', course: 'Jan 20 – Apr 19', eval: 'Mar 30 – Apr 13', status: 'past' },
+    { label: '12-week', course: 'Feb 16 – May 17', eval: 'Apr 27 – May 11', status: 'open' },
+    { label: '14-week', course: 'Feb 02 – May 17',  eval: 'Apr 27 – May 11', status: 'open' },
+    { label: '16-week', course: 'Jan 20 – May 17', eval: 'Apr 27 – May 11', status: 'open' },
+    { label: '15-week', course: 'Jan 12 – May 17', eval: 'Apr 27 – May 11', status: 'open' },
+  ],
+  summer: [
+    { label: '4-week',  course: 'Jul 27 – Aug 20', eval: 'Aug 17 – Aug 24', status: 'upcoming' },
+    { label: '5-week',  course: 'May 26 – Jun 28', eval: 'Jun 22 – Jun 29', status: 'upcoming' },
+    { label: '5-week',  course: 'Jun 01 – Jul 05',   eval: 'Jun 29 – Jul 06', status: 'upcoming' },
+    { label: '5-week',  course: 'Jul 06 – Aug 09',   eval: 'Aug 03 – Aug 10', status: 'upcoming' },
+    { label: '6-week',  course: 'May 26 – Jul 05',  eval: 'Jun 29 – Jul 06', status: 'upcoming' },
+    { label: '6-week',  course: 'Jun 01 – Jul 12',  eval: 'Jul 06 – Jul 13', status: 'upcoming' },
+    { label: '7-week',  course: 'Jun 01 – Jul 19',  eval: 'Jun 29 – Jul 13', status: 'upcoming' },
+    { label: '8-week',  course: 'Jun 01 – Jul 26',  eval: 'Jul 06 – Jul 20', status: 'upcoming' },
+    { label: '8-week',  course: 'Jun 08 – Aug 02',   eval: 'Jul 13 – Jul 27', status: 'upcoming' },
+    { label: '9-week',  course: 'Jun 01 – Aug 02',   eval: 'Jul 13 – Jul 27', status: 'upcoming' },
+    { label: '10-week', course: 'Jun 01 – Aug 09',   eval: 'Jul 20 – Aug 03', status: 'upcoming' },
+    { label: '11-week', course: 'May 26 – Aug 09',  eval: 'Jul 20 – Aug 03', status: 'upcoming' },
+    { label: '12-week', course: 'May 26 – Aug 16', eval: 'Jul 27 – Aug 10', status: 'upcoming' },
+  ],
+};
+
+let infoSheetTerm = 'spring';
+
+function buildInfoSheet(term) {
+  term = term || 'spring';
+  const body = document.getElementById('infoSheetBody');
+  const rows = INFO_SHEET_TERMS[term];
+  body.innerHTML = rows.map(o => `
+    <div class="sheet-opt" style="pointer-events:none;">
+      <div class="opt-body">
+        <div class="opt-head">
+          <div class="opt-label">${o.label}</div>
+          <div class="opt-status opt-status--info opt-status--${o.status}">${getStatusLabel(o.status)}</div>
+        </div>
+        <div class="opt-meta">
+          <div class="opt-meta-item"><div class="opt-meta-key">COURSE DATES</div><div class="opt-meta-val">${o.course}</div></div>
+          <div class="opt-meta-item"><div class="opt-meta-key">EVAL WINDOW</div><div class="opt-meta-val">${o.eval}</div></div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function switchInfoSheetTerm(term) {
+  infoSheetTerm = term;
+  document.querySelectorAll('.info-term-toggle-btn').forEach(function(btn) {
+    btn.classList.toggle('info-term-toggle-btn--active', btn.dataset.term === term);
+  });
+  buildInfoSheet(term);
+}
+
+function openSelSheet() {
+  if (picked) {
+    selectedTerm = COURSE_OPTIONS.summer.some(function(o) { return o.id === picked; }) ? 'summer' : 'spring';
+  } else {
+    selectedTerm = 'spring';
+  }
+  document.querySelectorAll('.course-term-toggle-btn').forEach(function(btn) {
+    btn.classList.toggle('course-term-toggle-btn--active', btn.dataset.term === selectedTerm);
+  });
+  buildSelSheet();
+  document.getElementById('btnConfirm').disabled = !picked;
+  document.getElementById('selSheet').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('chevron').classList.add('open');
+}
+
+function switchCourseSelectorTerm(term) {
+  selectedTerm = term;
+  document.querySelectorAll('.course-term-toggle-btn').forEach(function(btn) {
+    btn.classList.toggle('course-term-toggle-btn--active', btn.dataset.term === term);
+  });
+  buildSelSheet();
+  const pickedInThisTerm = getCurrentTermOptions().some(function(o) { return o.id === picked; });
+  document.getElementById('btnConfirm').disabled = !pickedInThisTerm;
+}
+
+function openInfoSheet() {
+  infoSheetTerm = 'spring';
+  document.querySelectorAll('.info-term-toggle-btn').forEach(function(btn) {
+    btn.classList.toggle('info-term-toggle-btn--active', btn.dataset.term === 'spring');
+  });
+  buildInfoSheet('spring');
+  document.getElementById('infoSheet').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeAll() {
+  const selSheet = document.getElementById('selSheet');
+  // if selection sheet was open and nothing is picked, reset the UI
+  if (selSheet.classList.contains('open') && !picked) clearSelection();
+  document.querySelectorAll('.sheet').forEach(s => s.classList.remove('open'));
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('chevron').classList.remove('open');
+}
+
+function pickOpt(id) {
+  // tap again to deselect
+  if (picked === id) {
+    picked = null;
+    document.querySelectorAll('.sheet-opt').forEach(el => el.classList.remove('picked'));
+    document.getElementById('btnConfirm').disabled = true;
+    return;
+  }
+  picked = id;
+  document.querySelectorAll('.sheet-opt').forEach(el => {
+    el.classList.toggle('picked', el.dataset.id === id);
+  });
+  document.getElementById('btnConfirm').disabled = false;
+}
+
+function handleSelTriggerKey(event) {
+  if (event.target.closest('.sel-chip-clear')) return;
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    openSelSheet();
+  }
+}
+
+function setCourseLengthTrigger(label) {
+  const hasSelection = Boolean(label);
+  const triggerText = document.getElementById('triggerText');
+  const selectedChip = document.getElementById('selectedChip');
+  document.getElementById('selectedChipText').textContent = label || '';
+  triggerText.hidden = hasSelection;
+  selectedChip.hidden = !hasSelection;
+}
+
+function clearSelectedCourseLength(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  clearSelection();
+}
+
+function playMainVideo() {
+  const thumb = document.querySelector('.video-thumb');
+  if (!thumb || thumb.dataset.videoLoaded === 'true') return;
+  thumb.dataset.videoLoaded = 'true';
+  thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/AaIOGtZqBgA?autoplay=1" title="Course Evaluations with R.B." allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+  thumb.removeAttribute('role');
+  thumb.removeAttribute('tabindex');
+  thumb.removeAttribute('aria-label');
+  thumb.removeAttribute('onclick');
+  thumb.removeAttribute('onkeydown');
+}
+
+function handleVideoKey(event) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    playMainVideo();
+  }
+}
+
+function confirmSel() {
+  if (!picked) return;
+  const o = findCourseOptionById(picked);
+  if (!o) return;
+  setCourseLengthTrigger(o.label);
+  document.getElementById('selTrigger').classList.add('filled');
+  document.getElementById('stripCourse').textContent = o.course;
+  document.getElementById('stripCourse').classList.add('filled');
+  document.getElementById('stripEval').textContent = o.eval;
+  document.getElementById('stripEval').classList.add('filled');
+  document.getElementById('badge2').className = 'step-num on';
+  document.getElementById('label2').className = 'step-lbl on';
+  document.getElementById('windowDetail').innerHTML = '';
+  const btn = document.getElementById('btnCal');
+  btn.className = 'btn-cal on';
+  btn.disabled = false;
+  document.getElementById('helper').className = 'cal-helper on';
+  closeAll();
+}
+
+function handleCal() {
+  const btn = document.getElementById('btnCal');
+  if (btn.classList.contains('done')) return;
+  btn.className = 'btn-cal done';
+  btn.textContent = '✓ Reminder added';
+  document.getElementById('helper').textContent = 'Check your calendar app – the reminder has been added.';
+  setTimeout(function() {
+    clearSelection();
+    btn.className = 'btn-cal off';
+    btn.textContent = 'Add reminder to calendar';
+    btn.disabled = true;
+    document.getElementById('helper').className = 'cal-helper';
+    document.getElementById('helper').textContent = 'We\'ll add a reminder 3 days before your window closes. You can move it earlier or later in your calendar if needed.';
+  }, 5000);
+}
+
+function handleStart() {
+  const btn = document.getElementById('btnStart');
+  btn.classList.add('success');
+  btn.textContent = '✓ Opening Blackboard…';
+  setTimeout(() => {
+    btn.classList.remove('success');
+    btn.textContent = 'Start my evaluation';
+  }, 2200);
+}
+
+function toggleFaq(trigger) {
+  const item = trigger.closest('.faq-full-item');
+  item.classList.toggle('open');
+}
+
+function newToggleFaq(trigger) {
+  const item = trigger.closest('.faq-item-inline');
+  item.classList.toggle('open');
+}
+
+const WIN_DATA = {
+  spring: [
+    { group: '1-week', rows: [
+      { course: '01/06 – 02/13', eval: '02/09 – 02/16', status: 'past' },
+    ]},
+    { group: '4-week', rows: [
+      { course: '01/26 – 02/22', eval: '02/16 – 02/23', status: 'past' },
+      { course: '02/23 – 03/22', eval: '03/16 – 03/23', status: 'past' },
+      { course: '03/23 – 04/19', eval: '04/13 – 04/20', status: 'past' },
+      { course: '04/20 – 05/17', eval: '05/11 – 05/18', status: 'upcoming' },
+    ]},
+    { group: '5-week', rows: [
+      { course: '02/02 – 03/08', eval: '03/02 – 03/09', status: 'past' },
+    ]},
+    { group: '8-week', rows: [
+      { course: '01/20 – 03/15', eval: '02/23 – 03/09', status: 'past' },
+      { course: '03/23 – 05/17', eval: '04/27 – 05/11', status: 'open' },
+    ]},
+    { group: '10-week', rows: [
+      { course: '01/20 – 04/05', eval: '03/16 – 03/30', status: 'past' },
+      { course: '02/16 – 05/03', eval: '04/13 – 04/27', status: 'past' },
+    ]},
+    { group: '12-week', rows: [
+      { course: '01/20 – 04/19', eval: '03/30 – 04/13', status: 'past' },
+      { course: '02/16 – 05/17', eval: '04/27 – 05/11', status: 'open' },
+    ]},
+    { group: '14-week', rows: [
+      { course: '02/02 – 05/17', eval: '04/27 – 05/11', status: 'open' },
+    ]},
+    { group: '16-week', rows: [
+      { course: '01/20 – 05/17', eval: '04/27 – 05/11', status: 'open' },
+    ]},
+    { group: '15-week', rows: [
+      { course: '01/12 – 05/17', eval: '04/27 – 05/11', status: 'open' },
+    ]},
+  ],
+  summer: [
+    { group: '4-week', rows: [
+      { course: '07/27 – 08/20', eval: '08/17 – 08/24', status: 'upcoming' },
+    ]},
+    { group: '5-week', rows: [
+      { course: '05/26 – 06/28', eval: '06/22 – 06/29', status: 'upcoming' },
+      { course: '06/01 – 07/05', eval: '06/29 – 07/06', status: 'upcoming' },
+      { course: '07/06 – 08/09', eval: '08/03 – 08/10', status: 'upcoming' },
+    ]},
+    { group: '6-week', rows: [
+      { course: '05/26 – 07/05', eval: '06/29 – 07/06', status: 'upcoming' },
+      { course: '06/01 – 07/12', eval: '07/06 – 07/13', status: 'upcoming' },
+    ]},
+    { group: '7-week', rows: [
+      { course: '06/01 – 07/19', eval: '06/29 – 07/13', status: 'upcoming' },
+    ]},
+    { group: '8-week', rows: [
+      { course: '06/01 – 07/26', eval: '07/06 – 07/20', status: 'upcoming' },
+      { course: '06/08 – 08/02', eval: '07/13 – 07/27', status: 'upcoming' },
+    ]},
+    { group: '9-week', rows: [
+      { course: '06/01 – 08/02', eval: '07/13 – 07/27', status: 'upcoming' },
+    ]},
+    { group: '10-week', rows: [
+      { course: '06/01 – 08/09', eval: '07/20 – 08/03', status: 'upcoming' },
+    ]},
+    { group: '11-week', rows: [
+      { course: '05/26 – 08/09', eval: '07/20 – 08/03', status: 'upcoming' },
+    ]},
+    { group: '12-week', rows: [
+      { course: '05/26 – 08/16', eval: '07/27 – 08/10', status: 'upcoming' },
+    ]},
+  ],
+};
+
+function renderWinRows(season) {
+  var container = document.getElementById('win-rows');
+  var groups = WIN_DATA[season];
+  container.innerHTML = groups.map(function(g) {
+    var rowsHtml = g.rows.map(function(r) {
+      var rowClass = 'ws';
+      var statusClass = 'opt-status';
+      var statusLabel = '';
+      if (r.status === 'past') {
+        rowClass += ' ws-closed';
+        statusClass += ' opt-status--past';
+        statusLabel = 'Passed';
+      } else if (r.status === 'open') {
+        rowClass += ' ws-open-now';
+        statusClass += ' opt-status--open';
+        statusLabel = 'Open';
+      } else {
+        statusClass += ' opt-status--upcoming';
+        statusLabel = 'Not open yet';
+      }
+      return '<div class="' + rowClass + '"><div class="ws-head"><div class="ws-title">' + g.group + '</div><div class="' + statusClass + '">' + statusLabel + '</div></div><div class="ws-meta"><div class="ws-meta-item"><div class="ws-meta-key">COURSE DATES</div><div class="ws-course">' + r.course + '</div></div><div class="ws-meta-item"><div class="ws-meta-key">EVAL WINDOW</div><div class="ws-eval">' + r.eval + '</div></div></div></div>';
+    }).join('');
+    return '<div class="wg">' + rowsHtml + '</div>';
+  }).join('');
+}
+
+function switchWinSeason(season) {
+  document.querySelectorAll('.win-toggle-opt').forEach(function(btn) {
+    btn.classList.toggle('win-toggle-opt--active', btn.dataset.season === season);
+  });
+  renderWinRows(season);
+}
+
+renderWinRows('spring');
+
+function clearSelection() {
+  confirmedIdx = null;
+  pendingIdx = null;
+  picked = null;
+  var trig = document.getElementById('selTrigger');
+  trig.classList.remove('filled');
+  setCourseLengthTrigger('');
+  document.getElementById('stripCourse').textContent = '–';
+  document.getElementById('stripCourse').classList.remove('filled');
+  document.getElementById('stripEval').textContent = '–';
+  document.getElementById('stripEval').classList.remove('filled');
+  document.getElementById('badge2').className = 'step-num off';
+  document.getElementById('label2').className = 'step-lbl off';
+  document.getElementById('windowDetail').innerHTML = '';
+  var calBtn = document.getElementById('btnCal');
+  calBtn.className = 'btn-cal off';
+  calBtn.disabled = true;
+  calBtn.textContent = 'Add reminder to calendar';
+  document.getElementById('helper').className = 'cal-helper';
+  document.getElementById('chevron').classList.remove('open');
+  document.getElementById('btnConfirm').disabled = true;
+}
+var prototypeSheetTimer = null;
+var prototypeSheetOpenTimer = null;
+function openPrototypeSheet(sheetName) {
+  window.clearTimeout(prototypeSheetTimer);
+  window.clearTimeout(prototypeSheetOpenTimer);
+  closeAll();
+  prototypeSheetTimer = window.setTimeout(function() {
+    var target = sheetName === 'calendar' ? document.querySelector('.sched-card') : document.getElementById('infoFlowAnchor');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: sheetName === 'calendar' ? 'center' : 'start' });
+    }
+    prototypeSheetOpenTimer = window.setTimeout(function() {
+      if (sheetName === 'info') {
+        openInfoSheet();
+      }
+      if (sheetName === 'calendar') {
+        openSelSheet();
+      }
+    }, 500);
+  }, 100);
+}
+window.openInfoSheet = openInfoSheet;
+window.openSelSheet = openSelSheet;
+window.openPrototypeSheet = openPrototypeSheet;
+</script>
+</body>
+</html>
