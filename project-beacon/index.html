@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Beacon &ndash; Herman Green</title>
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/Navigation.css">
+<link rel="stylesheet" href="../css/acc-case-study.css">
+<style>
+  /* ── Editorial hero ── */
+  .b-hero{padding-top:calc(var(--nav-h) + 56px);background:var(--bg);}
+  .b-copy{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .b-hero-title{font-family:var(--font-display);font-size:clamp(36px,5.5vw,72px);font-weight:700;line-height:0.97;letter-spacing:-0.045em;color:var(--text-primary);margin-bottom:20px;}
+  .b-hero-sub{font-family:var(--font-body);font-size:18px;font-weight:500;color:var(--text-secondary);line-height:1.6;max-width:560px;margin-bottom:0;}
+  .b-full-wrap{max-width:1400px;margin:40px auto 0;padding:0 32px;}
+  .b-full-img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid rgba(17,17,16,0.08);box-shadow:0 16px 56px rgba(17,17,16,0.12),0 3px 10px rgba(17,17,16,0.06);}
+  .b-meta-bar{border-top:1px solid var(--border);margin-top:32px;padding-top:28px;display:flex;flex-direction:column;gap:24px;padding-bottom:72px;}
+  .b-meta-items{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;}
+
+  /* ── Friction flow ── */
+  .friction-section{padding:var(--section-space-xl) 0;background:var(--surface);}
+  .friction-steps-row{display:flex;flex-wrap:wrap;align-items:center;row-gap:10px;margin:36px 0 0;}
+  .friction-step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-primary);}
+  .friction-arrow{padding:0 10px;color:var(--text-tertiary);font-size:16px;line-height:1;}
+  .friction-question{margin-top:20px;padding:14px 18px;background:#fff;border-left:3px solid #c0392b;font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-primary);border-radius:0 8px 8px 0;display:inline-block;max-width:600px;}
+  .friction-compact-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .friction-compact-tag{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--bg);border:1px solid var(--border);color:var(--label);}
+  .friction-support-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px;}
+  .friction-support-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .friction-support-label{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--label);margin-bottom:6px;}
+  .friction-support-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.5;margin:0;}
+
+  /* ── Research full-width + callout ── */
+  .research-section{padding:var(--section-space-xl) 0;background:var(--bg);}
+  .callout-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1400px;margin:28px auto 0;padding:0 32px;}
+  .callout-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+  .callout-label{font-family:var(--font-ui);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--label);margin-bottom:6px;}
+  .callout-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.55;margin:0;}
+
+  /* ── BA stacked full-width panels ── */
+  .ba-section{background:var(--bg);}
+  .ba-full-panel{padding:var(--section-space-xl) 0;}
+  .ba-full-panel+.ba-full-panel{border-top:1px solid var(--border);}
+  .ba-panel-inner{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .ba-full-img-wrap{max-width:1400px;margin:32px auto 0;padding:0 32px;}
+  .ba-full-img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid rgba(17,17,16,0.08);box-shadow:0 8px 32px rgba(17,17,16,0.08),0 2px 6px rgba(17,17,16,0.04);}
+  .ba-desc-list{padding-left:18px;margin:0 0 0;}
+  .ba-desc-list li{font-family:var(--font-body);font-size:16px;font-weight:500;color:var(--text-secondary);line-height:1.6;margin-bottom:5px;}
+
+  /* ── QA cards ── */
+  .qa-section{padding:var(--section-space-xl) 0;background:var(--surface);}
+  .qa-cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px;}
+  .qa-card-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 20px;}
+  .qa-card-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:8px;letter-spacing:-0.01em;}
+  .qa-card-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.55;margin:0;}
+
+  /* ── Final screens stacked ── */
+  .final-section{padding:var(--section-space-xl) 0;background:var(--bg);}
+  .final-screen-item{padding:var(--section-space-md) 0;border-top:1px solid var(--border);}
+  .final-screen-item:first-child{border-top:none;padding-top:0;}
+  .final-screen-meta{max-width:1120px;margin:0 auto 24px;padding:0 32px;}
+  .final-screen-num{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px;}
+  .final-screen-label{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--text-primary);margin-bottom:6px;letter-spacing:-0.02em;}
+  .final-screen-caption{font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--text-secondary);line-height:1.5;margin:0;max-width:600px;}
+
+  /* ── Scroll offsets ── */
+  #problem-section,#research-section,#ba-section,#final-screens-section,#outcomes-section{scroll-margin-top:90px;}
+
+  /* ── Responsive ── */
+  @media(max-width:900px){
+    .callout-grid{grid-template-columns:1fr 1fr;padding:0 24px;}
+    .qa-cards-grid{grid-template-columns:1fr 1fr;}
+    .b-full-wrap,.ba-full-img-wrap{padding:0 24px;}
+    .b-copy{padding:0 24px;}
+    .b-hero-title{font-size:clamp(32px,7vw,52px);}
+    .friction-section .b-copy,.research-section .b-copy,.qa-section .b-copy,.final-section .b-copy{padding:0 24px;}
+    .ba-panel-inner{padding:0 24px;}
+    .final-screen-meta{padding:0 24px;}
+  }
+  @media(max-width:640px){
+    .callout-grid{grid-template-columns:1fr;gap:10px;padding:0 20px;}
+    .qa-cards-grid{grid-template-columns:1fr;gap:12px;}
+    .b-full-wrap,.ba-full-img-wrap{padding:0 16px;}
+    .friction-steps-row{gap:6px;}
+    .friction-step{font-size:13px;padding:7px 11px;}
+    .b-meta-items{gap:24px;}
+    .friction-support-cards{grid-template-columns:1fr;}
+    .final-screen-meta{padding:0 20px;}
+    .b-hero-title{letter-spacing:-0.035em;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" aria-label="Go to Herman Green III Homepage">
+      <picture>
+        <source srcset="../images/webp/Herman-logo.webp" type="image/webp">
+        <img src="../images/Herman-logo.png" alt="Herman Green III Logo" loading="lazy" width="72" height="72" class="logo-placeholder">
+      </picture>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html" aria-label="Go to Home Page">Home</a>
+      <a href="../work.html" aria-label="View Work Portfolio Page">Work</a>
+      <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="../index.html" aria-label="Go to Home Page">Home</a>
+    <a href="../work.html" aria-label="View Work Portfolio Page">Work</a>
+    <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+<!-- HERO: stacked editorial -->
+<section class="b-hero">
+  <div class="b-copy">
+    <h1 class="b-hero-title">Beacon Systems</h1>
+    <p class="b-hero-sub">A UX and product design case study on helping users find, evaluate, and apply AI resources with more context.</p>
+  </div>
+
+  <div class="b-full-wrap" style="margin-top:36px;">
+    <img
+      class="b-full-img"
+      src="../assets/images/project-beacon/beacon-home.png"
+      width="1400"
+      height="900"
+      alt="Project Beacon home screen showing the AI resource discovery landing page with featured resources, category navigation, and top-level layout"
+    >
+  </div>
+
+  <div class="b-copy">
+    <div class="b-meta-bar" aria-label="Project metadata">
+      <div class="b-meta-items">
+        <div><div class="meta-label">Industry</div><div class="meta-value">AI Tools / Productivity</div></div>
+        <div><div class="meta-label">Role</div><div class="meta-value">UX / Product Designer</div></div>
+        <div><div class="meta-label">Focus</div><div class="meta-value">Discovery, taxonomy, QA, implementation guidance</div></div>
+        <div><div class="meta-label">Status</div><div class="meta-value">Live MVP</div></div>
+      </div>
+      <div class="hero-cta-row" aria-label="Case study shortcuts">
+        <a class="hero-cta hero-cta-primary" href="https://id-preview--75fcc069-a84a-494e-a666-325f3b61c1c7.lovable.app/?__lovable_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9%2EeyJ1c2VyX2lkIjoiWkhvNEppT1BNTGdySkJvZmhYZzZNT3hTRWtzMiIsInByb2plY3RfaWQiOiI3NWZjYzA2OS1hODRhLTQ5NGUtYTY2Ni0zMjVmM2I2MWMxYzciLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6Ijc1ZmNjMDY5LWE4NGEtNDk0ZS1hNjY2LTMyNWYzYjYxYzFjNyIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODA0NTcxNzcsIm5iZiI6MTc3OTg1MjM3NywiaWF0IjoxNzc5ODUyMzc3fQ%2EfwP64Q8SSGLTMS539Tx1gbgaIgjXpSepDJAzTaYMs9f04eVniQtkistVcxSBEt4H5-gSwMaU1UkjSekSOmxR_AxBLPsB0cHGC01e_Pa21X2yVP1xOc7sg44hsVjQxA3TrqHn46sK3oQnRha-8tTPMAVEtx3hoR_VeHYrgD26eGqQq781BzCEKI2yZz0OvtV2VV91q9xFCcjONkzPYOR0MwRi3riRUM_fdKJtoDJCaCIFEZwLG5eFTo3i7NAYu02fwmK5QLHDAd0mxrjRHLQ28WpyPrPavJzqCrXIowVppJpv-E4wWz9TOYshM_D-MGTTO2D2eOXt_BFtDbPKO-6Jxev10VXulKm4Tnebi3lA1umzGACEPnQ0-nNdeSts4CL9fJPjgbIjtjx0gfymPDispX11cbeWFQ1RM5_gkVqgVUFBddKZUPLkWUEDUABfqfTcj5GDuwNqXzU9DDsH7Dnewqgno7KrdgHgKfSruG_DHXZgVCPF6nfaaeWKkz7v4jOei8P4FF2NMwSwbK6-cmmTtdUnskfvDE9Cnh3ZtLN_1L06TDJFFLPKORSp9m7QiO-xbt1-ysZYI6T9iP3zHpK2v6Tj-AroCnBwlIRpSVo1YVDCrbSyeFq_jlINvlFfWEYlVMHkoAlb4AJY42GDdWF0-RndoM3irk38jZdhEUukoJU" target="_blank" rel="noopener">View prototype</a>
+        <a class="hero-cta hero-cta-secondary" href="#final-screens-section">View final screens</a>
+        <a class="hero-cta hero-cta-secondary" href="#research-section">View research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TL;DR -->
+<section class="tldr">
+  <div class="tldr-inner">
+    <div class="section-label">TL;DR</div>
+    <h2>The short version</h2>
+    <div class="tldr-rows">
+      <div class="tldr-row">
+        <div class="tldr-key">Problem</div>
+        <div class="tldr-val">AI resources on LinkedIn were useful, but hard to reliably discover, organize, evaluate, and return to with enough context.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">My Role</div>
+        <div class="tldr-val">Solo UX and product designer across research, IA, visual design, QA, and product iteration.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">What I Did</div>
+        <div class="tldr-val">Designed a searchable resource library, category filters, resource modals, and implementation guides that connect resources to practical use.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">Outcome</div>
+        <div class="tldr-val">A working MVP that turns scattered creator resources into a curated library with clearer discovery, context, and workflow guidance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM: friction-map flow -->
+<section class="friction-section" id="problem-section">
+  <div class="b-copy">
+    <div class="step-tag">Problem</div>
+    <h2 class="step-h">AI resources were useful, but the path from discovery to use was fragmented.</h2>
+    <p>LinkedIn had become a major place to find AI tools, prompts, and workflows, but the experience depended on platform behavior: following the right creators, recognizing comment-for-access posts, saving links across tools, and remembering why each resource mattered later.</p>
+
+    <div class="friction-steps-row" role="img" aria-label="Discovery friction flow: find post, read access cue, comment, wait for reply, open resource, save somewhere, return later, reconstruct context">
+      <span class="friction-step">Find post</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Read access cue</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Comment</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Wait for reply</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Open resource</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Save somewhere</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Return later</span>
+      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
+      <span class="friction-step">Reconstruct context</span>
+    </div>
+
+    <div class="friction-support-cards" aria-label="Core failure modes">
+      <div class="friction-support-card">
+        <div class="friction-support-label">Scattered</div>
+        <p class="friction-support-text">Resources lived across posts, DMs, docs, and creator pages.</p>
+      </div>
+      <div class="friction-support-card">
+        <div class="friction-support-label">Unclear</div>
+        <p class="friction-support-text">The value, source, and use case were not always obvious.</p>
+      </div>
+      <div class="friction-support-card">
+        <div class="friction-support-label">Disconnected</div>
+        <p class="friction-support-text">Individual resources rarely explained the next step.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT / RESEARCH: full-width screenshot + callout -->
+<section class="research-section" id="research-section">
+  <div class="b-copy">
+    <div class="step-tag">Audit / Research</div>
+    <h2 class="step-h">The discovery experience needed to support how people actually look for resources.</h2>
+    <p>An audit of the resource library revealed that users approached discovery in two ways: browsing broadly when exploring a new area, or filtering specifically when they knew what type of tool they needed. The category filter system was designed to support both modes.</p>
+    <p>The screenshot below shows the browse library with the Creative category active. The sidebar, filtered results, and resource counts are all visible in context.</p>
+    <div class="accordion" style="margin-bottom:0;">
+      <button id="research-accordion-trigger" class="accordion-trigger" aria-expanded="false" aria-controls="research-accordion-body" onclick="toggleAccordion(this)">Audit Scope &amp; Research Approach<span class="accordion-icon" aria-hidden="true">&#9660;</span></button>
+      <div id="research-accordion-body" class="accordion-body" role="region" aria-labelledby="research-accordion-trigger">
+        <h3>What I audited</h3>
+        <ul class="bl">
+          <li>Existing AI resource posts on LinkedIn: access patterns, comment-to-link mechanics, and post decay over time</li>
+          <li>How users currently save and organize resources: bookmarks, Notion databases, spreadsheets, and screenshot folders</li>
+          <li>Comparable resource library products: curation tools, link-in-bio aggregators, and niche AI directories</li>
+        </ul>
+        <h3>Key questions</h3>
+        <ol class="bl">
+          <li>What prevents users from acting on resources they have already saved?</li>
+          <li>What context would make a resource immediately useful at the point of discovery?</li>
+          <li>How should a browse system balance broad exploration with targeted category filtering?</li>
+        </ol>
+        <h3>Constraints</h3>
+        <ul class="bl">
+          <li>No formal usability testing cohort. Insights drawn from observed patterns, self-directed use, and structured QA review.</li>
+          <li>Library is manually curated. Resource volume and coverage are limited by maintainer bandwidth.</li>
+          <li>Link verification is ongoing. Not all resources are permanently confirmed as live or accurate.</li>
+          <li>Creator attribution remains a partially solved problem in this MVP version.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-full-wrap" style="margin-top:36px;">
+    <img
+      class="b-full-img"
+      src="../assets/images/project-beacon/beacon-category-filter-creative.png"
+      width="1400"
+      height="900"
+      alt="Beacon browse library with the Creative category selected in the left sidebar. The sidebar shows all available categories with resource counts. The center panel displays only resources matching Creative. The active filter is highlighted. The full browse interface is visible without cropping."
+    >
+  </div>
+
+  <div class="callout-grid">
+    <div class="callout-item">
+      <div class="callout-label">Active Sidebar State</div>
+      <p class="callout-text">The Creative category is highlighted in the sidebar, showing exactly where users are within the library taxonomy.</p>
+    </div>
+    <div class="callout-item">
+      <div class="callout-label">Filtered Grid</div>
+      <p class="callout-text">The center panel updates to show only resources matching the selected category, keeping results relevant and focused.</p>
+    </div>
+    <div class="callout-item">
+      <div class="callout-label">Visible Counts</div>
+      <p class="callout-text">Each category in the sidebar shows its resource count so users can set expectations before filtering.</p>
+    </div>
+    <div class="callout-item">
+      <div class="callout-label">Category-Based Discovery</div>
+      <p class="callout-text">The full sidebar stays visible during filtering so users can pivot to adjacent categories without losing orientation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY INSIGHT -->
+<section class="key-insight-section">
+  <div class="key-insight-shell">
+    <div class="key-insight-card">
+      <div class="section-label">Key Insight</div>
+      <p class="key-insight-copy">The discovery problem was not just about finding resources. It was about knowing what to do with them once found. Users needed implementation context, not just links.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT PROPOSAL -->
+<div class="insight-hero" style="background-image:url('../assets/images/beacon_conecept.png');background-position:center right;background-size:cover;">
+  <div class="insight-hero-inner" style="padding-left:32px;">
+    <div class="step-tag" style="color:rgba(255,255,255,0.42);">Concept Proposal</div>
+    <h2 class="insight-hero-h">Project Beacon started with a simple observation: valuable AI resources were being shared across LinkedIn, but the discovery experience was fragmented. I designed Beacon as a curated resource library, then expanded it with implementation guides that help users understand what each resource supports and how it fits into practical workflows.</h2>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER: stacked full-width panels -->
+<section class="ba-section" id="ba-section">
+
+  <div class="ba-full-panel">
+    <div class="ba-panel-inner">
+      <div class="step-tag">Layer 1</div>
+      <h2 class="step-h">Resource Library</h2>
+      <ul class="ba-desc-list">
+        <li>Centralized scattered AI resources into one browsable destination</li>
+        <li>Supported search, filtering, and category-based discovery</li>
+        <li>Preserved the library context while users opened resource details</li>
+        <li>Created the foundation for deciding which resources belonged in workflows</li>
+      </ul>
+    </div>
+    <div class="ba-full-img-wrap">
+      <img
+        class="ba-full-img"
+        src="../assets/images/project-beacon/beacon-browse-library.png"
+        width="1400"
+        height="900"
+        alt="Beacon browse library showing the V1 resource listing concept with sidebar category navigation, full resource grid, and search"
+      >
+    </div>
+  </div>
+
+  <div class="ba-full-panel">
+    <div class="ba-panel-inner">
+      <div class="step-tag">Layer 2</div>
+      <h2 class="step-h">Implementation Guides</h2>
+      <ul class="ba-desc-list">
+        <li>Sequenced selected resources into guided workflow paths</li>
+        <li>Explained what each resource does, what it supports, and how to use it</li>
+        <li>Added context for users who needed direction, not just another saved link</li>
+      </ul>
+    </div>
+    <div class="ba-full-img-wrap">
+      <img
+        class="ba-full-img"
+        src="../assets/images/project-beacon/beacon-guide-modal.png"
+        width="1400"
+        height="900"
+        alt="Implementation guide modal showing step-by-step workflow instructions for an AI resource, including what it does, what it supports, and how to integrate it into a practical workflow"
+      >
+    </div>
+  </div>
+
+</section>
+
+<!-- VALIDATION / QA: scannable QA cards -->
+<section class="qa-section">
+  <div class="b-copy">
+    <div class="step-tag">Validation / QA</div>
+    <h2 class="step-h">Manual QA and iterative review replaced formal usability testing in this MVP phase.</h2>
+    <p>Beacon&rsquo;s current validation approach reflects its stage: a manually curated MVP without a formal testing cohort. Rather than running moderated usability sessions, I used structured QA passes to identify and resolve issues across the library.</p>
+
+    <div class="qa-cards-grid">
+
+      <div class="qa-card-item">
+        <div class="qa-card-title">Link Audit</div>
+        <p class="qa-card-text">Reviewed all library resources for broken or redirected URLs. Flagged and updated entries that no longer resolved correctly.</p>
+      </div>
+
+      <div class="qa-card-item">
+        <div class="qa-card-title">Category Taxonomy Review</div>
+        <p class="qa-card-text">Verified that resource counts in the sidebar matched the actual filtered results for each category. Fixed mismatches found during review.</p>
+      </div>
+
+      <div class="qa-card-item">
+        <div class="qa-card-title">Resource Modal QA</div>
+        <p class="qa-card-text">Confirmed description, use-case, and guide content for accuracy and consistency across resource entries in the library.</p>
+      </div>
+
+      <div class="qa-card-item">
+        <div class="qa-card-title">Implementation Guide Template Review</div>
+        <p class="qa-card-text">Ensured step structure and formatting are consistent across all guides. Each guide covers what it is, what it supports, and how to use it.</p>
+      </div>
+
+      <div class="qa-card-item">
+        <div class="qa-card-title">Cross-Device Layout Pass</div>
+        <p class="qa-card-text">Validated the browse library and modal views across desktop and mobile breakpoints. Confirmed no layout breaks in key interactive states.</p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:32px;">Formal usability research, creator attribution verification, and automated link-freshness monitoring are scoped for a future iteration. They are not claimed as complete in this version.</p>
+  </div>
+</section>
+
+<!-- FINAL SCREENS: stacked full-width -->
+<section class="final-section" id="final-screens-section">
+  <div class="b-copy" style="padding-bottom:48px;">
+    <div class="step-tag">Final Screens</div>
+    <h2 class="section-display-title">Project Beacon</h2>
+    <p class="screen-gallery-intro">Six screens from the current MVP.</p>
+    <div style="margin-top:16px;">
+      <a class="hero-cta hero-cta-secondary" href="https://id-preview--75fcc069-a84a-494e-a666-325f3b61c1c7.lovable.app/?__lovable_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9%2EeyJ1c2VyX2lkIjoiWkhvNEppT1BNTGdySkJvZmhYZzZNT3hTRWtzMiIsInByb2plY3RfaWQiOiI3NWZjYzA2OS1hODRhLTQ5NGUtYTY2Ni0zMjVmM2I2MWMxYzciLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6Ijc1ZmNjMDY5LWE4NGEtNDk0ZS1hNjY2LTMyNWYzYjYxYzFjNyIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODA0NTcxNzcsIm5iZiI6MTc3OTg1MjM3NywiaWF0IjoxNzc5ODUyMzc3fQ%2EfwP64Q8SSGLTMS539Tx1gbgaIgjXpSepDJAzTaYMs9f04eVniQtkistVcxSBEt4H5-gSwMaU1UkjSekSOmxR_AxBLPsB0cHGC01e_Pa21X2yVP1xOc7sg44hsVjQxA3TrqHn46sK3oQnRha-8tTPMAVEtx3hoR_VeHYrgD26eGqQq781BzCEKI2yZz0OvtV2VV91q9xFCcjONkzPYOR0MwRi3riRUM_fdKJtoDJCaCIFEZwLG5eFTo3i7NAYu02fwmK5QLHDAd0mxrjRHLQ28WpyPrPavJzqCrXIowVppJpv-E4wWz9TOYshM_D-MGTTO2D2eOXt_BFtDbPKO-6Jxev10VXulKm4Tnebi3lA1umzGACEPnQ0-nNdeSts4CL9fJPjgbIjtjx0gfymPDispX11cbeWFQ1RM5_gkVqgVUFBddKZUPLkWUEDUABfqfTcj5GDuwNqXzU9DDsH7Dnewqgno7KrdgHgKfSruG_DHXZgVCPF6nfaaeWKkz7v4jOei8P4FF2NMwSwbK6-cmmTtdUnskfvDE9Cnh3ZtLN_1L06TDJFFLPKORSp9m7QiO-xbt1-ysZYI6T9iP3zHpK2v6Tj-AroCnBwlIRpSVo1YVDCrbSyeFq_jlINvlFfWEYlVMHkoAlb4AJY42GDdWF0-RndoM3irk38jZdhEUukoJU" target="_blank" rel="noopener">Open live prototype &rarr;</a>
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">01</div>
+      <div class="final-screen-label">Home</div>
+      <p class="final-screen-caption">Discovery landing page showing featured resources and top-level navigation.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-home.png" width="1400" height="900" alt="Beacon home screen showing the main AI resource discovery landing page with featured resources and primary navigation">
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">02</div>
+      <div class="final-screen-label">Browse Library</div>
+      <p class="final-screen-caption">Full resource listing with left sidebar category navigation and main content area.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-browse-library.png" width="1400" height="900" alt="Beacon browse library showing the full resource listing with left sidebar and main grid">
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">03</div>
+      <div class="final-screen-label">Category Filter</div>
+      <p class="final-screen-caption">Creative category active: filtered results, visible resource counts, and highlighted sidebar selection.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-category-filter-creative.png" width="1400" height="900" alt="Beacon browse library with Creative category selected, showing filtered resources and active sidebar state">
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">04</div>
+      <div class="final-screen-label">Resource Modal</div>
+      <p class="final-screen-caption">Contextual information at the point of discovery: description, use case, and trust signals.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-resource-modal.png" width="1400" height="900" alt="Resource detail modal showing description, use case, and a link to the implementation guide for a selected AI resource">
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">05</div>
+      <div class="final-screen-label">Implementation Guides</div>
+      <p class="final-screen-caption">Curated index of step-by-step workflow guides organized by resource type.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-implementation-guides.png" width="1400" height="900" alt="Implementation guides index page showing a listing of curated workflow guides organized by resource type">
+    </div>
+  </div>
+
+  <div class="final-screen-item">
+    <div class="final-screen-meta">
+      <div class="final-screen-num">06</div>
+      <div class="final-screen-label">Guide Modal</div>
+      <p class="final-screen-caption">Step-by-step workflow context: what the resource does, what it supports, and how to use it.</p>
+    </div>
+    <div class="b-full-wrap" style="margin-top:0;">
+      <img class="b-full-img" src="../assets/images/project-beacon/beacon-guide-modal.png" width="1400" height="900" alt="Implementation guide detail modal showing step-by-step instructions for using an AI resource in a practical workflow">
+    </div>
+  </div>
+
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes-section" id="outcomes-section">
+  <div class="outcomes-inner">
+    <div class="step-tag">Outcomes / Reflection</div>
+    <p class="outcomes-statement">Beacon taught me that solving a discovery problem often reveals a deeper context problem. Honest constraints make better products than overclaimed features.</p>
+    <div class="outcomes-card-grid">
+      <div class="reflection-card">
+        <h4>Discovery problems are often context problems</h4>
+        <p>The core friction was not that users could not find AI resources. It was that they could not evaluate or act on them once found. Reframing from &ldquo;where to find links&rdquo; to &ldquo;how to understand and use them&rdquo; changed the entire product direction and led directly to the implementation guide system.</p>
+      </div>
+      <div class="reflection-card">
+        <h4>MVP scope requires honest constraints</h4>
+        <p>Beacon&rsquo;s first version works for a manually curated, QA-reviewed library. Scaling creator attribution, link freshness verification, and community contribution are open problems. Not solved ones. Designing within that constraint produced a more trustworthy and useful product than overclaiming would have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="float-nav" role="navigation" aria-label="Case study sections">
+  <div class="nav-items">
+    <a class="nav-item" href="#problem-section">Problem</a>
+    <a class="nav-item" href="#research-section">Research</a>
+    <a class="nav-item" href="#ba-section">Product System</a>
+    <a class="nav-item" href="#final-screens-section">Final Screens</a>
+    <a class="nav-item" href="#outcomes-section">Outcomes</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-head">Let&rsquo;s build something<br>awesome together.</div>
+  <a class="f-btn" href="mailto:Designbyherman@gmail.com">Get in touch &rarr;</a>
+  <div class="f-social">
+    <a href="https://www.linkedin.com/in/designbyherman/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Designbyherman" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="copy">&copy; 2026 Herman Green</div>
+</footer>
+
+<script src="../js/acc-case-study.js"></script>
+</body>
+</html>
