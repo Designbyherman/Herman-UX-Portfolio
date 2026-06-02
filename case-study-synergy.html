@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synergy Alliance &mdash; Herman Green</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/Navigation.css">
+<link rel="stylesheet" href="css/acc-case-study.css">
+<style>
+/* ── Scroll offsets ── */
+#problem-section,
+#research-section,
+#synthesis-section,
+#final-screens-section,
+#outcomes-section { scroll-margin-top: 90px; }
+
+/* ── Hero ── */
+.sy-hero { padding-top: 56px; background: var(--bg); }
+.sy-copy { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+.sy-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px,5.5vw,72px);
+  font-weight: 700;
+  line-height: 0.97;
+  letter-spacing: -0.045em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+.sy-hero-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 0;
+}
+
+/* ── Phone strip ── */
+.sy-phone-strip-outer {
+  max-width: 1400px;
+  margin: 44px auto 0;
+  padding: 0 32px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sy-phone-strip-outer::-webkit-scrollbar { display: none; }
+.sy-phone-strip {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0 32px;
+  min-width: max-content;
+}
+.sy-phone-card {
+  flex: 0 0 auto;
+  width: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sy-phone-frame {
+  width: 168px;
+  height: 340px;
+  border-radius: 32px;
+  border: 2px solid rgba(17,17,16,0.13);
+  background: linear-gradient(170deg,#fdfcfa 0%,#f3f1eb 100%);
+  box-shadow: 0 14px 38px rgba(17,17,16,0.09),0 4px 10px rgba(17,17,16,0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.sy-ph-sb {
+  height: 28px;
+  background: rgba(17,17,16,0.04);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sy-ph-notch {
+  width: 72px;
+  height: 10px;
+  background: rgba(17,17,16,0.88);
+  border-radius: 999px;
+}
+.sy-ph-body {
+  flex: 1;
+  padding: 10px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+}
+.sy-ph-nav {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(17,17,16,0.8);
+  width: 44%;
+  margin-bottom: 2px;
+}
+.sy-ph-block {
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.sy-ph-block-lg { height: 80px; }
+.sy-ph-block-md { height: 52px; }
+.sy-ph-chips {
+  display: flex;
+  gap: 5px;
+}
+.sy-ph-chip {
+  height: 20px;
+  flex: 1;
+  border-radius: 999px;
+  background: #f0ede5;
+  border: 1px solid rgba(17,17,16,0.07);
+}
+.sy-ph-card {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid rgba(17,17,16,0.07);
+  background: #faf9f6;
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.sy-ph-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.sy-ph-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sy-ph-line {
+  height: 6px;
+  border-radius: 999px;
+  background: #d8d5cc;
+}
+.sy-ph-line-lg { width: 84%; }
+.sy-ph-line-md { width: 64%; }
+.sy-ph-line-sm { width: 50%; }
+.sy-phone-label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── Hero meta bar ── */
+.sy-meta-bar {
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding-top: 28px;
+  padding-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.sy-meta-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* ── Problem visual: fragmented discovery flow ── */
+.frag-visual {
+  background: rgba(255,255,255,0.54);
+  border: 1px solid rgba(17,17,16,0.08);
+  border-radius: 16px;
+  padding: 28px 22px;
+  box-shadow: 0 4px 18px rgba(17,17,16,0.04);
+  max-width: 280px;
+}
+.frag-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 14px;
+}
+.frag-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+.frag-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 11px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.frag-converge {
+  text-align: center;
+  margin: 4px 0 14px;
+  color: var(--text-tertiary);
+  font-size: 22px;
+  line-height: 1;
+}
+.frag-dest {
+  background: #111110;
+  color: #f2f1ef;
+  border-radius: 10px;
+  padding: 13px 16px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ── Research visual: affinity map placeholder ── */
+.affinity-board {
+  width: 100%;
+  max-width: 280px;
+  background: #faf8f3;
+  border: 1px solid rgba(17,17,16,0.08);
+  border-radius: 16px;
+  padding: 20px 18px;
+  box-shadow: 0 4px 18px rgba(17,17,16,0.04);
+}
+.affinity-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 14px;
+}
+.affinity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.sticky {
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sticky-line {
+  height: 6px;
+  border-radius: 999px;
+}
+.sticky-line-lg { width: 86%; }
+.sticky-line-md { width: 66%; }
+.sticky-line-sm { width: 48%; }
+.s-yellow { background: #fdf9e3; }
+.s-yellow .sticky-line { background: #c4b238; }
+.s-blue   { background: #e8f0fc; }
+.s-blue   .sticky-line { background: #6a90cc; }
+.s-green  { background: #e6f5ec; }
+.s-green  .sticky-line { background: #55986c; }
+.s-orange { background: #fef3e7; }
+.s-orange .sticky-line { background: #c48440; }
+.s-pink   { background: #fde9ef; }
+.s-pink   .sticky-line { background: #c05878; }
+.s-teal   { background: #e3f5f4; }
+.s-teal   .sticky-line { background: #429994; }
+
+/* ── Concept proposal override ── */
+.sy-concept {
+  background-image: none !important;
+  background: linear-gradient(145deg,#161615 0%,#0f0f0f 52%,#070707 100%) !important;
+}
+.sy-concept::before { display: none !important; }
+.sy-concept .step-tag { color: rgba(255,255,255,0.36); }
+.sy-concept .insight-hero-h { color: #f2f1ef; }
+
+/* ── Design section ── */
+.sy-design-section {
+  padding: var(--section-space-xl) 32px;
+  background: var(--surface);
+}
+.sy-design-inner { max-width: 1120px; margin: 0 auto; }
+.sy-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 16px;
+  margin: 36px 0 60px;
+}
+.sy-feature-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+}
+.sy-feature-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sy-feature-card h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.sy-feature-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+.sy-design-phones {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.sy-design-phone-item {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sy-design-phone-frame {
+  width: 250px;
+  border-radius: 44px;
+  border: 2px solid rgba(17,17,16,0.11);
+  box-shadow: 0 18px 48px rgba(17,17,16,0.10),0 4px 12px rgba(17,17,16,0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sy-design-phone-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+  text-align: center;
+}
+.sy-dp-body {
+  flex: 1;
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  overflow: hidden;
+}
+.sy-dp-nav {
+  height: 14px;
+  border-radius: 999px;
+  width: 42%;
+  margin-bottom: 2px;
+}
+.sy-dp-block {
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.sy-dp-block-lg { height: 96px; }
+.sy-dp-block-md { height: 64px; }
+.sy-dp-chips { display: flex; gap: 7px; }
+.sy-dp-chip {
+  height: 24px;
+  flex: 1;
+  border-radius: 999px;
+}
+.sy-dp-card {
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid rgba(17,17,16,0.07);
+  background: #fdfcfa;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.sy-dp-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+.sy-dp-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sy-dp-line { height: 7px; border-radius: 999px; background: #d8d5cc; }
+.sy-dp-line-lg { width: 84%; }
+.sy-dp-line-md { width: 64%; }
+
+/* ── Final screens ── */
+.sy-final-section {
+  padding: var(--section-space-xl) 0;
+  background: var(--bg);
+}
+.sy-final-item {
+  padding: var(--section-space-md) 0;
+  border-top: 1px solid var(--border);
+}
+.sy-final-item:first-child { border-top: none; padding-top: 0; }
+.sy-final-meta {
+  max-width: 1120px;
+  margin: 0 auto 28px;
+  padding: 0 32px;
+}
+.sy-final-num {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+.sy-final-lbl {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.sy-final-cap {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 600px;
+}
+.sy-final-phone-outer {
+  display: flex;
+  justify-content: center;
+  padding: 0 32px;
+}
+.sy-final-phone-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sy-final-phone-frame {
+  width: 230px;
+  height: 466px;
+  border-radius: 42px;
+  border: 2px solid rgba(17,17,16,0.11);
+  box-shadow: 0 20px 58px rgba(17,17,16,0.11),0 5px 16px rgba(17,17,16,0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sy-final-sb {
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sy-final-notch {
+  width: 80px;
+  height: 11px;
+  background: rgba(17,17,16,0.86);
+  border-radius: 999px;
+}
+.sy-final-body {
+  flex: 1;
+  padding: 12px 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  overflow: hidden;
+}
+.sy-final-ph-label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sy-copy { padding: 0 24px; }
+  .sy-phone-strip-outer { padding: 0 24px; }
+  .sy-meta-bar { padding-bottom: 56px; }
+  .sy-meta-items { gap: 24px; }
+  .sy-design-section { padding: var(--section-space-sm) 24px; }
+  .sy-feature-cards { grid-template-columns: 1fr 1fr; }
+  .sy-design-phones { gap: 20px; }
+  .sy-design-phone-frame { width: 180px; border-radius: 32px; }
+  .sy-final-meta { padding: 0 24px; }
+  .sy-final-phone-outer { padding: 0 24px; }
+  .frag-visual { max-width: 100%; }
+  .affinity-board { max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .sy-hero { padding-top: 40px; }
+  .sy-phone-strip { gap: 12px; padding: 16px 0 22px; }
+  .sy-phone-card { width: 132px; }
+  .sy-phone-frame { width: 132px; height: 268px; border-radius: 24px; }
+  .sy-ph-block-lg { height: 60px; }
+  .sy-ph-block-md { height: 40px; }
+  .sy-feature-cards { grid-template-columns: 1fr; }
+  .sy-design-phones { flex-wrap: wrap; gap: 20px; }
+  .sy-design-phone-frame { width: 148px; border-radius: 26px; }
+  .sy-final-phone-frame { width: 196px; height: 398px; border-radius: 36px; }
+  .sy-final-meta { padding: 0 20px; }
+  .sy-final-phone-outer { padding: 0 20px; }
+  .sy-copy { padding: 0 20px; }
+  .sy-phone-strip-outer { padding: 0 16px; }
+}
+@media (max-width: 380px) {
+  .sy-phone-card { width: 116px; }
+  .sy-phone-frame { width: 116px; height: 236px; border-radius: 20px; }
+}
+
+/* ── Hero 3-phone strip ── */
+.sy-hero-flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 36px auto 14px;
+  padding: 0 32px;
+}
+.sy-flow-step {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+.sy-flow-step-1 { background: rgba(123,82,181,.1); color: #7B52B5; }
+.sy-flow-step-2 { background: rgba(45,122,79,.1); color: #2d7a4f; }
+.sy-flow-step-3 { background: rgba(192,57,43,.09); color: #c0392b; }
+.sy-flow-arrow { color: var(--text-tertiary); font-size: 16px; line-height: 1; }
+.sy-hero-strip .sy-phone-card { width: 320px; }
+@media (max-width: 1100px) { .sy-hero-strip .sy-phone-card { width: 270px; } }
+@media (max-width: 900px)  { .sy-hero-strip .sy-phone-card { width: 230px; } }
+@media (max-width: 640px)  { .sy-hero-strip .sy-phone-card { width: 180px; } }
+
+/* ── Static concept note ── */
+.sy-concept-note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-left: 3px solid var(--border);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ── Synthesis section ── */
+.sy-synth-section {
+  padding: var(--section-space-xl) 32px;
+  background: var(--surface);
+}
+.sy-synth-inner { max-width: 1120px; margin: 0 auto; }
+.sy-synth-body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 680px;
+  margin-bottom: 32px;
+}
+.sy-synth-cards {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 16px;
+}
+.sy-synth-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+}
+.sy-synth-card h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.sy-synth-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .sy-synth-section { padding: var(--section-space-sm) 24px; }
+  .sy-synth-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .sy-synth-cards { grid-template-columns: 1fr; }
+}
+
+/* ── Final screens: 3 grouped rows ── */
+.sy-groups-section {
+  background: var(--bg);
+}
+.sy-group-block {
+  padding: var(--section-space-xl) 32px;
+  border-top: 1px solid var(--border);
+}
+.sy-group-block:first-child { border-top: none; }
+.sy-group-inner { max-width: 1120px; margin: 0 auto 32px; }
+.sy-group-num {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+.sy-group-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px,2vw,22px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.sy-group-caption {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+.sy-group-phones {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+.sy-group-phones::-webkit-scrollbar { display: none; }
+.sy-group-phone-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sy-group-phone-frame {
+  width: 280px;
+  border-radius: 48px;
+  border: 2px solid rgba(17,17,16,0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sy-group-phone-sb {
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sy-group-phone-notch {
+  width: 72px;
+  height: 10px;
+  background: rgba(17,17,16,.86);
+  border-radius: 999px;
+}
+.sy-group-phone-body {
+  flex: 1;
+  padding: 10px 11px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+.sy-group-phone-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .sy-group-block { padding: var(--section-space-sm) 24px; }
+  .sy-group-phones { gap: 16px; }
+  .sy-group-phone-frame { width: 200px; border-radius: 36px; }
+}
+@media (max-width: 640px) {
+  .sy-group-block { padding: var(--section-space-sm) 16px; }
+  .sy-group-phones { justify-content: flex-start; }
+  .sy-group-phone-frame { width: 160px; border-radius: 30px; }
+  .sy-group-inner { margin-bottom: 24px; }
+}
+
+/* ── Clean screen images: no frame, no border, no shadow ── */
+.sy-screen-img {
+  display: block;
+  height: auto;
+  border-radius: 32px;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════
+   SECTION ALIGNMENT
+   .sy-split-align mirrors the Problem/Research
+   2-column grid. Place .sy-split-placeholder
+   before content to push text into the right
+   column — the same left edge as P/R copy.
+════════════════════════════════════════════ */
+
+.sy-split-align {
+  display: grid;
+  grid-template-columns: minmax(320px, 44%) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* Key Insight card: remove ACC's 95px left offset */
+.key-insight-card { width: 100% !important; margin-left: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+/* Concept Proposal: remove ACC's 109px left indent from insight-hero-inner */
+.sy-concept .insight-hero-inner { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* Synthesis cards: 2-column fits the narrower right column */
+.sy-synth-cards { grid-template-columns: 1fr 1fr; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sy-split-align { display: block; }
+  .sy-split-placeholder { display: none; }
+  .sy-synth-cards { grid-template-columns: 1fr; }
+}
+
+/* Phone sizes */
+:root { --sy-screen-w: 345px; }
+.sy-hero-screen, .sy-group-screen {
+  width: var(--sy-screen-w);
+  height: auto;
+  border: none;
+  box-shadow: none;
+  border-radius: 32px;
+}
+.sy-hero-strip .sy-phone-card { width: var(--sy-screen-w); }
+@media (max-width: 1100px) { :root { --sy-screen-w: 300px; } }
+@media (max-width: 900px)  { :root { --sy-screen-w: 245px; } }
+@media (max-width: 640px)  {
+  :root { --sy-screen-w: 180px; }
+  .sy-hero-screen, .sy-group-screen { border-radius: 26px; }
+  .sy-screen-img { border-radius: 26px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" aria-label="Go to Herman Green III Homepage">
+      <img src="images/webp/Herman-logo.webp"
+           alt="Herman Green III Logo"
+           loading="lazy"
+           width="72"
+           height="72"
+           class="logo-placeholder">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" aria-label="Go to Home Page">Home</a>
+      <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html" aria-label="Go to Home Page">Home</a>
+    <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+<main id="main-content" tabindex="-1">
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="sy-hero">
+  <div class="sy-copy">
+    <h1 class="sy-hero-title">Synergy Alliance</h1>
+    <p class="sy-hero-sub">A mobile app concept designed to help people discover local community programs, services, and events in one accessible place.</p>
+  </div>
+
+  <!-- 3-phone hero strip -->
+  <div class="sy-phone-strip-outer">
+    <div class="sy-phone-strip sy-hero-strip"
+         role="img"
+         aria-label="Three Synergy Alliance mobile app screens showing the core user journey: Home / Featured Goals for discovery, Health and Wellness Overview for understanding, and Healthcare Access Campaign for support">
+
+      <!-- 1 · Home / Featured Goals -->
+      <div class="sy-phone-card">
+        <img src="assets/images/synergy/Featured Goals.png"
+             alt="Synergy Alliance home screen showing featured goals and supported countries."
+             class="sy-screen-img sy-hero-screen"
+             loading="lazy" width="390" height="844">
+      </div>
+
+      <!-- 2 · Health & Wellness Overview -->
+      <div class="sy-phone-card">
+        <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
+             alt="Health and Wellness overview screen showing a program campaign, progress indicator, and donation call to action."
+             class="sy-screen-img sy-hero-screen"
+             loading="lazy" width="390" height="844">
+      </div>
+
+      <!-- 3 · Healthcare Access Campaign -->
+      <div class="sy-phone-card">
+        <img src="assets/images/synergy/Healthcare Access Campaign.png"
+             alt="Healthcare Access campaign screen showing a specific Health and Wellness initiative with progress and donation call to action."
+             class="sy-screen-img sy-hero-screen"
+             loading="lazy" width="390" height="844">
+      </div>
+
+    </div><!-- /sy-phone-strip -->
+  </div><!-- /sy-phone-strip-outer -->
+
+  <div class="sy-copy">
+    <div class="sy-meta-bar" aria-label="Project metadata">
+      <div class="sy-meta-items">
+        <div><div class="meta-label">Industry</div><div class="meta-value">Community Services / Nonprofit</div></div>
+        <div><div class="meta-label">Role</div><div class="meta-value">UX Researcher / UI Designer</div></div>
+        <div><div class="meta-label">Timeline</div><div class="meta-value">September &ndash; October 2021</div></div>
+        <div><div class="meta-label">Type</div><div class="meta-value">Mobile App Concept</div></div>
+      </div>
+      <div class="hero-cta-row" aria-label="Case study shortcuts">
+        <a class="hero-cta hero-cta-primary" href="#final-screens-section">View final screens</a>
+        <a class="hero-cta hero-cta-secondary" href="#research-section">View research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TL;DR
+════════════════════════════════════════════ -->
+<section class="tldr">
+  <div class="tldr-inner">
+    <div class="section-label">TL;DR</div>
+    <h2>The short version</h2>
+    <div class="tldr-rows">
+      <div class="tldr-row">
+        <div class="tldr-key">Problem</div>
+        <div class="tldr-val">Community resources were spread across disconnected channels, making it harder for people to find relevant support when they needed it.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">My Role</div>
+        <div class="tldr-val">I conducted early research, organized findings, developed user flows, and designed mobile app screens.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">What I Designed</div>
+        <div class="tldr-val">A mobile resource hub with program discovery, event browsing, saved items, contact options, and donation/support pathways.</div>
+      </div>
+      <div class="tldr-row">
+        <div class="tldr-key">Outcome</div>
+        <div class="tldr-val">A high-fidelity mobile concept that translated broad community needs into a more organized, navigable service experience.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PROBLEM
+════════════════════════════════════════════ -->
+<section class="split-static-section" id="problem-section">
+  <div class="split-static-inner">
+
+    <div class="split-static-media">
+      <div class="frag-visual"
+           role="img"
+           aria-label="Visualization of fragmented community resource discovery: Flyers, Social Posts, Word of Mouth, Websites, and Phone Calls all feed separately into a single unified destination — Synergy Alliance.">
+        <div class="frag-eyebrow" aria-hidden="true">Discovery Without the App</div>
+        <div class="frag-chips-wrap" aria-hidden="true">
+          <div class="frag-chip">Flyers</div>
+          <div class="frag-chip">Social Posts</div>
+          <div class="frag-chip">Word of Mouth</div>
+          <div class="frag-chip">Websites</div>
+          <div class="frag-chip">Phone Calls</div>
+        </div>
+        <div class="frag-converge" aria-hidden="true">&#8595;</div>
+        <div class="frag-dest" aria-hidden="true">Synergy Alliance</div>
+      </div>
+    </div>
+
+    <div class="split-static-copy">
+      <div class="step-tag">Problem</div>
+      <h2 class="step-h">Community support existed, but finding the right resource was fragmented.</h2>
+      <p>People often learn about community programs through flyers, social posts, referrals, websites, or word-of-mouth. That creates friction for anyone trying to quickly understand what help is available, who it is for, and how to take the next step.</p>
+      <p>Synergy Alliance was designed around a simple question: how might a mobile app make community resources easier to discover, compare, and act on?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     RESEARCH
+════════════════════════════════════════════ -->
+<section class="split-static-section split-static-section-research" id="research-section">
+  <div class="split-static-inner">
+
+    <div class="split-static-media">
+      <div class="affinity-board"
+           role="img"
+           aria-label="Affinity map placeholder representing early research notes organized by theme across six color-coded categories">
+        <div class="affinity-eyebrow" aria-hidden="true">Research Synthesis</div>
+        <div class="affinity-grid" aria-hidden="true">
+          <div class="sticky s-yellow">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-md"></div>
+            <div class="sticky-line sticky-line-sm"></div>
+          </div>
+          <div class="sticky s-blue">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-md"></div>
+          </div>
+          <div class="sticky s-green">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-sm"></div>
+            <div class="sticky-line sticky-line-md"></div>
+          </div>
+          <div class="sticky s-orange">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-md"></div>
+          </div>
+          <div class="sticky s-pink">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-sm"></div>
+          </div>
+          <div class="sticky s-teal">
+            <div class="sticky-line sticky-line-lg"></div>
+            <div class="sticky-line sticky-line-md"></div>
+            <div class="sticky-line sticky-line-sm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-static-copy">
+      <div class="step-tag">Research</div>
+      <h2 class="step-h">I used early research to understand what people needed from a community resource app.</h2>
+      <p>The research focused on understanding the information people would need before engaging with a local organization or service. Instead of designing only around content categories, I looked at the decisions users would need to make: whether a program was relevant, whether it was available, and what action they could take next.</p>
+
+      <div class="accordion">
+        <button id="research-accordion-trigger"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="research-accordion-body"
+                onclick="toggleAccordion(this)">
+          Research Questions &amp; Early Synthesis
+          <span class="accordion-icon" aria-hidden="true">&#9660;</span>
+        </button>
+        <div id="research-accordion-body"
+             class="accordion-body"
+             role="region"
+             aria-labelledby="research-accordion-trigger">
+          <h3>Research questions</h3>
+          <ol class="bl">
+            <li>What types of local services or programs would people expect to find?</li>
+            <li>What makes a community resource feel trustworthy?</li>
+            <li>What information do people need before taking action?</li>
+            <li>How should the app balance discovery, contact, events, and donations?</li>
+          </ol>
+          <h3>Early synthesis</h3>
+          <ul class="bl">
+            <li>Users needed resource information to be organized around real decisions, not just categories.</li>
+            <li>Program details needed to clarify who the resource was for, what it offered, and what the next step looked like.</li>
+            <li>The experience needed to support both browsing and direct action.</li>
+            <li>Trust depended on clarity, context, and visible pathways to contact or support.</li>
+          </ul>
+          <h3>Constraints</h3>
+          <ul class="bl">
+            <li>This was an early concept project, not a launched product.</li>
+            <li>Formal usability testing and post-launch analytics were outside the scope of this version.</li>
+            <li>Future validation would need to include community members, service providers, and people actively seeking support.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SYNTHESIS
+════════════════════════════════════════════ -->
+<section class="sy-synth-section" id="synthesis-section">
+  <div class="sy-synth-inner sy-case-container">
+    <div class="step-tag">Synthesis</div>
+    <h2 class="step-h">Research patterns were translated into three product requirements.</h2>
+    <p class="sy-synth-body">The early synthesis helped narrow the app from a broad community platform into a focused resource-discovery experience. The product needed to help people find relevant support, understand whether a resource applied to them, and move toward action with less uncertainty.</p>
+    <div class="sy-synth-cards">
+      <div class="sy-synth-card">
+        <h4>Discoverability</h4>
+        <p>Resources needed to be easier to browse by need, program type, or community goal.</p>
+      </div>
+      <div class="sy-synth-card">
+        <h4>Context</h4>
+        <p>Program details needed to explain who the resource was for, what it offered, and why it mattered.</p>
+      </div>
+      <div class="sy-synth-card">
+        <h4>Follow-through</h4>
+        <p>Each screen needed clear next steps such as saving, contacting, registering, or donating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     KEY INSIGHT
+════════════════════════════════════════════ -->
+<section class="key-insight-section">
+  <div class="key-insight-shell sy-case-container">
+    <div class="key-insight-card">
+      <div class="section-label">Key Insight</div>
+      <p class="key-insight-copy">The app did not just need to list resources. It needed to help people understand what each resource offered, whether it applied to them, and what action they could take next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CONCEPT PROPOSAL
+════════════════════════════════════════════ -->
+<div class="insight-hero sy-concept">
+  <div class="insight-hero-inner">
+    <div class="sy-case-container">
+      <div class="step-tag">Concept Proposal</div>
+      <h2 class="insight-hero-h">A mobile-first community resource hub that helps people discover programs, learn what they offer, and take action without having to search across disconnected channels.</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     FINAL SCREENS
+════════════════════════════════════════════ -->
+<section class="sy-groups-section" id="final-screens-section">
+  <div class="sy-case-container" style="padding-top:var(--section-space-xl);">
+    <div class="step-tag">Final Screens</div>
+    <h2 class="section-display-title">Synergy Alliance</h2>
+    <p class="screen-gallery-intro">Three screen groups from the mobile app concept, organized by the core user journey.</p>
+  </div>
+
+  <!-- ── Group 1: Discover programs and goals ── -->
+  <div class="sy-group-block">
+    <div class="sy-group-inner sy-case-container">
+      <div class="sy-group-num">Group 01</div>
+      <div class="sy-group-title">Discover programs and goals</div>
+      <p class="sy-group-caption">The opening screens introduce Synergy Alliance, featured goals, program categories, and quick pathways into the organization&rsquo;s work.</p>
+    </div>
+    <div class="sy-group-phones"
+         role="img"
+         aria-label="Three Synergy Alliance screens: Home / Featured Goals, Program Categories, and Program Directory">
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Featured Goals.png"
+             alt="Synergy Alliance home screen showing featured goals and supported countries."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Home / Featured Goals</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Program Categories.png"
+             alt="Program categories screen showing Synergy Alliance program areas such as Health and Wellness, Educational Advancement, Business Development, and Environmental Sustainability."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Program Categories</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Program Directory.png"
+             alt="Program directory screen showing a list of available program areas and partner organizations."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Program Directory</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Group 2: Understand a program ── -->
+  <div class="sy-group-block">
+    <div class="sy-group-inner sy-case-container">
+      <div class="sy-group-num">Group 02</div>
+      <div class="sy-group-title">Understand a program</div>
+      <p class="sy-group-caption">Program screens help users understand what the initiative supports, how contributions connect to outcomes, and why the program matters.</p>
+    </div>
+    <div class="sy-group-phones"
+         role="img"
+         aria-label="Three Synergy Alliance screens: Health and Wellness Overview, Contribution Detail, and Health and Wellness Impact Detail">
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
+             alt="Health and Wellness overview screen showing a program campaign, progress indicator, and donation call to action."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Health &amp; Wellness Overview</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Contribution Detail.png"
+             alt="Contribution detail screen showing donor wall information and recent supporter contributions."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Donor Wall / Contribution Detail</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Health &amp; Wellness Impact Detail.png"
+             alt="Health and Wellness impact detail screen showing impact metrics and a breakdown of how donations support healthcare services."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Health &amp; Wellness Impact Detail</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Group 3: Explore health campaigns ── -->
+  <div class="sy-group-block">
+    <div class="sy-group-inner sy-case-container">
+      <div class="sy-group-num">Group 03</div>
+      <div class="sy-group-title">Explore health campaigns</div>
+      <p class="sy-group-caption">Campaign screens break a broad Health &amp; Wellness goal into specific initiatives, helping users compare needs and decide where they may want to contribute.</p>
+    </div>
+    <div class="sy-group-phones"
+         role="img"
+         aria-label="Three Synergy Alliance screens: Healthcare Access Campaign, Preventative Initiatives Campaign, and Mental Health Awareness and Support">
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Healthcare Access Campaign.png"
+             alt="Healthcare Access campaign screen showing a specific initiative with a progress indicator and donation call to action."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Healthcare Access Campaign</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Preventative Initiatives Campaign.png"
+             alt="Preventative Initiatives campaign screen showing a preventive health initiative with progress and donation call to action."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Preventative Initiatives Campaign</div>
+      </div>
+
+      <div class="sy-group-phone-item">
+        <img src="assets/images/synergy/Mental Health Awareness &amp; Support.png"
+             alt="Mental Health Awareness and Support campaign screen showing a mental health services initiative with progress and donation call to action."
+             class="sy-screen-img sy-group-screen"
+             loading="lazy" width="390" height="844">
+        <div class="sy-group-phone-label">Mental Health Awareness &amp; Support</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ════════════════════════════════════════════
+     OUTCOMES / REFLECTION
+════════════════════════════════════════════ -->
+<section class="outcomes-section" id="outcomes-section">
+  <div class="outcomes-inner sy-case-container">
+    <div class="step-tag">Outcomes / Reflection</div>
+    <p class="outcomes-statement">This project helped me understand how service access depends on information architecture, not just visual design.</p>
+    <div class="outcomes-card-grid">
+      <div class="reflection-card">
+        <h4>Community products need clear pathways</h4>
+        <p>A resource app has to do more than display information. It needs to help people understand what is available, why it matters, and what action to take.</p>
+      </div>
+      <div class="reflection-card">
+        <h4>Early concepts still need honest scope</h4>
+        <p>Synergy Alliance was an early design concept, not a launched product. The next step would be validating the flow with community members, service providers, and people actively seeking support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FLOATING NAV -->
+<div class="float-nav" role="navigation" aria-label="Case study sections">
+  <div class="nav-items">
+    <a class="nav-item" href="#problem-section">Problem</a>
+    <a class="nav-item" href="#research-section">Research</a>
+    <a class="nav-item" href="#synthesis-section">Synthesis</a>
+    <a class="nav-item" href="#final-screens-section">Final Screens</a>
+    <a class="nav-item" href="#outcomes-section">Outcomes</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-head">Let&rsquo;s build something<br>awesome together.</div>
+  <a class="f-btn" href="mailto:Designbyherman@gmail.com">Get in touch &rarr;</a>
+  <div class="f-social">
+    <a href="https://www.linkedin.com/in/designbyherman/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Designbyherman" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="copy">&copy; 2026 Herman Green</div>
+</footer>
+
+<script src="js/acc-case-study.js"></script>
+</body>
+</html>
