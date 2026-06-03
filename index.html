@@ -11,6 +11,70 @@
 <link rel="preload" as="image" href="images/hermansmainphoto.jpg" type="image/jpeg">
 <link rel="preload" href="your-font-url.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
+<style>
+  .hv2-case-visual--stacked {
+    border-right: none !important;
+    border-bottom: var(--hv2-stroke) solid var(--hv2-softer);
+    padding: 0;
+    min-height: unset;
+    overflow: hidden;
+    background: #fff !important;
+  }
+
+  .hv2-case-wide-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .hv2-synergy-visual {
+    background: #fff !important;
+    padding: 28px 20px 22px !important;
+  }
+
+  .hv2-featured .hv2-case-card .hv2-case-visual {
+    background: #fff !important;
+  }
+
+  .hv2-synergy-phone-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 18px;
+    flex-wrap: nowrap;
+  }
+
+  .hv2-synergy-phone-img {
+    display: block;
+    width: clamp(180px, 22vw, 280px);
+    height: auto;
+    border-radius: 22px;
+  }
+
+  @media (max-width: 640px) {
+    .hv2-case-wide-img {
+      max-height: 240px;
+    }
+
+    .hv2-synergy-visual {
+      padding: 20px 14px 16px !important;
+    }
+
+    .hv2-synergy-phone-pair {
+      gap: 12px;
+    }
+
+    .hv2-synergy-phone-img {
+      width: min(44vw, 188px);
+      height: auto;
+      border-radius: 20px;
+    }
+  }
+</style>
+
 </head>
 <body>
     <header>
@@ -98,22 +162,50 @@
               </div>
               <div class="hv2-case-copy">
                 <p class="hv2-case-project">Austin Community College</p>
-                <h3 class="hv2-case-head">Helping students understand when, why, and how to complete course evaluations</h3>
+                <h3 class="hv2-case-head">Making course evaluations feel timely, understandable, and worth completing</h3>
                 <a href="case-study-acc.html?v=2026" class="hv2-case-cta">View Case Study</a>
               </div>
             </article>
 
             <!-- Beacon: full-width stacked card -->
             <article class="hv2-case-card" style="margin-top:28px;grid-template-columns:1fr;" aria-label="Case study: Beacon Systems">
-              <div class="hv2-case-visual"
-                   role="img"
-                   aria-label="Project Beacon desktop resource library interface"
-                   style="border-right:none;border-bottom:var(--hv2-stroke) solid var(--hv2-softer);padding:0;height:440px;min-height:unset;overflow:hidden;background-image:url('assets/images/project-beacon/beacon-home.png');background-position:left top;background-size:130%;background-repeat:no-repeat;">
+              <div class="hv2-case-visual hv2-case-visual--stacked">
+                <img src="assets/images/project-beacon/beacon-home.png"
+                     alt="Beacon Systems desktop resource library interface"
+                     class="hv2-case-wide-img"
+                     loading="lazy"
+                     width="1400"
+                     height="900">
               </div>
               <div class="hv2-case-copy">
                 <p class="hv2-case-project">Beacon Systems</p>
-                <h3 class="hv2-case-head">Helping users find, evaluate, and apply AI resources with more context</h3>
+                <h3 class="hv2-case-head">Turning scattered AI resources into guided paths people can actually use</h3>
                 <a href="project-beacon/index.html" class="hv2-case-cta">View Case Study</a>
+              </div>
+            </article>
+
+            <!-- Synergy Alliance: full-width stacked card -->
+            <article class="hv2-case-card" style="margin-top:28px;grid-template-columns:1fr;" aria-label="Case study: Synergy Alliance">
+              <div class="hv2-case-visual hv2-case-visual--stacked hv2-synergy-visual">
+                <div class="hv2-synergy-phone-pair">
+                  <img src="assets/images/synergy/Featured Goals.png"
+                       alt="Synergy Alliance Featured Goals mobile screen"
+                       class="hv2-synergy-phone-img"
+                       loading="lazy"
+                       width="390"
+                       height="844">
+                  <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
+                       alt="Synergy Alliance Health and Wellness Overview mobile screen"
+                       class="hv2-synergy-phone-img"
+                       loading="lazy"
+                       width="390"
+                       height="844">
+                </div>
+              </div>
+              <div class="hv2-case-copy">
+                <p class="hv2-case-project">Synergy Alliance</p>
+                <h3 class="hv2-case-head">Making it easier for Central Texans to find help and get involved</h3>
+                <a href="case-study-synergy.html" class="hv2-case-cta">View Case Study</a>
               </div>
             </article>
 
