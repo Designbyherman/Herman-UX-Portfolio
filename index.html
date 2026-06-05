@@ -12,65 +12,359 @@
 <link rel="preload" href="your-font-url.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 <style>
-  .hv2-case-visual--stacked {
-    border-right: none !important;
-    border-bottom: var(--hv2-stroke) solid var(--hv2-softer);
-    padding: 0;
-    min-height: unset;
-    overflow: hidden;
-    background: #fff !important;
+  .hv2-featured {
+    background: #fff;
+    padding: 28px 0 96px;
   }
 
-  .hv2-case-wide-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 360px;
-    object-fit: cover;
-    object-position: left top;
+  .hv2-featured .hv2-container {
+    max-width: 1320px;
+    padding: 0 28px;
   }
 
-  .hv2-synergy-visual {
-    background: #fff !important;
-    padding: 28px 20px 22px !important;
-  }
-
-  .hv2-featured .hv2-case-card .hv2-case-visual {
-    background: #fff !important;
-  }
-
-  .hv2-synergy-phone-pair {
+  .hv2-case-list {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 18px;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 42px;
   }
 
-  .hv2-synergy-phone-img {
+  .hv2-featured .hv2-case-project,
+  .hv2-featured .hv2-proof-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .hv2-featured .hv2-case-card {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #fff;
+    display: grid;
+    grid-template-columns: minmax(460px, 56%) minmax(340px, 1fr);
+    gap: clamp(28px, 3.5vw, 48px);
+    align-items: stretch;
+    overflow: visible;
+    height: 600px;
+    min-height: 600px;
+    padding: 18px clamp(16px, 2.4vw, 30px);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hv2-featured .hv2-case-card {
+      cursor: pointer;
+    }
+
+    .hv2-featured .hv2-case-card:hover {
+      border-color: rgba(15, 23, 42, 0.16);
+      box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.06),
+        0 22px 48px rgba(15, 23, 42, 0.10);
+      transform: translateY(-6px);
+    }
+  }
+
+  .hv2-case-hover-label {
+    background: #111827;
+    border-radius: 999px;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    left: 0;
+    line-height: 1;
+    opacity: 0;
+    padding: 9px 12px;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    transform: translate3d(var(--hv2-hover-x, -999px), var(--hv2-hover-y, -999px), 0);
+    transition: opacity 100ms ease;
+    white-space: nowrap;
+    z-index: 1000;
+  }
+
+  .hv2-case-hover-label.is-visible {
+    opacity: 1;
+  }
+
+  .hv2-featured .hv2-case-visual {
+    height: 100%;
+    min-height: 420px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .hv2-featured .hv2-case-copy {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .hv2-featured .hv2-case-project {
+    color: var(--color-text-muted);
+    margin: 0 0 14px;
+  }
+
+  .hv2-featured .hv2-case-head {
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 2.1vw, 28px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  .hv2-featured .hv2-case-body {
+    color: var(--color-text-secondary);
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 18px 0 28px;
+    max-width: 56ch;
+  }
+
+  .hv2-featured .hv2-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(22px, 4vw, 44px);
+    align-items: start;
+    margin-bottom: 30px;
+  }
+
+  .hv2-featured .hv2-proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hv2-featured .hv2-proof-value {
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .hv2-featured .hv2-proof-value span {
     display: block;
-    width: clamp(180px, 22vw, 280px);
+  }
+
+  .hv2-featured .hv2-proof-label {
+    color: var(--color-text-muted);
+    display: block;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .hv2-featured .hv2-case-cta {
+    align-self: flex-start;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    gap: 10px;
+    line-height: 1;
+    padding: 16px 24px;
+    text-decoration: none;
+  }
+
+  .hv2-featured .hv2-case-cta:hover {
+    background: var(--color-bg-tertiary);
+    text-decoration: none;
+  }
+
+  .hv2-featured .hv2-phone-pair,
+  .hv2-featured .hv2-synergy-phone-pair {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hv2-featured .hv2-phone-pair {
+    margin-left: 10px;
+  }
+
+  .hv2-featured .hv2-phone-img,
+  .hv2-featured .hv2-synergy-phone-img {
+    display: block;
     height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .hv2-featured .hv2-phone-img {
     border-radius: 22px;
+    width: clamp(198px, 18.5vw, 252px);
+  }
+
+  .hv2-featured .hv2-phone-img--dominant {
+    width: clamp(228px, 21vw, 294px);
+    z-index: 2;
+  }
+
+  .hv2-featured .hv2-phone-img--secondary {
+    margin-left: -40px;
+    transform: translateY(12px);
+    z-index: 1;
+  }
+
+  .hv2-featured .hv2-beacon-desktop {
+    border-radius: 10px;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+    display: block;
+    height: auto;
+    max-height: 100%;
+    max-width: none;
+    object-fit: contain;
+    width: min(100%, 740px);
+  }
+
+  .hv2-featured .hv2-synergy-phone-pair {
+    gap: clamp(12px, 2vw, 24px);
+  }
+
+  .hv2-featured .hv2-synergy-phone-img {
+    border-radius: 24px;
+    width: clamp(198px, 18.2vw, 248px);
+  }
+
+  @media (max-width: 900px) {
+    .hv2-featured {
+      padding: 20px 0 72px;
+    }
+
+    .hv2-featured .hv2-container {
+      padding: 0 22px;
+    }
+
+    .hv2-featured .hv2-case-card {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      height: auto;
+      min-height: 0;
+      padding: 30px;
+    }
+
+    .hv2-featured .hv2-case-card--beacon {
+      grid-template-columns: 1fr;
+    }
+
+    .hv2-featured .hv2-case-visual {
+      height: auto;
+      min-height: 336px;
+    }
+
+    .hv2-featured .hv2-case-head {
+      max-width: 26ch;
+    }
+
+    .hv2-featured .hv2-case-copy {
+      padding-top: 0;
+    }
+
+    .hv2-featured .hv2-phone-pair,
+    .hv2-featured .hv2-synergy-phone-pair {
+      height: auto;
+    }
+
+    .hv2-featured .hv2-phone-img,
+    .hv2-featured .hv2-synergy-phone-img,
+    .hv2-featured .hv2-beacon-desktop {
+      max-height: none;
+    }
   }
 
   @media (max-width: 640px) {
-    .hv2-case-wide-img {
-      max-height: 240px;
+    .hv2-featured .hv2-case-card {
+      gap: 24px;
+      padding: 24px 18px;
     }
 
-    .hv2-synergy-visual {
-      padding: 20px 14px 16px !important;
+    .hv2-featured .hv2-case-visual {
+      min-height: 276px;
+      padding: 18px 14px;
     }
 
-    .hv2-synergy-phone-pair {
-      gap: 12px;
+    .hv2-featured .hv2-case-head {
+      font-size: 23px;
+      max-width: 100%;
     }
 
-    .hv2-synergy-phone-img {
-      width: min(44vw, 188px);
-      height: auto;
-      border-radius: 20px;
+    .hv2-featured .hv2-case-body {
+      font-size: 16px;
+      margin: 18px 0 24px;
+    }
+
+    .hv2-featured .hv2-proof-grid {
+      gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hv2-featured .hv2-proof-value {
+      font-size: 17px;
+    }
+
+    .hv2-featured .hv2-case-cta {
+      min-height: 48px;
+      padding: 15px 22px;
+    }
+
+    .hv2-featured .hv2-phone-pair {
+      margin-left: 10px;
+    }
+
+    .hv2-featured .hv2-phone-img {
+      width: clamp(128px, 36vw, 156px);
+    }
+
+    .hv2-featured .hv2-phone-img--dominant {
+      width: clamp(150px, 42vw, 178px);
+    }
+
+    .hv2-featured .hv2-phone-img--secondary {
+      margin-left: -38px;
+    }
+
+    .hv2-featured .hv2-synergy-phone-img {
+      width: min(43vw, 172px);
+    }
+
+  }
+
+  @media (max-width: 430px) {
+    .hv2-featured .hv2-proof-grid {
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv2-featured .hv2-case-card,
+    .hv2-case-hover-label {
+      transition: none;
+    }
+
+    .hv2-featured .hv2-case-card:hover {
+      transform: none;
     }
   }
 </style>
@@ -125,8 +419,8 @@
           <div class="hv2-container">
             <div class="hv2-hero-grid">
               <div class="hv2-hero-copy">
-                <h1 class="hv2-title">UX Designer for Academic &amp; Learning Experiences</h1>
-                <p class="hv2-lede">Combining UX research, instructional clarity, and AI-enhanced design workflows to help students and teams understand complex digital experiences.</p>
+                <h1 class="hv2-title">UX Designer with a product design focus</h1>
+                <p class="hv2-lede">I design research-informed experiences across education, AI workflows, and service access — combining product thinking, instructional clarity, and interaction design to make complex systems easier to use.</p>
                 <div class="hv2-cta-row">
                   <a href="#work" class="hv2-btn hv2-btn--primary">View Case Studies</a>
                   <a href="https://drive.google.com/file/d/1AQlzDA_q3027HezhQmrfD_kmDTS8iwdf/view?usp=sharing" class="hv2-btn" target="_blank" rel="noopener">View Resume</a>
@@ -146,70 +440,107 @@
           </div>
         </section>
 
-        <!-- FEATURED WORK -->
+        <!-- CASE STUDIES -->
         <section class="hv2-featured" id="work">
           <div class="hv2-container">
-
-            <!-- Primary: ACC case study -->
-            <article class="hv2-case-card" aria-label="Case study: Austin Community College">
-              <div class="hv2-case-visual">
-                <img src="assets/images/Main.png"
-                     alt="Mobile screen from the redesigned ACC course evaluation guide"
-                     class="hv2-phone-img"
-                     loading="lazy"
-                     width="180"
-                     height="390">
-              </div>
-              <div class="hv2-case-copy">
-                <p class="hv2-case-project">Austin Community College</p>
-                <h3 class="hv2-case-head">Making course evaluations feel timely, understandable, and worth completing</h3>
-                <a href="case-study-acc.html?v=2026" class="hv2-case-cta">View Case Study</a>
-              </div>
-            </article>
-
-            <!-- Beacon: full-width stacked card -->
-            <article class="hv2-case-card" style="margin-top:28px;grid-template-columns:1fr;" aria-label="Case study: Beacon Systems">
-              <div class="hv2-case-visual hv2-case-visual--stacked">
-                <img src="assets/images/project-beacon/beacon-home.png"
-                     alt="Beacon Systems desktop resource library interface"
-                     class="hv2-case-wide-img"
-                     loading="lazy"
-                     width="1400"
-                     height="900">
-              </div>
-              <div class="hv2-case-copy">
-                <p class="hv2-case-project">Beacon Systems</p>
-                <h3 class="hv2-case-head">Turning scattered AI resources into guided paths people can actually use</h3>
-                <a href="project-beacon/index.html" class="hv2-case-cta">View Case Study</a>
-              </div>
-            </article>
-
-            <!-- Synergy Alliance: full-width stacked card -->
-            <article class="hv2-case-card" style="margin-top:28px;grid-template-columns:1fr;" aria-label="Case study: Synergy Alliance">
-              <div class="hv2-case-visual hv2-case-visual--stacked hv2-synergy-visual">
-                <div class="hv2-synergy-phone-pair">
-                  <img src="assets/images/synergy/Featured Goals.png"
-                       alt="Synergy Alliance Featured Goals mobile screen"
-                       class="hv2-synergy-phone-img"
-                       loading="lazy"
-                       width="390"
-                       height="844">
-                  <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
-                       alt="Synergy Alliance Health and Wellness Overview mobile screen"
-                       class="hv2-synergy-phone-img"
-                       loading="lazy"
-                       width="390"
-                       height="844">
+            <div class="hv2-case-list">
+              <article class="hv2-case-card" aria-label="Case study: Austin Community College" data-href="case-study-acc.html?v=2026" role="link" tabindex="0">
+                <div class="hv2-case-visual">
+                  <div class="hv2-phone-pair">
+                    <img src="assets/images/Main.png"
+                         alt="ACC mobile evaluation overview screen"
+                         class="hv2-phone-img hv2-phone-img--dominant"
+                         loading="lazy"
+                         width="1149"
+                         height="2355">
+                    <img src="assets/images/Bottomsheet main.png"
+                         alt="ACC mobile evaluation deadline detail sheet"
+                         class="hv2-phone-img hv2-phone-img--secondary"
+                         loading="lazy"
+                         width="1149"
+                         height="2355">
+                  </div>
                 </div>
-              </div>
-              <div class="hv2-case-copy">
-                <p class="hv2-case-project">Synergy Alliance</p>
-                <h3 class="hv2-case-head">Making it easier for Central Texans to find help and get involved</h3>
-                <a href="case-study-synergy.html" class="hv2-case-cta">View Case Study</a>
-              </div>
-            </article>
+                <div class="hv2-case-copy">
+                  <p class="hv2-case-project">Austin Community College</p>
+                  <h3 class="hv2-case-head">Making course evaluations feel timely, understandable, and worth completing</h3>
+                  <p class="hv2-case-body">Redesigned the evaluation flow around student motivation, clearer deadlines, and mobile-first completion.</p>
+                  <div class="hv2-proof-grid" aria-label="Austin Community College outcomes">
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Completion rate</span>
+                      <div class="hv2-proof-value">73% to 96%</div>
+                    </div>
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Error rate</span>
+                      <div class="hv2-proof-value">40% to 25%</div>
+                    </div>
+                  </div>
+                  <a href="case-study-acc.html?v=2026" class="hv2-case-cta" aria-label="View Austin Community College case study">View case study</a>
+                </div>
+              </article>
 
+              <article class="hv2-case-card hv2-case-card--beacon" aria-label="Case study: Beacon Systems" data-href="project-beacon/index.html" role="link" tabindex="0">
+                <div class="hv2-case-visual">
+                  <img src="assets/images/project-beacon/beacon-browse-library.png"
+                       alt="Beacon Systems desktop browse library interface"
+                       class="hv2-beacon-desktop"
+                       loading="lazy"
+                       width="3230"
+                       height="1610">
+                </div>
+                <div class="hv2-case-copy">
+                  <p class="hv2-case-project">Beacon Systems</p>
+                  <h3 class="hv2-case-head">Turning scattered AI resources into guided paths people can actually use</h3>
+                  <p class="hv2-case-body">Built a curated resource library and guide system that turns AI tools, prompts, and templates into practical implementation paths.</p>
+                  <div class="hv2-proof-grid" aria-label="Beacon Systems outcomes">
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Resources curated</span>
+                      <div class="hv2-proof-value">32 in MVP</div>
+                    </div>
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Creator interest</span>
+                      <div class="hv2-proof-value">7 of 10 interested</div>
+                    </div>
+                  </div>
+                  <a href="project-beacon/index.html" class="hv2-case-cta" aria-label="View Beacon Systems case study">View case study</a>
+                </div>
+              </article>
 
+              <article class="hv2-case-card" aria-label="Case study: Synergy Alliance" data-href="case-study-synergy.html" role="link" tabindex="0">
+                <div class="hv2-case-visual">
+                  <div class="hv2-synergy-phone-pair">
+                    <img src="assets/images/synergy/Featured Goals.png"
+                         alt="Synergy Alliance Featured Goals mobile screen"
+                         class="hv2-synergy-phone-img"
+                         loading="lazy"
+                         width="1149"
+                         height="2355">
+                    <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
+                         alt="Synergy Alliance Health and Wellness Overview mobile screen"
+                         class="hv2-synergy-phone-img"
+                         loading="lazy"
+                         width="1149"
+                         height="2355">
+                  </div>
+                </div>
+                <div class="hv2-case-copy">
+                  <p class="hv2-case-project">Synergy Alliance</p>
+                  <h3 class="hv2-case-head">Helping Central Texans find support and volunteer with less friction</h3>
+                  <p class="hv2-case-body">Designed a mobile concept that connects people seeking help with programs, donation options, and volunteer opportunities.</p>
+                  <div class="hv2-proof-grid" aria-label="Synergy Alliance outcomes">
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Two user paths</span>
+                      <div class="hv2-proof-value">Find help + volunteer</div>
+                    </div>
+                    <div class="hv2-proof-item">
+                      <span class="hv2-proof-label">Core actions</span>
+                      <div class="hv2-proof-value">Donate + join programs</div>
+                    </div>
+                  </div>
+                  <a href="case-study-synergy.html" class="hv2-case-cta" aria-label="View Synergy Alliance case study">View case study</a>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -279,7 +610,78 @@
       
     </main>
 
-    
+<script>
+  (() => {
+    const canShowHoverLabel = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const cards = document.querySelectorAll('.hv2-featured .hv2-case-card');
+
+    if (!cards.length) {
+      return;
+    }
+
+    const navigateCard = (card) => {
+      const href = card.dataset.href;
+      if (href) {
+        window.location.href = href;
+      }
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a, button')) {
+          return;
+        }
+
+        navigateCard(card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.target.closest('a, button')) {
+          return;
+        }
+
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          navigateCard(card);
+        }
+      });
+    });
+
+    if (!canShowHoverLabel) {
+      return;
+    }
+
+    const hoverLabel = document.createElement('div');
+    hoverLabel.className = 'hv2-case-hover-label';
+    hoverLabel.textContent = 'View case study 👀';
+    hoverLabel.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(hoverLabel);
+
+    let showFrame;
+
+    const positionLabel = (event) => {
+      hoverLabel.style.setProperty('--hv2-hover-x', `${event.clientX + 14}px`);
+      hoverLabel.style.setProperty('--hv2-hover-y', `${event.clientY + 14}px`);
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', (event) => {
+        positionLabel(event);
+        showFrame = requestAnimationFrame(() => {
+          hoverLabel.classList.add('is-visible');
+        });
+      });
+
+      card.addEventListener('mousemove', positionLabel);
+
+      card.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(showFrame);
+        hoverLabel.classList.remove('is-visible');
+        hoverLabel.style.setProperty('--hv2-hover-x', '-999px');
+        hoverLabel.style.setProperty('--hv2-hover-y', '-999px');
+      });
+    });
+  })();
 </script>
 
   </body>

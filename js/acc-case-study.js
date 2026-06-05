@@ -10,7 +10,7 @@ function toggleAccordion(btn) {
 window.addEventListener('DOMContentLoaded', function() {
   var topNav = document.querySelector('header');
   var floatNav = document.querySelector('.float-nav');
-  var hero = document.querySelector('.hero') || document.querySelector('.b-hero');
+  var hero = document.querySelector('.hero') || document.querySelector('.b-hero') || document.querySelector('.sy-hero');
   var navItems = Array.prototype.slice.call(document.querySelectorAll('.float-nav .nav-item'));
   if (!floatNav || !hero || !navItems.length) return;
 
