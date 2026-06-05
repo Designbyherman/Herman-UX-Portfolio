@@ -783,6 +783,10 @@ main { max-width: 100%; }
   padding: var(--section-space-xl) 32px;
   background: var(--surface);
 }
+.synergy-synthesis {
+  background: #000;
+  color: #fff;
+}
 .synergy-section-inner {
   max-width: 1120px;
   margin: 0 auto;
@@ -801,6 +805,9 @@ main { max-width: 100%; }
   color: var(--text-tertiary);
   margin: 0 0 10px;
 }
+.synergy-synthesis .synergy-section-heading .section-eyebrow {
+  color: rgba(255,255,255,0.52);
+}
 .synergy-section-heading h2 {
   font-family: var(--font-display);
   font-size: clamp(22px, 3vw, 32px);
@@ -809,6 +816,9 @@ main { max-width: 100%; }
   color: var(--text-primary);
   margin: 0;
   max-width: 680px;
+}
+.synergy-synthesis .synergy-section-heading h2 {
+  color: #fff;
 }
 .mental-model-grid {
   display: grid;
@@ -823,6 +833,10 @@ main { max-width: 100%; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+.synergy-synthesis .mental-model-card {
+  background: #fff;
+  border-color: rgba(255,255,255,0.18);
 }
 .mental-model-visual {
   aspect-ratio: 1 / 0.75;
@@ -843,6 +857,11 @@ main { max-width: 100%; }
   border-top: 1px solid rgba(15, 23, 42, 0.08);
   padding: 16px;
 }
+.synergy-synthesis .mental-model-copy {
+  background: #fff;
+  color: #111;
+  border-top-color: rgba(15, 23, 42, 0.08);
+}
 .mental-model-copy h3 {
   margin: 0 0 6px;
   font-family: var(--font-display);
@@ -853,11 +872,17 @@ main { max-width: 100%; }
   color: var(--text-primary);
   white-space: nowrap;
 }
+.synergy-synthesis .mental-model-copy h3 {
+  color: #111;
+}
 .mental-model-principle {
   margin: 0;
   font-size: 13px;
   line-height: 1.2;
   color: rgba(15, 23, 42, 0.58);
+}
+.synergy-synthesis .mental-model-principle {
+  color: rgba(17,17,16,0.62);
 }
 @media (max-width: 1100px) {
   .mental-model-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
