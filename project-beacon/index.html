@@ -18,25 +18,22 @@
   .b-meta-bar{border-top:1px solid var(--border);margin-top:32px;padding-top:28px;display:flex;flex-direction:column;gap:24px;padding-bottom:72px;}
   .b-meta-items{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;}
 
-  /* ── Friction flow ── */
-  .friction-section{padding:var(--section-space-xl) 0;background:var(--surface);}
-  .friction-steps-row{display:flex;flex-wrap:wrap;align-items:center;row-gap:10px;margin:36px 0 0;}
-  .friction-step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-primary);}
-  .friction-arrow{padding:0 10px;color:var(--text-tertiary);font-size:16px;line-height:1;}
-  .friction-question{margin-top:20px;padding:14px 18px;background:#fff;border-left:3px solid #c0392b;font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-primary);border-radius:0 8px 8px 0;display:inline-block;max-width:600px;}
-  .friction-compact-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
-  .friction-compact-tag{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--bg);border:1px solid var(--border);color:var(--label);}
-  .friction-support-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px;}
-  .friction-support-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
-  .friction-support-label{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--label);margin-bottom:6px;}
-  .friction-support-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.5;margin:0;}
+  /* Problem narrative */
+  .problem-section{padding:var(--section-space-xl) 0;background:var(--bg);}
+  .problem-section .b-copy>p{max-width:760px;}
 
-  /* ── Research full-width + callout ── */
+  /* Research cards */
   .research-section{padding:var(--section-space-xl) 0;background:var(--bg);}
-  .callout-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1400px;margin:28px auto 0;padding:0 32px;}
-  .callout-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
-  .callout-label{font-family:var(--font-ui);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--label);margin-bottom:6px;}
-  .callout-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.55;margin:0;}
+  .audit-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px;}
+  .audit-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:28px 26px;box-shadow:0 8px 32px rgba(17,17,16,0.05);}
+  .audit-card-eyebrow{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);margin-bottom:14px;}
+  .audit-card-title{font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:650;letter-spacing:-0.03em;line-height:1.05;color:var(--text-primary);margin:0 0 16px;}
+  .audit-card-meta{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);margin-bottom:18px;}
+  .audit-card-text{font-family:var(--font-body);font-size:16px;font-weight:500;color:var(--text-secondary);line-height:1.6;margin:0;}
+  .beacon-key-insight.key-insight-section{padding:var(--section-space-xl) 0;background:var(--bg);}
+  .beacon-key-insight .key-insight-shell{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .beacon-key-insight .key-insight-card{width:100%;margin:0;padding:0;text-align:left;}
+  .beacon-key-insight .key-insight-copy{max-width:900px;text-align:left;}
 
   /* ── BA stacked full-width panels ── */
   .ba-section{background:var(--bg);}
@@ -49,15 +46,20 @@
   .ba-desc-list li{font-family:var(--font-body);font-size:16px;font-weight:500;color:var(--text-secondary);line-height:1.6;margin-bottom:5px;}
 
   /* ── QA cards ── */
-  .qa-section{padding:var(--section-space-xl) 0;background:var(--surface);}
+  .qa-section{padding:var(--section-space-xl) 0;background:#fff;}
   .qa-cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px;}
   .qa-card-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 20px;}
   .qa-card-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:8px;letter-spacing:-0.01em;}
   .qa-card-text{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-secondary);line-height:1.55;margin:0;}
 
   /* ── Final screens stacked ── */
-  .final-section{padding:var(--section-space-xl) 0;background:var(--bg);}
-  .final-screen-item{padding:var(--section-space-md) 0;border-top:1px solid var(--border);}
+  .final-section{padding:var(--section-space-xl) 0;background:#000;color:#fff;}
+  .final-section .step-tag,.final-section .final-screen-num{color:rgba(255,255,255,0.5);}
+  .final-section .section-display-title,.final-section .final-screen-label{color:#fff;}
+  .final-section .screen-gallery-intro,.final-section .final-screen-caption{color:rgba(255,255,255,0.72);}
+  .final-section .hero-cta-secondary{color:#fff;border-color:rgba(255,255,255,0.28);}
+  .final-section .hero-cta-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.65);}
+  .final-screen-item{padding:var(--section-space-md) 0;border-top:1px solid rgba(255,255,255,0.14);}
   .final-screen-item:first-child{border-top:none;padding-top:0;}
   .final-screen-meta{max-width:1120px;margin:0 auto 24px;padding:0 32px;}
   .final-screen-num{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px;}
@@ -67,27 +69,41 @@
   /* ── Scroll offsets ── */
   #problem-section,#research-section,#ba-section,#final-screens-section,#outcomes-section{scroll-margin-top:90px;}
 
+  /* Beacon concept proposal hero */
+  .beacon-concept-hero.insight-hero{background-position:center right;background-size:cover;}
+  .beacon-concept-hero .insight-hero-inner{padding-left:32px;}
+
   /* ── Responsive ── */
   @media(max-width:900px){
-    .callout-grid{grid-template-columns:1fr 1fr;padding:0 24px;}
     .qa-cards-grid{grid-template-columns:1fr 1fr;}
+    .audit-card-title{font-size:clamp(20px,2.8vw,22px);}
     .b-full-wrap,.ba-full-img-wrap{padding:0 24px;}
     .b-copy{padding:0 24px;}
     .b-hero-title{font-size:clamp(32px,7vw,52px);}
-    .friction-section .b-copy,.research-section .b-copy,.qa-section .b-copy,.final-section .b-copy{padding:0 24px;}
+    .problem-section .b-copy,.research-section .b-copy,.beacon-key-insight .key-insight-shell,.qa-section .b-copy,.final-section .b-copy{padding:0 24px;}
     .ba-panel-inner{padding:0 24px;}
     .final-screen-meta{padding:0 24px;}
   }
+  @media(max-width:768px){
+    .beacon-concept-hero.insight-hero{background-position:left center !important;}
+    .beacon-concept-hero.insight-hero::before{background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.68) 58%,rgba(0,0,0,0.42) 100%);}
+    .beacon-concept-hero .insight-hero-inner{position:relative;z-index:1;padding:0 24px 56px !important;}
+    .beacon-concept-hero .insight-hero-h{font-size:clamp(22px,4vw,28px);line-height:1.08;max-width:430px;}
+  }
   @media(max-width:640px){
-    .callout-grid{grid-template-columns:1fr;gap:10px;padding:0 20px;}
+    .audit-cards{grid-template-columns:1fr;gap:12px;margin-top:28px;}
+    .audit-card{padding:22px 20px;}
+    .audit-card-title{font-size:clamp(21px,6vw,24px);}
     .qa-cards-grid{grid-template-columns:1fr;gap:12px;}
     .b-full-wrap,.ba-full-img-wrap{padding:0 16px;}
-    .friction-steps-row{gap:6px;}
-    .friction-step{font-size:13px;padding:7px 11px;}
     .b-meta-items{gap:24px;}
-    .friction-support-cards{grid-template-columns:1fr;}
+    .beacon-key-insight .key-insight-shell{padding:0 20px;}
     .final-screen-meta{padding:0 20px;}
     .b-hero-title{letter-spacing:-0.035em;}
+  }
+  @media(max-width:480px){
+    .beacon-concept-hero.insight-hero{background-position:10% center !important;}
+    .beacon-concept-hero .insight-hero-h{font-size:clamp(22px,7vw,28px);}
   }
 </style>
 </head>
@@ -185,126 +201,54 @@
   </div>
 </section>
 
-<!-- PROBLEM: friction-map flow -->
-<section class="friction-section" id="problem-section">
+<!-- PROBLEM -->
+<section class="problem-section" id="problem-section">
   <div class="b-copy">
     <div class="step-tag">Problem</div>
-    <h2 class="step-h">AI resources were useful, but the path from discovery to use was fragmented.</h2>
-    <p>LinkedIn had become a major place to find AI tools, prompts, and workflows, but the experience depended on platform behavior: following the right creators, recognizing comment-for-access posts, saving links across tools, and remembering why each resource mattered later.</p>
-
-    <div class="friction-steps-row" role="img" aria-label="Discovery friction flow: find post, read access cue, comment, wait for reply, open resource, save somewhere, return later, reconstruct context">
-      <span class="friction-step">Find post</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Read access cue</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Comment</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Wait for reply</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Open resource</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Save somewhere</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Return later</span>
-      <span class="friction-arrow" aria-hidden="true">&#8594;</span>
-      <span class="friction-step">Reconstruct context</span>
-    </div>
-
-    <div class="friction-support-cards" aria-label="Core failure modes">
-      <div class="friction-support-card">
-        <div class="friction-support-label">Scattered</div>
-        <p class="friction-support-text">Resources lived across posts, DMs, docs, and creator pages.</p>
-      </div>
-      <div class="friction-support-card">
-        <div class="friction-support-label">Unclear</div>
-        <p class="friction-support-text">The value, source, and use case were not always obvious.</p>
-      </div>
-      <div class="friction-support-card">
-        <div class="friction-support-label">Disconnected</div>
-        <p class="friction-support-text">Individual resources rarely explained the next step.</p>
-      </div>
-    </div>
+    <h2 class="step-h">Useful AI resources were everywhere, but hard to turn into action.</h2>
+    <p>LinkedIn had become a major place to find AI tools, prompts, and workflows. But the experience was built around posts, comments, DMs, and saved links, not around helping people retrieve, evaluate, and apply resources later.</p>
   </div>
 </section>
 
-<!-- AUDIT / RESEARCH: full-width screenshot + callout -->
+<!-- RESEARCH -->
 <section class="research-section" id="research-section">
   <div class="b-copy">
-    <div class="step-tag">Audit / Research</div>
-    <h2 class="step-h">The discovery experience needed to support how people actually look for resources.</h2>
-    <p>An audit of the resource library revealed that users approached discovery in two ways: browsing broadly when exploring a new area, or filtering specifically when they knew what type of tool they needed. The category filter system was designed to support both modes.</p>
-    <p>The screenshot below shows the browse library with the Creative category active. The sidebar, filtered results, and resource counts are all visible in context.</p>
-    <div class="accordion" style="margin-bottom:0;">
-      <button id="research-accordion-trigger" class="accordion-trigger" aria-expanded="false" aria-controls="research-accordion-body" onclick="toggleAccordion(this)">Audit Scope &amp; Research Approach<span class="accordion-icon" aria-hidden="true">&#9660;</span></button>
-      <div id="research-accordion-body" class="accordion-body" role="region" aria-labelledby="research-accordion-trigger">
-        <h3>What I audited</h3>
-        <ul class="bl">
-          <li>Existing AI resource posts on LinkedIn: access patterns, comment-to-link mechanics, and post decay over time</li>
-          <li>How users currently save and organize resources: bookmarks, Notion databases, spreadsheets, and screenshot folders</li>
-          <li>Comparable resource library products: curation tools, link-in-bio aggregators, and niche AI directories</li>
-        </ul>
-        <h3>Key questions</h3>
-        <ol class="bl">
-          <li>What prevents users from acting on resources they have already saved?</li>
-          <li>What context would make a resource immediately useful at the point of discovery?</li>
-          <li>How should a browse system balance broad exploration with targeted category filtering?</li>
-        </ol>
-        <h3>Constraints</h3>
-        <ul class="bl">
-          <li>No formal usability testing cohort. Insights drawn from observed patterns, self-directed use, and structured QA review.</li>
-          <li>Library is manually curated. Resource volume and coverage are limited by maintainer bandwidth.</li>
-          <li>Link verification is ongoing. Not all resources are permanently confirmed as live or accurate.</li>
-          <li>Creator attribution remains a partially solved problem in this MVP version.</li>
-        </ul>
+    <div class="step-tag">Research</div>
+    <h2 class="step-h">Research revealed two points of friction: finding the right resource and knowing how to apply it.</h2>
+
+    <div class="audit-cards">
+      <div class="audit-card">
+        <div class="audit-card-eyebrow">Problem 01 &middot; Discovery</div>
+        <h3 class="audit-card-title">Getting to the right resource</h3>
+        <div class="audit-card-meta">find &middot; unlock &middot; save</div>
+        <p class="audit-card-text">Scattered across the feed and gated behind a comment, the resource that first caught your eye is often buried and forgotten by the time you need it.</p>
       </div>
-    </div>
-  </div>
 
-  <div class="b-full-wrap" style="margin-top:36px;">
-    <img
-      class="b-full-img"
-      src="../assets/images/project-beacon/beacon-category-filter-creative.png"
-      width="1400"
-      height="900"
-      alt="Beacon browse library with the Creative category selected in the left sidebar. The sidebar shows all available categories with resource counts. The center panel displays only resources matching Creative. The active filter is highlighted. The full browse interface is visible without cropping."
-    >
-  </div>
-
-  <div class="callout-grid">
-    <div class="callout-item">
-      <div class="callout-label">Active Sidebar State</div>
-      <p class="callout-text">The Creative category is highlighted in the sidebar, showing exactly where users are within the library taxonomy.</p>
-    </div>
-    <div class="callout-item">
-      <div class="callout-label">Filtered Grid</div>
-      <p class="callout-text">The center panel updates to show only resources matching the selected category, keeping results relevant and focused.</p>
-    </div>
-    <div class="callout-item">
-      <div class="callout-label">Visible Counts</div>
-      <p class="callout-text">Each category in the sidebar shows its resource count so users can set expectations before filtering.</p>
-    </div>
-    <div class="callout-item">
-      <div class="callout-label">Category-Based Discovery</div>
-      <p class="callout-text">The full sidebar stays visible during filtering so users can pivot to adjacent categories without losing orientation.</p>
+      <div class="audit-card">
+        <div class="audit-card-eyebrow">Problem 02 &middot; Application</div>
+        <h3 class="audit-card-title">Knowing how to apply it</h3>
+        <div class="audit-card-meta">apply</div>
+        <p class="audit-card-text">A resource may solve one piece, but the workflow around it is still unclear. How it fits and what to do next is left to you.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- KEY INSIGHT -->
-<section class="key-insight-section">
+<section class="key-insight-section beacon-key-insight">
   <div class="key-insight-shell">
     <div class="key-insight-card">
-      <div class="section-label">Key Insight</div>
-      <p class="key-insight-copy">The discovery problem was not just about finding resources. It was about knowing what to do with them once found. Users needed implementation context, not just links.</p>
+      <div class="step-tag">Key Insight</div>
+      <p class="key-insight-copy">People do not just adopt a tool. They adopt a clearer direction that includes one.</p>
     </div>
   </div>
 </section>
 
 <!-- CONCEPT PROPOSAL -->
-<div class="insight-hero" style="background-image:url('../assets/images/beacon_conecept.png');background-position:center right;background-size:cover;">
-  <div class="insight-hero-inner" style="padding-left:32px;">
+<div class="insight-hero beacon-concept-hero" style="background-image:url('../assets/images/beacon_conecept.png');">
+  <div class="insight-hero-inner">
     <div class="step-tag" style="color:rgba(255,255,255,0.42);">Concept Proposal</div>
-    <h2 class="insight-hero-h">Project Beacon started with a simple observation: valuable AI resources were being shared across LinkedIn, but the discovery experience was fragmented. I designed Beacon as a curated resource library, then expanded it with implementation guides that help users understand what each resource supports and how it fits into practical workflows.</h2>
+    <h2 class="insight-hero-h">A searchable AI resource library and guide system that helps users find relevant resources, understand their purpose, and move from discovery to practical use.</h2>
   </div>
 </div>
 
