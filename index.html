@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/Navigation.css">
     <link rel="stylesheet" href="css/components.css">
 <link rel="preload" as="image" href="images/webp/hermansmainphoto.webp" type="image/webp">
-<link rel="preload" as="image" href="images/hermansmainphoto.jpg" type="image/jpeg">
 <link rel="preload" href="your-font-url.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 <style>
@@ -425,7 +424,7 @@
 
   <img src="images/webp/Herman-logo.webp"
      alt="Herman Green III Logo"
-     loading="lazy"
+     decoding="async"
      width="72"
      height="72"
      class="logo-placeholder">
@@ -477,7 +476,8 @@
                   <source srcset="images/webp/hermansmainphoto.webp" type="image/webp">
                   <img src="images/hermansmainphoto.jpg"
                        alt="Photo of Herman Green III"
-                       loading="lazy"
+                       fetchpriority="high"
+                       decoding="async"
                        width="400"
                        height="400">
                 </picture>
@@ -497,12 +497,14 @@
                          alt="ACC mobile evaluation overview screen"
                          class="hv2-phone-img hv2-phone-img--dominant"
                          loading="lazy"
+                         decoding="async"
                          width="1149"
                          height="2355">
                     <img src="assets/images/Bottomsheet main.png"
                          alt="ACC mobile evaluation deadline detail sheet"
                          class="hv2-phone-img hv2-phone-img--secondary"
                          loading="lazy"
+                         decoding="async"
                          width="1149"
                          height="2355">
                   </div>
@@ -531,6 +533,7 @@
                        alt="Beacon Systems desktop browse library interface"
                        class="hv2-beacon-desktop"
                        loading="lazy"
+                       decoding="async"
                        width="3230"
                        height="1610">
                 </div>
@@ -559,12 +562,14 @@
                          alt="Synergy Alliance Featured Goals mobile screen"
                          class="hv2-synergy-phone-img"
                          loading="lazy"
+                         decoding="async"
                          width="1149"
                          height="2355">
                     <img src="assets/images/synergy/Health &amp; Wellness Overview.png"
                          alt="Synergy Alliance Health and Wellness Overview mobile screen"
                          class="hv2-synergy-phone-img"
                          loading="lazy"
+                         decoding="async"
                          width="1149"
                          height="2355">
                   </div>
