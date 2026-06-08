@@ -153,41 +153,6 @@ header {
   }
 }
 
-@media (min-width: 1025px) {
-  .header-inner {
-    justify-content: flex-start;
-  }
-  
-  .logo-placeholder {
-    margin-left: 1.5rem;
-    margin-right: 2rem;
-  }
-  
-  .nav-links {
-    flex: 1;
-    justify-content: flex-end;
-    margin-right: 1.5rem;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .header-inner {
-    justify-content: flex-start;
-  }
-  
-  .logo-placeholder {
-    margin-left: -.5rem;
-    margin-right: 2rem;
-  }
-  
-  .nav-links {
-    flex: 1;
-    justify-content: flex-end;
-    margin-right: -.5rem;
-  }
-}
-
-
 /* Dark theme support */
 .dark-theme .logo-placeholder {
   color: #F8FAFC;

@@ -18,8 +18,8 @@
   }
 
   .hv2-featured .hv2-container {
-    max-width: 1320px;
-    padding: 0 28px;
+    max-width: var(--container-max);
+    padding: 0 var(--container-padding);
   }
 
   .hv2-case-list {
@@ -253,7 +253,7 @@
     }
 
     .hv2-featured .hv2-container {
-      padding: 0 22px;
+      padding: 0 24px;
     }
 
     .hv2-featured .hv2-case-card {
@@ -365,6 +365,52 @@
 
     .hv2-featured .hv2-case-card:hover {
       transform: none;
+    }
+  }
+
+  .home-v2 .hv2-container,
+  .contact-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+    box-sizing: border-box;
+  }
+
+  .contact-section .form-wrapper {
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .contact-section .info-social-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3.25rem;
+  }
+
+  .contact-section .info-card {
+    width: 100%;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .home-v2 .hv2-container,
+    .contact-container {
+      padding-inline: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-section .info-social-wrapper {
+      justify-content: flex-start;
+    }
+
+    .contact-section .info-card {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
   }
 </style>
@@ -550,7 +596,7 @@
         <div class="contact-wrapper">
           <div class="contact-container">
             <div class="contact-form-layout">
-              <div class="form-wrapper" style="margin-left: 1.5rem;">
+              <div class="form-wrapper">
                 <h2 class="contact-heading">Let's work together</h2>
                 <form id="contact-form" class="contact-form" action="https://formspree.io/f/mwpoqedl" method="POST">
   <label for="name">Your Name</label>
@@ -569,8 +615,8 @@
   ✅ Thanks! Your message has been sent.
 </div>
               </div>
-              <div class="info-social-wrapper" style="margin-top: 3.25rem;">
-                <div class="info-card" style="max-width: 420px; margin-left: auto; margin-right: 1.5rem;; padding: 1.5rem;">
+              <div class="info-social-wrapper">
+                <div class="info-card">
                   <p><strong>Location:</strong> Austin, TX — available for remote work</p>
                   <p><strong>Availability:</strong> Currently open to new projects</p>
                   <p><strong>Email:</strong> <a href="mailto:Designbyherman@gmail.com">Designbyherman@gmail.com</a></p>

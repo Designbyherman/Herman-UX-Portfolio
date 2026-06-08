@@ -22,15 +22,26 @@ main { max-width: 100%; }
 
 /* ── Hero ── */
 .sy-hero { padding-top: 56px; background: var(--bg); }
-.sy-copy { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+.sy-copy {
+  width: calc(100% - 64px);
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+.sy-hero-head {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(300px,420px);
+  gap: 64px;
+  align-items: start;
+}
 .sy-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(36px,5.5vw,72px);
+  font-size: clamp(32px,3.3vw,50px);
   font-weight: 700;
-  line-height: 0.97;
-  letter-spacing: -0.045em;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin: 0;
 }
 .sy-hero-sub {
   font-family: var(--font-body);
@@ -38,8 +49,10 @@ main { max-width: 100%; }
   font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.6;
-  max-width: 560px;
-  margin-bottom: 0;
+  max-width: 420px;
+  width: 100%;
+  margin: 0;
+  justify-self: end;
 }
 
 /* ── Phone strip ── */
@@ -169,9 +182,15 @@ main { max-width: 100%; }
 }
 
 /* ── Hero meta bar ── */
+.sy-meta-shell {
+  width: calc(100% - 64px);
+  max-width: 1120px;
+  margin-inline: auto;
+}
 .sy-meta-bar {
+  width: 100%;
   border-top: 1px solid var(--border);
-  margin-top: 8px;
+  margin: 8px 0 0;
   padding-top: 28px;
   padding-bottom: 72px;
   display: flex;
@@ -179,10 +198,15 @@ main { max-width: 100%; }
   gap: 24px;
 }
 .sy-meta-items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 40px;
-  justify-content: space-between;
+}
+.sy-meta-bar .hero-cta-row {
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  justify-content: flex-start;
 }
 
 /* ── Problem visual: fragmented discovery flow (kept for safety) ── */
@@ -245,7 +269,7 @@ main { max-width: 100%; }
   max-width: none;
   height: auto;
   object-fit: contain;
-  margin: -18px 0 0 -112px;
+  margin: -18px 0 0 -116px;
   border: none;
   box-shadow: none;
 }
@@ -310,7 +334,7 @@ main { max-width: 100%; }
   flex-direction: column;
   align-items: flex-start;
   gap: 31px;
-  margin: -68px 0 0 4px;
+  margin: -68px 0 0 -14px;
 }
 .competitor-block {
   width: 100%;
@@ -388,8 +412,7 @@ main { max-width: 100%; }
   max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 80px;
-  padding-right: 0;
+  padding-inline: 0;
 }
 .sy-aligned-split .split-static-media {
   display: flex;
@@ -640,20 +663,24 @@ main { max-width: 100%; }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .sy-copy { padding: 0 24px; }
+  .sy-copy { width: calc(100% - 48px); }
   .sy-phone-strip-outer { padding: 0 24px; }
   .sy-meta-bar { padding-bottom: 56px; }
-  .sy-meta-items { gap: 24px; }
+  .sy-meta-items { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .sy-aligned-split { padding-left: 24px; padding-right: 24px; }
   .sy-aligned-split .split-static-inner { display: block; padding-left: 0; padding-right: 0; }
-  .sy-aligned-split .split-static-media { justify-content: center; margin-bottom: 28px; }
-  .competitor-visual { width: min(100%, 300px); max-width: 300px; margin: 0 auto 32px; gap: 40px; }
+  .sy-aligned-split .split-static-media { justify-content: flex-start; margin-bottom: 28px; }
+  .competitor-visual { width: min(100%, 300px); max-width: 300px; margin: 0 0 32px; gap: 40px; }
   .competitor-brand-row, .competitor-card-img { width: 100%; max-width: 300px; }
   .competitor-block-nextdoor { transform: none; }
   .competitor-brand-row { transform: none; margin-bottom: 12px; }
   .competitor-block-ymca .competitor-logo-box { transform: none; margin-bottom: 0; }
 }
 @media (max-width: 900px) {
+  .sy-hero-head { grid-template-columns: 1fr; gap: 16px; }
+  .sy-hero-sub { max-width: 560px; justify-self: start; }
+  .sy-meta-shell { width: calc(100% - 48px); }
+  .sy-meta-bar { width: 100%; margin-left: 0; }
   .sy-design-section { padding: var(--section-space-sm) 24px; }
   .sy-feature-cards { grid-template-columns: 1fr 1fr; }
   .sy-design-phones { gap: 20px; }
@@ -676,9 +703,8 @@ main { max-width: 100%; }
   .sy-final-phone-frame { width: 196px; height: 398px; border-radius: 36px; }
   .sy-final-meta { padding: 0 20px; }
   .sy-final-phone-outer { padding: 0 20px; }
-  .sy-copy { padding: 0 20px; }
   .sy-phone-strip-outer { padding: 0 16px; }
-  .sy-aligned-split { padding-left: 20px; padding-right: 20px; }
+  .sy-aligned-split { padding-left: 24px; padding-right: 24px; }
 }
 @media (max-width: 380px) {
   .sy-phone-card { width: 116px; }
@@ -793,8 +819,8 @@ main { max-width: 100%; }
 }
 .synergy-section-heading {
   margin-bottom: 0;
-  margin-left: 112px;
-  max-width: calc(100% - 112px);
+  margin-left: 0;
+  max-width: 1120px;
 }
 .synergy-section-heading .section-eyebrow {
   font-family: var(--font-ui);
@@ -894,7 +920,7 @@ main { max-width: 100%; }
   }
 }
 @media (max-width: 640px) {
-  .synergy-section { padding: var(--section-space-sm) 20px; }
+  .synergy-section { padding: var(--section-space-sm) 24px; }
 }
 
 /* ── Final screens: 3 grouped rows ── */
@@ -984,11 +1010,11 @@ main { max-width: 100%; }
 }
 .sy-group-phone-label {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   margin-top: 10px;
   text-align: center;
 }
@@ -998,7 +1024,7 @@ main { max-width: 100%; }
   .sy-group-phone-frame { width: 200px; border-radius: 36px; }
 }
 @media (max-width: 640px) {
-  .sy-group-block { padding: var(--section-space-sm) 16px; }
+  .sy-group-block { padding: var(--section-space-sm) 24px; }
   .sy-group-phones { justify-content: flex-start; }
   .sy-group-phone-frame { width: 160px; border-radius: 30px; }
   .sy-group-inner { margin-bottom: 24px; }
@@ -1028,11 +1054,10 @@ main { max-width: 100%; }
 }
 
 .sy-offset-container {
+  width: 100%;
   max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: calc(32px + 80px);
-  padding-right: 32px;
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 /* Key Insight card: remove ACC's 95px left offset */
@@ -1053,32 +1078,7 @@ main { max-width: 100%; }
   .sy-split-placeholder { display: none; }
 }
 @media (max-width: 900px) {
-  .sy-offset-container {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .sy-synth-section .sy-offset-container,
-  .key-insight-section .sy-offset-container,
-  .sy-concept .sy-offset-container,
-  .sy-group-block .sy-offset-container {
-    padding-left: 0;
-    padding-right: 0;
-  }
   .sy-synth-cards { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 640px) {
-  .sy-offset-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .sy-synth-section .sy-offset-container,
-  .key-insight-section .sy-offset-container,
-  .sy-concept .sy-offset-container,
-  .sy-group-block .sy-offset-container {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 /* Phone sizes */
@@ -1104,20 +1104,20 @@ main { max-width: 100%; }
 @media (max-width: 1100px) {
   .sy-problem-visual-img {
     width: 500px;
-    margin-left: -72px;
+    margin-left: 8px;
   }
 }
 @media (max-width: 1024px) {
   .sy-problem-visual-img {
     width: min(100%, 380px);
     max-width: 100%;
-    margin: 0 auto 28px;
+    margin: 0 0 28px;
   }
 }
 @media (max-width: 640px) {
   .sy-problem-visual-img {
     width: min(100%, 320px);
-    margin: 0 auto 24px;
+    margin: 0 0 24px;
   }
 }
 
@@ -1139,7 +1139,7 @@ main { max-width: 100%; }
   padding-bottom: clamp(48px, 8vh, 92px);
 }
 .sy-concept .sy-offset-container {
-  max-width: 760px;
+  max-width: 1120px;
 }
 @media (max-width: 900px) {
   .sy-concept {
@@ -1211,11 +1211,7 @@ main { max-width: 100%; }
 
 /* ── Outcomes responsive ── */
 @media (max-width: 900px) {
-  .outcomes-inner.sy-offset-container { padding-left: 24px; padding-right: 24px; }
   .outcomes-card-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 640px) {
-  .outcomes-inner.sy-offset-container { padding-left: 20px; padding-right: 20px; }
 }
 
 /* ─────────────────────────────────────────────
@@ -1275,7 +1271,7 @@ main { max-width: 100%; }
   }
   .sy-group-phone-label {
     max-width: 160px;
-    font-size: 9px;
+    font-size: 10px;
     line-height: 1.25;
   }
 }
@@ -1315,12 +1311,12 @@ main { max-width: 100%; }
   .sy-problem-visual-img {
     width: min(100%, 280px);
     max-width: 280px;
-    margin: 0 auto 24px;
+    margin: 0 0 24px;
   }
   .competitor-visual {
     width: min(100%, 240px);
     max-width: 240px;
-    margin: 0 auto 32px;
+    margin: 0 0 32px;
     gap: 28px;
   }
   .competitor-brand-row,
@@ -1345,8 +1341,7 @@ main { max-width: 100%; }
   }
   .sy-concept .sy-offset-container {
     max-width: 100%;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-inline: 0 !important;
   }
   .sy-concept .insight-hero-inner { padding-bottom: 36px; }
   .sy-concept .insight-hero-h {
@@ -1368,6 +1363,36 @@ main { max-width: 100%; }
     padding-bottom: 56px;
   }
   .sy-group-inner { margin-bottom: 24px; }
+}
+
+/* Shared ACC-aligned gutter for Synergy text-only containers. */
+.sy-text-container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+.synergy-section-heading.sy-text-container {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1120px;
+}
+.sy-concept .sy-text-container {
+  width: 100%;
+  max-width: 1120px;
+}
+@media (max-width: 900px) {
+  .sy-copy,
+  .sy-meta-shell {
+    width: calc(100% - 48px);
+  }
+}
+@media (max-width: 640px) {
+  .key-insight-section,
+  .sy-concept.insight-hero {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 </style>
 </head>
@@ -1412,8 +1437,8 @@ main { max-width: 100%; }
      HERO
 ════════════════════════════════════════════ -->
 <section class="sy-hero">
-  <div class="sy-copy">
-    <h1 class="sy-hero-title">Synergy Alliance</h1>
+  <div class="sy-copy sy-hero-head">
+    <h1 class="sy-hero-title case-hero-title">Synergy Alliance</h1>
     <p class="sy-hero-sub">A mobile app concept designed to help people discover local community programs, services, and events in one accessible place.</p>
   </div>
 
@@ -1450,7 +1475,7 @@ main { max-width: 100%; }
     </div><!-- /sy-phone-strip -->
   </div><!-- /sy-phone-strip-outer -->
 
-  <div class="sy-copy">
+  <div class="sy-meta-shell">
     <div class="sy-meta-bar" aria-label="Project metadata">
       <div class="sy-meta-items">
         <div><div class="meta-label">Industry</div><div class="meta-value">Community Services / Nonprofit</div></div>
@@ -1470,7 +1495,7 @@ main { max-width: 100%; }
      TL;DR
 ════════════════════════════════════════════ -->
 <section class="tldr">
-  <div class="tldr-inner">
+  <div class="tldr-inner sy-text-container">
     <div class="section-label">TL;DR</div>
     <h2>The short version</h2>
     <div class="tldr-rows">
@@ -1507,7 +1532,7 @@ main { max-width: 100%; }
            loading="lazy">
     </div>
 
-    <div class="split-static-copy">
+    <div class="split-static-copy sy-split-text">
       <div class="step-tag">Problem</div>
       <h2 class="step-h">Community support existed, but finding the right resource was fragmented.</h2>
       <p>People often learn about community programs through flyers, social posts, referrals, websites, or word-of-mouth. That creates friction for anyone trying to quickly understand what help is available, who it is for, and how to take the next step.</p>
@@ -1555,7 +1580,7 @@ main { max-width: 100%; }
       </div>
     </div>
 
-    <div class="split-static-copy">
+    <div class="split-static-copy sy-split-text">
       <div class="step-tag">Research</div>
       <h2 class="step-h">Wellness apps gave users structure. Community apps gave users connection. Synergy Alliance needed both.</h2>
       <p>I looked at YMCA Mobile and Nextdoor because they represented two useful models: structured wellness participation and local community communication. The comparison helped clarify what Synergy Alliance needed to balance &mdash; program discovery, trust, goal context, and community support.</p>
@@ -1611,7 +1636,7 @@ main { max-width: 100%; }
 ════════════════════════════════════════════ -->
 <section class="synergy-section synergy-synthesis" id="synthesis-section">
   <div class="synergy-section-inner">
-    <div class="synergy-section-heading">
+    <div class="synergy-section-heading sy-text-container">
       <p class="section-eyebrow">SYNTHESIS</p>
       <h2>People needed to know what applied to them, who to trust, and what action to take before committing.</h2>
     </div>
@@ -1706,7 +1731,7 @@ main { max-width: 100%; }
      KEY INSIGHT
 ════════════════════════════════════════════ -->
 <section class="key-insight-section">
-  <div class="sy-offset-container">
+  <div class="sy-offset-container sy-text-container">
     <div class="key-insight-card">
       <div class="section-label">Key Insight</div>
       <p class="key-insight-copy">A resource list was not enough. The experience needed to reduce uncertainty at each decision point.</p>
@@ -1719,7 +1744,7 @@ main { max-width: 100%; }
 ════════════════════════════════════════════ -->
 <div class="insight-hero sy-concept">
   <div class="insight-hero-inner">
-    <div class="sy-offset-container">
+    <div class="sy-offset-container sy-text-container">
       <div class="step-tag">Concept Proposal</div>
       <h2 class="insight-hero-h">A mobile-first resource hub that turns scattered community support into clear pathways for discovery, evaluation, and action.</h2>
     </div>
@@ -1733,7 +1758,7 @@ main { max-width: 100%; }
 
   <!-- ── Group 1: Discover programs and goals ── -->
   <div class="sy-group-block">
-    <div class="sy-offset-container sy-group-inner">
+    <div class="sy-offset-container sy-group-inner sy-text-container">
       <div class="step-tag">Final Screens &middot; Grouped by user goal</div>
       <div class="sy-group-title">Discover programs and goals</div>
       <p class="sy-group-caption">The opening screens introduce Synergy Alliance, featured goals, program categories, and quick pathways into the organization&rsquo;s work.</p>
@@ -1771,7 +1796,7 @@ main { max-width: 100%; }
 
   <!-- ── Group 2: Understand a program ── -->
   <div class="sy-group-block">
-    <div class="sy-offset-container sy-group-inner">
+    <div class="sy-offset-container sy-group-inner sy-text-container">
       <div class="sy-group-title">Understand a program</div>
       <p class="sy-group-caption">Program screens help users understand what the initiative supports, how contributions connect to outcomes, and why the program matters.</p>
     </div>
@@ -1808,7 +1833,7 @@ main { max-width: 100%; }
 
   <!-- ── Group 3: Explore health campaigns ── -->
   <div class="sy-group-block">
-    <div class="sy-offset-container sy-group-inner">
+    <div class="sy-offset-container sy-group-inner sy-text-container">
       <div class="sy-group-title">Explore health campaigns</div>
       <p class="sy-group-caption">Campaign screens break a broad Health &amp; Wellness goal into specific initiatives, helping users compare needs and decide where they may want to contribute.</p>
     </div>
@@ -1848,7 +1873,7 @@ main { max-width: 100%; }
      OUTCOMES / REFLECTION
 ════════════════════════════════════════════ -->
 <section class="outcomes-section" id="outcomes-section">
-  <div class="outcomes-inner sy-offset-container">
+  <div class="outcomes-inner sy-offset-container sy-text-container">
     <div class="step-tag">Outcomes / Reflection</div>
     <p class="outcomes-statement">This project helped me understand how service access depends on information architecture, not just visual design.</p>
     <div class="outcomes-card-grid">

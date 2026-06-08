@@ -10,13 +10,17 @@
 <style>
   /* ── Editorial hero ── */
   .b-hero{padding-top:calc(var(--nav-h) + 56px);background:var(--bg);}
-  .b-copy{max-width:1120px;margin:0 auto;padding:0 32px;}
-  .b-hero-title{font-family:var(--font-display);font-size:clamp(36px,5.5vw,72px);font-weight:700;line-height:0.97;letter-spacing:-0.045em;color:var(--text-primary);margin-bottom:20px;}
-  .b-hero-sub{font-family:var(--font-body);font-size:18px;font-weight:500;color:var(--text-secondary);line-height:1.6;max-width:560px;margin-bottom:0;}
+  .b-copy{width:calc(100% - 64px);max-width:1120px;margin-inline:auto;padding-inline:0;}
+  .b-hero-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);gap:64px;align-items:start;width:calc(100% - 64px);max-width:1120px;margin-inline:auto;padding-inline:0;}
+  .b-hero-title{margin:0;}
+  .b-hero-sub{font-family:var(--font-body);font-size:17px;font-weight:500;color:var(--text-secondary);line-height:1.6;max-width:420px;width:100%;margin:0;justify-self:end;}
   .b-full-wrap{max-width:1400px;margin:40px auto 0;padding:0 32px;}
   .b-full-img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid rgba(17,17,16,0.08);box-shadow:0 16px 56px rgba(17,17,16,0.12),0 3px 10px rgba(17,17,16,0.06);}
-  .b-meta-bar{border-top:1px solid var(--border);margin-top:32px;padding-top:28px;display:flex;flex-direction:column;gap:24px;padding-bottom:72px;}
-  .b-meta-items{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;}
+  .b-meta-shell{--meta-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1.45fr) minmax(0,1fr);--meta-column-gap:40px;width:calc(100% - 64px);max-width:1120px;margin-inline:auto;}
+  .b-meta-bar{width:100%;border-top:1px solid var(--border);margin:32px 0 0;padding-top:24px;display:flex;flex-direction:column;align-items:stretch;gap:20px;padding-bottom:72px;}
+  .b-meta-items{display:grid;grid-template-columns:var(--meta-columns);column-gap:var(--meta-column-gap);row-gap:24px;}
+  .b-build-note{font-family:var(--font-body);font-size:13px;font-weight:500;line-height:1.5;color:var(--text-tertiary);margin:0;}
+  .b-meta-bar .hero-cta-row{max-width:none;margin:0;padding-left:0;justify-content:flex-start;}
 
   /* Problem narrative */
   .problem-section{padding:var(--section-space-xl) 0;background:var(--bg);}
@@ -26,12 +30,13 @@
   .research-section{padding:var(--section-space-xl) 0;background:var(--bg);}
   .audit-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px;}
   .audit-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:28px 26px;box-shadow:0 8px 32px rgba(17,17,16,0.05);}
-  .audit-card-eyebrow{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);margin-bottom:14px;}
-  .audit-card-title{font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:650;letter-spacing:-0.03em;line-height:1.05;color:var(--text-primary);margin:0 0 16px;}
-  .audit-card-meta{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);margin-bottom:18px;}
-  .audit-card-text{font-family:var(--font-body);font-size:16px;font-weight:500;color:var(--text-secondary);line-height:1.6;margin:0;}
+  .audit-card-title{font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:650;letter-spacing:-0.03em;line-height:1.05;color:var(--text-primary);margin:0 0 14px;}
+  .audit-card-text{font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--text-secondary);line-height:1.55;margin:0 0 20px;}
+  .audit-card-list{margin:0;padding-left:18px;}
+  .audit-card-list li{font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--text-secondary);line-height:1.5;margin:0 0 5px;}
+  .audit-card-list li:last-child{margin-bottom:0;}
   .beacon-key-insight.key-insight-section{padding:var(--section-space-xl) 0;background:var(--bg);}
-  .beacon-key-insight .key-insight-shell{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .beacon-key-insight .key-insight-shell{max-width:1120px;margin:0 auto;padding:0;}
   .beacon-key-insight .key-insight-card{width:100%;margin:0;padding:0;text-align:left;}
   .beacon-key-insight .key-insight-copy{max-width:900px;text-align:left;}
 
@@ -39,7 +44,7 @@
   .ba-section{background:var(--bg);}
   .ba-full-panel{padding:var(--section-space-xl) 0;}
   .ba-full-panel+.ba-full-panel{border-top:1px solid var(--border);}
-  .ba-panel-inner{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .ba-panel-inner{max-width:1120px;margin:0 auto;padding:0;}
   .ba-full-img-wrap{max-width:1400px;margin:32px auto 0;padding:0 32px;}
   .ba-full-img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid rgba(17,17,16,0.08);box-shadow:0 8px 32px rgba(17,17,16,0.08),0 2px 6px rgba(17,17,16,0.04);}
   .ba-desc-list{padding-left:18px;margin:0 0 0;}
@@ -61,7 +66,7 @@
   .final-section .hero-cta-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.65);}
   .final-screen-item{padding:var(--section-space-md) 0;border-top:1px solid rgba(255,255,255,0.14);}
   .final-screen-item:first-child{border-top:none;padding-top:0;}
-  .final-screen-meta{max-width:1120px;margin:0 auto 24px;padding:0 32px;}
+  .final-screen-meta{max-width:1120px;margin:0 auto 24px;padding:0;}
   .final-screen-num{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px;}
   .final-screen-label{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--text-primary);margin-bottom:6px;letter-spacing:-0.02em;}
   .final-screen-caption{font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--text-secondary);line-height:1.5;margin:0;max-width:600px;}
@@ -71,23 +76,47 @@
 
   /* Beacon concept proposal hero */
   .beacon-concept-hero.insight-hero{background-position:center right;background-size:cover;}
-  .beacon-concept-hero .insight-hero-inner{padding-left:32px;}
+  .beacon-concept-hero .insight-hero-inner{padding:0 0 88px;}
+
+  /* Match all post-TL;DR text containers to the shared TL;DR gutter. */
+  .problem-section .beacon-text-container,
+  .research-section .beacon-text-container,
+  .beacon-key-insight .beacon-text-container,
+  .ba-section .beacon-text-container,
+  .qa-section .beacon-text-container,
+  .final-section .beacon-text-container{
+    width:calc(100% - 64px);
+    max-width:1120px;
+    margin-inline:auto;
+    padding-inline:0;
+  }
 
   /* ── Responsive ── */
   @media(max-width:900px){
     .qa-cards-grid{grid-template-columns:1fr 1fr;}
     .audit-card-title{font-size:clamp(20px,2.8vw,22px);}
     .b-full-wrap,.ba-full-img-wrap{padding:0 24px;}
-    .b-copy{padding:0 24px;}
-    .b-hero-title{font-size:clamp(32px,7vw,52px);}
-    .problem-section .b-copy,.research-section .b-copy,.beacon-key-insight .key-insight-shell,.qa-section .b-copy,.final-section .b-copy{padding:0 24px;}
-    .ba-panel-inner{padding:0 24px;}
-    .final-screen-meta{padding:0 24px;}
+    .b-copy{width:calc(100% - 48px);padding-inline:0;}
+    .b-hero-head{display:flex;flex-direction:column;gap:16px;width:calc(100% - 48px);padding-inline:0;}
+    .b-hero-sub{max-width:560px;justify-self:start;}
+    .b-meta-shell{--meta-columns:repeat(2,minmax(0,1fr));--meta-column-gap:24px;width:calc(100% - 48px);}
+    .b-meta-bar{width:100%;}
+    .problem-section .beacon-text-container,
+    .research-section .beacon-text-container,
+    .beacon-key-insight .beacon-text-container,
+    .ba-section .beacon-text-container,
+    .qa-section .beacon-text-container,
+    .final-section .beacon-text-container{
+      width:calc(100% - 48px);
+      padding-left:0;
+      padding-right:0;
+    }
   }
   @media(max-width:768px){
+    .b-meta-shell{--meta-column-gap:40px;}
     .beacon-concept-hero.insight-hero{background-position:left center !important;}
     .beacon-concept-hero.insight-hero::before{background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.68) 58%,rgba(0,0,0,0.42) 100%);}
-    .beacon-concept-hero .insight-hero-inner{position:relative;z-index:1;padding:0 24px 56px !important;}
+    .beacon-concept-hero .insight-hero-inner{position:relative;z-index:1;padding:0 0 56px !important;}
     .beacon-concept-hero .insight-hero-h{font-size:clamp(22px,4vw,28px);line-height:1.08;max-width:430px;}
   }
   @media(max-width:640px){
@@ -96,12 +125,9 @@
     .audit-card-title{font-size:clamp(21px,6vw,24px);}
     .qa-cards-grid{grid-template-columns:1fr;gap:12px;}
     .b-full-wrap,.ba-full-img-wrap{padding:0 16px;}
-    .b-meta-items{gap:24px;}
-    .beacon-key-insight .key-insight-shell{padding:0 20px;}
-    .final-screen-meta{padding:0 20px;}
-    .b-hero-title{letter-spacing:-0.035em;}
   }
   @media(max-width:480px){
+    .b-meta-shell{--meta-columns:1fr;}
     .beacon-concept-hero.insight-hero{background-position:10% center !important;}
     .beacon-concept-hero .insight-hero-h{font-size:clamp(22px,7vw,28px);}
   }
@@ -143,9 +169,9 @@
 
 <!-- HERO: stacked editorial -->
 <section class="b-hero">
-  <div class="b-copy">
-    <h1 class="b-hero-title">Beacon Systems</h1>
-    <p class="b-hero-sub">A UX and product design case study on helping users find, evaluate, and apply AI resources with more context.</p>
+  <div class="b-copy b-hero-head">
+    <h1 class="b-hero-title case-hero-title">Beacon Systems</h1>
+    <p class="b-hero-sub">Helping users move from discovering AI resources to applying them.</p>
   </div>
 
   <div class="b-full-wrap" style="margin-top:36px;">
@@ -158,14 +184,15 @@
     >
   </div>
 
-  <div class="b-copy">
+  <div class="b-meta-shell">
     <div class="b-meta-bar" aria-label="Project metadata">
       <div class="b-meta-items">
         <div><div class="meta-label">Industry</div><div class="meta-value">AI Tools / Productivity</div></div>
         <div><div class="meta-label">Role</div><div class="meta-value">UX / Product Designer</div></div>
-        <div><div class="meta-label">Focus</div><div class="meta-value">Discovery, taxonomy, QA, implementation guidance</div></div>
-        <div><div class="meta-label">Status</div><div class="meta-value">Live MVP</div></div>
+        <div><div class="meta-label">Focus</div><div class="meta-value">Discovery, Information Architecture, Product Strategy</div></div>
+        <div><div class="meta-label">Timeline</div><div class="meta-value">Mar 2026 &ndash; Present</div></div>
       </div>
+      <p class="b-build-note">Built as a live MVP using Lovable, Supabase, Claude, and ChatGPT.</p>
       <div class="hero-cta-row" aria-label="Case study shortcuts">
         <a class="hero-cta hero-cta-primary" href="https://id-preview--75fcc069-a84a-494e-a666-325f3b61c1c7.lovable.app/?__lovable_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9%2EeyJ1c2VyX2lkIjoiWkhvNEppT1BNTGdySkJvZmhYZzZNT3hTRWtzMiIsInByb2plY3RfaWQiOiI3NWZjYzA2OS1hODRhLTQ5NGUtYTY2Ni0zMjVmM2I2MWMxYzciLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6Ijc1ZmNjMDY5LWE4NGEtNDk0ZS1hNjY2LTMyNWYzYjYxYzFjNyIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODA0NTcxNzcsIm5iZiI6MTc3OTg1MjM3NywiaWF0IjoxNzc5ODUyMzc3fQ%2EfwP64Q8SSGLTMS539Tx1gbgaIgjXpSepDJAzTaYMs9f04eVniQtkistVcxSBEt4H5-gSwMaU1UkjSekSOmxR_AxBLPsB0cHGC01e_Pa21X2yVP1xOc7sg44hsVjQxA3TrqHn46sK3oQnRha-8tTPMAVEtx3hoR_VeHYrgD26eGqQq781BzCEKI2yZz0OvtV2VV91q9xFCcjONkzPYOR0MwRi3riRUM_fdKJtoDJCaCIFEZwLG5eFTo3i7NAYu02fwmK5QLHDAd0mxrjRHLQ28WpyPrPavJzqCrXIowVppJpv-E4wWz9TOYshM_D-MGTTO2D2eOXt_BFtDbPKO-6Jxev10VXulKm4Tnebi3lA1umzGACEPnQ0-nNdeSts4CL9fJPjgbIjtjx0gfymPDispX11cbeWFQ1RM5_gkVqgVUFBddKZUPLkWUEDUABfqfTcj5GDuwNqXzU9DDsH7Dnewqgno7KrdgHgKfSruG_DHXZgVCPF6nfaaeWKkz7v4jOei8P4FF2NMwSwbK6-cmmTtdUnskfvDE9Cnh3ZtLN_1L06TDJFFLPKORSp9m7QiO-xbt1-ysZYI6T9iP3zHpK2v6Tj-AroCnBwlIRpSVo1YVDCrbSyeFq_jlINvlFfWEYlVMHkoAlb4AJY42GDdWF0-RndoM3irk38jZdhEUukoJU" target="_blank" rel="noopener">View prototype</a>
         <a class="hero-cta hero-cta-secondary" href="#final-screens-section">View final screens</a>
@@ -176,7 +203,7 @@
 </section>
 
 <!-- TL;DR -->
-<section class="tldr">
+<section class="tldr b-tldr">
   <div class="tldr-inner">
     <div class="section-label">TL;DR</div>
     <h2>The short version</h2>
@@ -203,32 +230,40 @@
 
 <!-- PROBLEM -->
 <section class="problem-section" id="problem-section">
-  <div class="b-copy">
+  <div class="b-copy beacon-text-container">
     <div class="step-tag">Problem</div>
-    <h2 class="step-h">Useful AI resources were everywhere, but hard to turn into action.</h2>
-    <p>LinkedIn had become a major place to find AI tools, prompts, and workflows. But the experience was built around posts, comments, DMs, and saved links, not around helping people retrieve, evaluate, and apply resources later.</p>
+    <h2 class="step-h">Useful AI resources were scattered across a system not designed for implementation.</h2>
+    <p>LinkedIn had become a major place to find AI tools, prompts, and workflows. But the platform was built for content discovery, not for helping people collect, organize, compare, and apply resources over time.</p>
   </div>
 </section>
 
 <!-- RESEARCH -->
 <section class="research-section" id="research-section">
-  <div class="b-copy">
+  <div class="b-copy beacon-text-container">
     <div class="step-tag">Research</div>
-    <h2 class="step-h">Research revealed two points of friction: finding the right resource and knowing how to apply it.</h2>
+    <h2 class="step-h">Two friction points shaped the product direction.</h2>
 
     <div class="audit-cards">
       <div class="audit-card">
-        <div class="audit-card-eyebrow">Problem 01 &middot; Discovery</div>
-        <h3 class="audit-card-title">Getting to the right resource</h3>
-        <div class="audit-card-meta">find &middot; unlock &middot; save</div>
-        <p class="audit-card-text">Scattered across the feed and gated behind a comment, the resource that first caught your eye is often buried and forgotten by the time you need it.</p>
+        <h3 class="audit-card-title">Discovering resources reliably</h3>
+        <p class="audit-card-text">Access depended on feed timing, creator networks, comments, and search behavior.</p>
+        <ul class="audit-card-list">
+          <li>Follow the right creators</li>
+          <li>Comment to unlock links</li>
+          <li>Catch posts before they disappeared</li>
+          <li>Know exactly what to search for</li>
+        </ul>
       </div>
 
       <div class="audit-card">
-        <div class="audit-card-eyebrow">Problem 02 &middot; Application</div>
-        <h3 class="audit-card-title">Knowing how to apply it</h3>
-        <div class="audit-card-meta">apply</div>
-        <p class="audit-card-text">A resource may solve one piece, but the workflow around it is still unclear. How it fits and what to do next is left to you.</p>
+        <h3 class="audit-card-title">Knowing what to do next</h3>
+        <p class="audit-card-text">Saving a resource did not explain how to turn it into action.</p>
+        <ul class="audit-card-list">
+          <li>When to use it</li>
+          <li>How it fit into a larger workflow</li>
+          <li>What to do after opening the link</li>
+          <li>Why one resource mattered more than another</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -236,7 +271,7 @@
 
 <!-- KEY INSIGHT -->
 <section class="key-insight-section beacon-key-insight">
-  <div class="key-insight-shell">
+  <div class="key-insight-shell beacon-text-container">
     <div class="key-insight-card">
       <div class="step-tag">Key Insight</div>
       <p class="key-insight-copy">People do not just adopt a tool. They adopt a clearer direction that includes one.</p>
@@ -256,7 +291,7 @@
 <section class="ba-section" id="ba-section">
 
   <div class="ba-full-panel">
-    <div class="ba-panel-inner">
+    <div class="ba-panel-inner beacon-text-container">
       <div class="step-tag">Layer 1</div>
       <h2 class="step-h">Resource Library</h2>
       <ul class="ba-desc-list">
@@ -278,7 +313,7 @@
   </div>
 
   <div class="ba-full-panel">
-    <div class="ba-panel-inner">
+    <div class="ba-panel-inner beacon-text-container">
       <div class="step-tag">Layer 2</div>
       <h2 class="step-h">Implementation Guides</h2>
       <ul class="ba-desc-list">
@@ -302,7 +337,7 @@
 
 <!-- VALIDATION / QA: scannable QA cards -->
 <section class="qa-section">
-  <div class="b-copy">
+  <div class="b-copy beacon-text-container">
     <div class="step-tag">Validation / QA</div>
     <h2 class="step-h">Manual QA and iterative review replaced formal usability testing in this MVP phase.</h2>
     <p>Beacon&rsquo;s current validation approach reflects its stage: a manually curated MVP without a formal testing cohort. Rather than running moderated usability sessions, I used structured QA passes to identify and resolve issues across the library.</p>
@@ -342,7 +377,7 @@
 
 <!-- FINAL SCREENS: stacked full-width -->
 <section class="final-section" id="final-screens-section">
-  <div class="b-copy" style="padding-bottom:48px;">
+  <div class="b-copy beacon-text-container" style="padding-bottom:48px;">
     <div class="step-tag">Final Screens</div>
     <h2 class="section-display-title">Project Beacon</h2>
     <p class="screen-gallery-intro">Six screens from the current MVP.</p>
@@ -352,7 +387,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">01</div>
       <div class="final-screen-label">Home</div>
       <p class="final-screen-caption">Discovery landing page showing featured resources and top-level navigation.</p>
@@ -363,7 +398,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">02</div>
       <div class="final-screen-label">Browse Library</div>
       <p class="final-screen-caption">Full resource listing with left sidebar category navigation and main content area.</p>
@@ -374,7 +409,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">03</div>
       <div class="final-screen-label">Category Filter</div>
       <p class="final-screen-caption">Creative category active: filtered results, visible resource counts, and highlighted sidebar selection.</p>
@@ -385,7 +420,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">04</div>
       <div class="final-screen-label">Resource Modal</div>
       <p class="final-screen-caption">Contextual information at the point of discovery: description, use case, and trust signals.</p>
@@ -396,7 +431,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">05</div>
       <div class="final-screen-label">Implementation Guides</div>
       <p class="final-screen-caption">Curated index of step-by-step workflow guides organized by resource type.</p>
@@ -407,7 +442,7 @@
   </div>
 
   <div class="final-screen-item">
-    <div class="final-screen-meta">
+    <div class="final-screen-meta beacon-text-container">
       <div class="final-screen-num">06</div>
       <div class="final-screen-label">Guide Modal</div>
       <p class="final-screen-caption">Step-by-step workflow context: what the resource does, what it supports, and how to use it.</p>
